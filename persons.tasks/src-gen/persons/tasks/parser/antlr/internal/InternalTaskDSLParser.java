@@ -435,7 +435,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTask"
-    // InternalTaskDSL.g:195:1: ruleTask returns [EObject current=null] : (otherlv_0= 'Task:' ( (lv_action_1_0= ruleAction ) ) otherlv_2= 'persons:' ( (otherlv_3= RULE_ID ) )+ otherlv_4= 'priority:' ( (lv_prio_5_0= RULE_INT ) ) (otherlv_6= 'duration:' ( (lv_dl_7_0= RULE_INT ) ) ( (lv_unit_8_0= ruleTimeUnit ) ) )? ) ;
+    // InternalTaskDSL.g:195:1: ruleTask returns [EObject current=null] : (otherlv_0= 'Task:' ( (lv_action_1_0= ruleAction ) ) otherlv_2= 'persons:' ( (otherlv_3= RULE_ID ) )+ otherlv_4= 'priority:' ( (lv_prio_5_0= RULE_INT ) ) (otherlv_6= 'duration:' ( (lv_duration_7_0= ruleDuration ) ) )? ) ;
     public final EObject ruleTask() throws RecognitionException {
         EObject current = null;
 
@@ -445,21 +445,20 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
         Token otherlv_4=null;
         Token lv_prio_5_0=null;
         Token otherlv_6=null;
-        Token lv_dl_7_0=null;
         EObject lv_action_1_0 = null;
 
-        Enumerator lv_unit_8_0 = null;
+        EObject lv_duration_7_0 = null;
 
 
 
         	enterRule();
 
         try {
-            // InternalTaskDSL.g:201:2: ( (otherlv_0= 'Task:' ( (lv_action_1_0= ruleAction ) ) otherlv_2= 'persons:' ( (otherlv_3= RULE_ID ) )+ otherlv_4= 'priority:' ( (lv_prio_5_0= RULE_INT ) ) (otherlv_6= 'duration:' ( (lv_dl_7_0= RULE_INT ) ) ( (lv_unit_8_0= ruleTimeUnit ) ) )? ) )
-            // InternalTaskDSL.g:202:2: (otherlv_0= 'Task:' ( (lv_action_1_0= ruleAction ) ) otherlv_2= 'persons:' ( (otherlv_3= RULE_ID ) )+ otherlv_4= 'priority:' ( (lv_prio_5_0= RULE_INT ) ) (otherlv_6= 'duration:' ( (lv_dl_7_0= RULE_INT ) ) ( (lv_unit_8_0= ruleTimeUnit ) ) )? )
+            // InternalTaskDSL.g:201:2: ( (otherlv_0= 'Task:' ( (lv_action_1_0= ruleAction ) ) otherlv_2= 'persons:' ( (otherlv_3= RULE_ID ) )+ otherlv_4= 'priority:' ( (lv_prio_5_0= RULE_INT ) ) (otherlv_6= 'duration:' ( (lv_duration_7_0= ruleDuration ) ) )? ) )
+            // InternalTaskDSL.g:202:2: (otherlv_0= 'Task:' ( (lv_action_1_0= ruleAction ) ) otherlv_2= 'persons:' ( (otherlv_3= RULE_ID ) )+ otherlv_4= 'priority:' ( (lv_prio_5_0= RULE_INT ) ) (otherlv_6= 'duration:' ( (lv_duration_7_0= ruleDuration ) ) )? )
             {
-            // InternalTaskDSL.g:202:2: (otherlv_0= 'Task:' ( (lv_action_1_0= ruleAction ) ) otherlv_2= 'persons:' ( (otherlv_3= RULE_ID ) )+ otherlv_4= 'priority:' ( (lv_prio_5_0= RULE_INT ) ) (otherlv_6= 'duration:' ( (lv_dl_7_0= RULE_INT ) ) ( (lv_unit_8_0= ruleTimeUnit ) ) )? )
-            // InternalTaskDSL.g:203:3: otherlv_0= 'Task:' ( (lv_action_1_0= ruleAction ) ) otherlv_2= 'persons:' ( (otherlv_3= RULE_ID ) )+ otherlv_4= 'priority:' ( (lv_prio_5_0= RULE_INT ) ) (otherlv_6= 'duration:' ( (lv_dl_7_0= RULE_INT ) ) ( (lv_unit_8_0= ruleTimeUnit ) ) )?
+            // InternalTaskDSL.g:202:2: (otherlv_0= 'Task:' ( (lv_action_1_0= ruleAction ) ) otherlv_2= 'persons:' ( (otherlv_3= RULE_ID ) )+ otherlv_4= 'priority:' ( (lv_prio_5_0= RULE_INT ) ) (otherlv_6= 'duration:' ( (lv_duration_7_0= ruleDuration ) ) )? )
+            // InternalTaskDSL.g:203:3: otherlv_0= 'Task:' ( (lv_action_1_0= ruleAction ) ) otherlv_2= 'persons:' ( (otherlv_3= RULE_ID ) )+ otherlv_4= 'priority:' ( (lv_prio_5_0= RULE_INT ) ) (otherlv_6= 'duration:' ( (lv_duration_7_0= ruleDuration ) ) )?
             {
             otherlv_0=(Token)match(input,13,FOLLOW_5); 
 
@@ -574,7 +573,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
             }
 
-            // InternalTaskDSL.g:265:3: (otherlv_6= 'duration:' ( (lv_dl_7_0= RULE_INT ) ) ( (lv_unit_8_0= ruleTimeUnit ) ) )?
+            // InternalTaskDSL.g:265:3: (otherlv_6= 'duration:' ( (lv_duration_7_0= ruleDuration ) ) )?
             int alt3=2;
             int LA3_0 = input.LA(1);
 
@@ -583,49 +582,23 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
             }
             switch (alt3) {
                 case 1 :
-                    // InternalTaskDSL.g:266:4: otherlv_6= 'duration:' ( (lv_dl_7_0= RULE_INT ) ) ( (lv_unit_8_0= ruleTimeUnit ) )
+                    // InternalTaskDSL.g:266:4: otherlv_6= 'duration:' ( (lv_duration_7_0= ruleDuration ) )
                     {
                     otherlv_6=(Token)match(input,16,FOLLOW_8); 
 
                     				newLeafNode(otherlv_6, grammarAccess.getTaskAccess().getDurationKeyword_6_0());
                     			
-                    // InternalTaskDSL.g:270:4: ( (lv_dl_7_0= RULE_INT ) )
-                    // InternalTaskDSL.g:271:5: (lv_dl_7_0= RULE_INT )
+                    // InternalTaskDSL.g:270:4: ( (lv_duration_7_0= ruleDuration ) )
+                    // InternalTaskDSL.g:271:5: (lv_duration_7_0= ruleDuration )
                     {
-                    // InternalTaskDSL.g:271:5: (lv_dl_7_0= RULE_INT )
-                    // InternalTaskDSL.g:272:6: lv_dl_7_0= RULE_INT
-                    {
-                    lv_dl_7_0=(Token)match(input,RULE_INT,FOLLOW_10); 
-
-                    						newLeafNode(lv_dl_7_0, grammarAccess.getTaskAccess().getDlINTTerminalRuleCall_6_1_0());
-                    					
-
-                    						if (current==null) {
-                    							current = createModelElement(grammarAccess.getTaskRule());
-                    						}
-                    						setWithLastConsumed(
-                    							current,
-                    							"dl",
-                    							lv_dl_7_0,
-                    							"org.eclipse.xtext.common.Terminals.INT");
-                    					
-
-                    }
-
-
-                    }
-
-                    // InternalTaskDSL.g:288:4: ( (lv_unit_8_0= ruleTimeUnit ) )
-                    // InternalTaskDSL.g:289:5: (lv_unit_8_0= ruleTimeUnit )
-                    {
-                    // InternalTaskDSL.g:289:5: (lv_unit_8_0= ruleTimeUnit )
-                    // InternalTaskDSL.g:290:6: lv_unit_8_0= ruleTimeUnit
+                    // InternalTaskDSL.g:271:5: (lv_duration_7_0= ruleDuration )
+                    // InternalTaskDSL.g:272:6: lv_duration_7_0= ruleDuration
                     {
 
-                    						newCompositeNode(grammarAccess.getTaskAccess().getUnitTimeUnitEnumRuleCall_6_2_0());
+                    						newCompositeNode(grammarAccess.getTaskAccess().getDurationDurationParserRuleCall_6_1_0());
                     					
                     pushFollow(FOLLOW_2);
-                    lv_unit_8_0=ruleTimeUnit();
+                    lv_duration_7_0=ruleDuration();
 
                     state._fsp--;
 
@@ -635,9 +608,9 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
                     						}
                     						set(
                     							current,
-                    							"unit",
-                    							lv_unit_8_0,
-                    							"persons.tasks.TaskDSL.TimeUnit");
+                    							"duration",
+                    							lv_duration_7_0,
+                    							"persons.tasks.TaskDSL.Duration");
                     						afterParserOrEnumRuleCall();
                     					
 
@@ -674,8 +647,142 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
     // $ANTLR end "ruleTask"
 
 
+    // $ANTLR start "entryRuleDuration"
+    // InternalTaskDSL.g:294:1: entryRuleDuration returns [EObject current=null] : iv_ruleDuration= ruleDuration EOF ;
+    public final EObject entryRuleDuration() throws RecognitionException {
+        EObject current = null;
+
+        EObject iv_ruleDuration = null;
+
+
+        try {
+            // InternalTaskDSL.g:294:49: (iv_ruleDuration= ruleDuration EOF )
+            // InternalTaskDSL.g:295:2: iv_ruleDuration= ruleDuration EOF
+            {
+             newCompositeNode(grammarAccess.getDurationRule()); 
+            pushFollow(FOLLOW_1);
+            iv_ruleDuration=ruleDuration();
+
+            state._fsp--;
+
+             current =iv_ruleDuration; 
+            match(input,EOF,FOLLOW_2); 
+
+            }
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "entryRuleDuration"
+
+
+    // $ANTLR start "ruleDuration"
+    // InternalTaskDSL.g:301:1: ruleDuration returns [EObject current=null] : ( ( (lv_dl_0_0= RULE_INT ) ) ( (lv_unit_1_0= ruleTimeUnit ) ) ) ;
+    public final EObject ruleDuration() throws RecognitionException {
+        EObject current = null;
+
+        Token lv_dl_0_0=null;
+        Enumerator lv_unit_1_0 = null;
+
+
+
+        	enterRule();
+
+        try {
+            // InternalTaskDSL.g:307:2: ( ( ( (lv_dl_0_0= RULE_INT ) ) ( (lv_unit_1_0= ruleTimeUnit ) ) ) )
+            // InternalTaskDSL.g:308:2: ( ( (lv_dl_0_0= RULE_INT ) ) ( (lv_unit_1_0= ruleTimeUnit ) ) )
+            {
+            // InternalTaskDSL.g:308:2: ( ( (lv_dl_0_0= RULE_INT ) ) ( (lv_unit_1_0= ruleTimeUnit ) ) )
+            // InternalTaskDSL.g:309:3: ( (lv_dl_0_0= RULE_INT ) ) ( (lv_unit_1_0= ruleTimeUnit ) )
+            {
+            // InternalTaskDSL.g:309:3: ( (lv_dl_0_0= RULE_INT ) )
+            // InternalTaskDSL.g:310:4: (lv_dl_0_0= RULE_INT )
+            {
+            // InternalTaskDSL.g:310:4: (lv_dl_0_0= RULE_INT )
+            // InternalTaskDSL.g:311:5: lv_dl_0_0= RULE_INT
+            {
+            lv_dl_0_0=(Token)match(input,RULE_INT,FOLLOW_10); 
+
+            					newLeafNode(lv_dl_0_0, grammarAccess.getDurationAccess().getDlINTTerminalRuleCall_0_0());
+            				
+
+            					if (current==null) {
+            						current = createModelElement(grammarAccess.getDurationRule());
+            					}
+            					setWithLastConsumed(
+            						current,
+            						"dl",
+            						lv_dl_0_0,
+            						"org.eclipse.xtext.common.Terminals.INT");
+            				
+
+            }
+
+
+            }
+
+            // InternalTaskDSL.g:327:3: ( (lv_unit_1_0= ruleTimeUnit ) )
+            // InternalTaskDSL.g:328:4: (lv_unit_1_0= ruleTimeUnit )
+            {
+            // InternalTaskDSL.g:328:4: (lv_unit_1_0= ruleTimeUnit )
+            // InternalTaskDSL.g:329:5: lv_unit_1_0= ruleTimeUnit
+            {
+
+            					newCompositeNode(grammarAccess.getDurationAccess().getUnitTimeUnitEnumRuleCall_1_0());
+            				
+            pushFollow(FOLLOW_2);
+            lv_unit_1_0=ruleTimeUnit();
+
+            state._fsp--;
+
+
+            					if (current==null) {
+            						current = createModelElementForParent(grammarAccess.getDurationRule());
+            					}
+            					set(
+            						current,
+            						"unit",
+            						lv_unit_1_0,
+            						"persons.tasks.TaskDSL.TimeUnit");
+            					afterParserOrEnumRuleCall();
+            				
+
+            }
+
+
+            }
+
+
+            }
+
+
+            }
+
+
+            	leaveRule();
+
+        }
+
+            catch (RecognitionException re) {
+                recover(input,re);
+                appendSkippedTokens();
+            }
+        finally {
+        }
+        return current;
+    }
+    // $ANTLR end "ruleDuration"
+
+
     // $ANTLR start "entryRuleAction"
-    // InternalTaskDSL.g:312:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
+    // InternalTaskDSL.g:350:1: entryRuleAction returns [EObject current=null] : iv_ruleAction= ruleAction EOF ;
     public final EObject entryRuleAction() throws RecognitionException {
         EObject current = null;
 
@@ -683,8 +790,8 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalTaskDSL.g:312:47: (iv_ruleAction= ruleAction EOF )
-            // InternalTaskDSL.g:313:2: iv_ruleAction= ruleAction EOF
+            // InternalTaskDSL.g:350:47: (iv_ruleAction= ruleAction EOF )
+            // InternalTaskDSL.g:351:2: iv_ruleAction= ruleAction EOF
             {
              newCompositeNode(grammarAccess.getActionRule()); 
             pushFollow(FOLLOW_1);
@@ -711,7 +818,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleAction"
-    // InternalTaskDSL.g:319:1: ruleAction returns [EObject current=null] : (this_LunchAction_0= ruleLunchAction | this_MeetingAction_1= ruleMeetingAction | this_PaperAction_2= rulePaperAction | this_PaymentAction_3= rulePaymentAction ) ;
+    // InternalTaskDSL.g:357:1: ruleAction returns [EObject current=null] : (this_LunchAction_0= ruleLunchAction | this_MeetingAction_1= ruleMeetingAction | this_PaperAction_2= rulePaperAction | this_PaymentAction_3= rulePaymentAction ) ;
     public final EObject ruleAction() throws RecognitionException {
         EObject current = null;
 
@@ -728,10 +835,10 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalTaskDSL.g:325:2: ( (this_LunchAction_0= ruleLunchAction | this_MeetingAction_1= ruleMeetingAction | this_PaperAction_2= rulePaperAction | this_PaymentAction_3= rulePaymentAction ) )
-            // InternalTaskDSL.g:326:2: (this_LunchAction_0= ruleLunchAction | this_MeetingAction_1= ruleMeetingAction | this_PaperAction_2= rulePaperAction | this_PaymentAction_3= rulePaymentAction )
+            // InternalTaskDSL.g:363:2: ( (this_LunchAction_0= ruleLunchAction | this_MeetingAction_1= ruleMeetingAction | this_PaperAction_2= rulePaperAction | this_PaymentAction_3= rulePaymentAction ) )
+            // InternalTaskDSL.g:364:2: (this_LunchAction_0= ruleLunchAction | this_MeetingAction_1= ruleMeetingAction | this_PaperAction_2= rulePaperAction | this_PaymentAction_3= rulePaymentAction )
             {
-            // InternalTaskDSL.g:326:2: (this_LunchAction_0= ruleLunchAction | this_MeetingAction_1= ruleMeetingAction | this_PaperAction_2= rulePaperAction | this_PaymentAction_3= rulePaymentAction )
+            // InternalTaskDSL.g:364:2: (this_LunchAction_0= ruleLunchAction | this_MeetingAction_1= ruleMeetingAction | this_PaperAction_2= rulePaperAction | this_PaymentAction_3= rulePaymentAction )
             int alt4=4;
             switch ( input.LA(1) ) {
             case 17:
@@ -763,7 +870,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
             switch (alt4) {
                 case 1 :
-                    // InternalTaskDSL.g:327:3: this_LunchAction_0= ruleLunchAction
+                    // InternalTaskDSL.g:365:3: this_LunchAction_0= ruleLunchAction
                     {
 
                     			newCompositeNode(grammarAccess.getActionAccess().getLunchActionParserRuleCall_0());
@@ -781,7 +888,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalTaskDSL.g:336:3: this_MeetingAction_1= ruleMeetingAction
+                    // InternalTaskDSL.g:374:3: this_MeetingAction_1= ruleMeetingAction
                     {
 
                     			newCompositeNode(grammarAccess.getActionAccess().getMeetingActionParserRuleCall_1());
@@ -799,7 +906,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalTaskDSL.g:345:3: this_PaperAction_2= rulePaperAction
+                    // InternalTaskDSL.g:383:3: this_PaperAction_2= rulePaperAction
                     {
 
                     			newCompositeNode(grammarAccess.getActionAccess().getPaperActionParserRuleCall_2());
@@ -817,7 +924,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalTaskDSL.g:354:3: this_PaymentAction_3= rulePaymentAction
+                    // InternalTaskDSL.g:392:3: this_PaymentAction_3= rulePaymentAction
                     {
 
                     			newCompositeNode(grammarAccess.getActionAccess().getPaymentActionParserRuleCall_3());
@@ -857,7 +964,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleLunchAction"
-    // InternalTaskDSL.g:366:1: entryRuleLunchAction returns [EObject current=null] : iv_ruleLunchAction= ruleLunchAction EOF ;
+    // InternalTaskDSL.g:404:1: entryRuleLunchAction returns [EObject current=null] : iv_ruleLunchAction= ruleLunchAction EOF ;
     public final EObject entryRuleLunchAction() throws RecognitionException {
         EObject current = null;
 
@@ -865,8 +972,8 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalTaskDSL.g:366:52: (iv_ruleLunchAction= ruleLunchAction EOF )
-            // InternalTaskDSL.g:367:2: iv_ruleLunchAction= ruleLunchAction EOF
+            // InternalTaskDSL.g:404:52: (iv_ruleLunchAction= ruleLunchAction EOF )
+            // InternalTaskDSL.g:405:2: iv_ruleLunchAction= ruleLunchAction EOF
             {
              newCompositeNode(grammarAccess.getLunchActionRule()); 
             pushFollow(FOLLOW_1);
@@ -893,7 +1000,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleLunchAction"
-    // InternalTaskDSL.g:373:1: ruleLunchAction returns [EObject current=null] : (otherlv_0= 'Lunch' ( (lv_location_1_0= RULE_ID ) ) ) ;
+    // InternalTaskDSL.g:411:1: ruleLunchAction returns [EObject current=null] : (otherlv_0= 'Lunch' ( (lv_location_1_0= RULE_ID ) ) ) ;
     public final EObject ruleLunchAction() throws RecognitionException {
         EObject current = null;
 
@@ -904,21 +1011,21 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalTaskDSL.g:379:2: ( (otherlv_0= 'Lunch' ( (lv_location_1_0= RULE_ID ) ) ) )
-            // InternalTaskDSL.g:380:2: (otherlv_0= 'Lunch' ( (lv_location_1_0= RULE_ID ) ) )
+            // InternalTaskDSL.g:417:2: ( (otherlv_0= 'Lunch' ( (lv_location_1_0= RULE_ID ) ) ) )
+            // InternalTaskDSL.g:418:2: (otherlv_0= 'Lunch' ( (lv_location_1_0= RULE_ID ) ) )
             {
-            // InternalTaskDSL.g:380:2: (otherlv_0= 'Lunch' ( (lv_location_1_0= RULE_ID ) ) )
-            // InternalTaskDSL.g:381:3: otherlv_0= 'Lunch' ( (lv_location_1_0= RULE_ID ) )
+            // InternalTaskDSL.g:418:2: (otherlv_0= 'Lunch' ( (lv_location_1_0= RULE_ID ) ) )
+            // InternalTaskDSL.g:419:3: otherlv_0= 'Lunch' ( (lv_location_1_0= RULE_ID ) )
             {
             otherlv_0=(Token)match(input,17,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getLunchActionAccess().getLunchKeyword_0());
             		
-            // InternalTaskDSL.g:385:3: ( (lv_location_1_0= RULE_ID ) )
-            // InternalTaskDSL.g:386:4: (lv_location_1_0= RULE_ID )
+            // InternalTaskDSL.g:423:3: ( (lv_location_1_0= RULE_ID ) )
+            // InternalTaskDSL.g:424:4: (lv_location_1_0= RULE_ID )
             {
-            // InternalTaskDSL.g:386:4: (lv_location_1_0= RULE_ID )
-            // InternalTaskDSL.g:387:5: lv_location_1_0= RULE_ID
+            // InternalTaskDSL.g:424:4: (lv_location_1_0= RULE_ID )
+            // InternalTaskDSL.g:425:5: lv_location_1_0= RULE_ID
             {
             lv_location_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -963,7 +1070,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRuleMeetingAction"
-    // InternalTaskDSL.g:407:1: entryRuleMeetingAction returns [EObject current=null] : iv_ruleMeetingAction= ruleMeetingAction EOF ;
+    // InternalTaskDSL.g:445:1: entryRuleMeetingAction returns [EObject current=null] : iv_ruleMeetingAction= ruleMeetingAction EOF ;
     public final EObject entryRuleMeetingAction() throws RecognitionException {
         EObject current = null;
 
@@ -971,8 +1078,8 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalTaskDSL.g:407:54: (iv_ruleMeetingAction= ruleMeetingAction EOF )
-            // InternalTaskDSL.g:408:2: iv_ruleMeetingAction= ruleMeetingAction EOF
+            // InternalTaskDSL.g:445:54: (iv_ruleMeetingAction= ruleMeetingAction EOF )
+            // InternalTaskDSL.g:446:2: iv_ruleMeetingAction= ruleMeetingAction EOF
             {
              newCompositeNode(grammarAccess.getMeetingActionRule()); 
             pushFollow(FOLLOW_1);
@@ -999,7 +1106,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleMeetingAction"
-    // InternalTaskDSL.g:414:1: ruleMeetingAction returns [EObject current=null] : (otherlv_0= 'Meeting' ( (lv_topic_1_0= RULE_STRING ) ) ) ;
+    // InternalTaskDSL.g:452:1: ruleMeetingAction returns [EObject current=null] : (otherlv_0= 'Meeting' ( (lv_topic_1_0= RULE_STRING ) ) ) ;
     public final EObject ruleMeetingAction() throws RecognitionException {
         EObject current = null;
 
@@ -1010,21 +1117,21 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalTaskDSL.g:420:2: ( (otherlv_0= 'Meeting' ( (lv_topic_1_0= RULE_STRING ) ) ) )
-            // InternalTaskDSL.g:421:2: (otherlv_0= 'Meeting' ( (lv_topic_1_0= RULE_STRING ) ) )
+            // InternalTaskDSL.g:458:2: ( (otherlv_0= 'Meeting' ( (lv_topic_1_0= RULE_STRING ) ) ) )
+            // InternalTaskDSL.g:459:2: (otherlv_0= 'Meeting' ( (lv_topic_1_0= RULE_STRING ) ) )
             {
-            // InternalTaskDSL.g:421:2: (otherlv_0= 'Meeting' ( (lv_topic_1_0= RULE_STRING ) ) )
-            // InternalTaskDSL.g:422:3: otherlv_0= 'Meeting' ( (lv_topic_1_0= RULE_STRING ) )
+            // InternalTaskDSL.g:459:2: (otherlv_0= 'Meeting' ( (lv_topic_1_0= RULE_STRING ) ) )
+            // InternalTaskDSL.g:460:3: otherlv_0= 'Meeting' ( (lv_topic_1_0= RULE_STRING ) )
             {
             otherlv_0=(Token)match(input,18,FOLLOW_11); 
 
             			newLeafNode(otherlv_0, grammarAccess.getMeetingActionAccess().getMeetingKeyword_0());
             		
-            // InternalTaskDSL.g:426:3: ( (lv_topic_1_0= RULE_STRING ) )
-            // InternalTaskDSL.g:427:4: (lv_topic_1_0= RULE_STRING )
+            // InternalTaskDSL.g:464:3: ( (lv_topic_1_0= RULE_STRING ) )
+            // InternalTaskDSL.g:465:4: (lv_topic_1_0= RULE_STRING )
             {
-            // InternalTaskDSL.g:427:4: (lv_topic_1_0= RULE_STRING )
-            // InternalTaskDSL.g:428:5: lv_topic_1_0= RULE_STRING
+            // InternalTaskDSL.g:465:4: (lv_topic_1_0= RULE_STRING )
+            // InternalTaskDSL.g:466:5: lv_topic_1_0= RULE_STRING
             {
             lv_topic_1_0=(Token)match(input,RULE_STRING,FOLLOW_2); 
 
@@ -1069,7 +1176,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePaperAction"
-    // InternalTaskDSL.g:448:1: entryRulePaperAction returns [EObject current=null] : iv_rulePaperAction= rulePaperAction EOF ;
+    // InternalTaskDSL.g:486:1: entryRulePaperAction returns [EObject current=null] : iv_rulePaperAction= rulePaperAction EOF ;
     public final EObject entryRulePaperAction() throws RecognitionException {
         EObject current = null;
 
@@ -1077,8 +1184,8 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalTaskDSL.g:448:52: (iv_rulePaperAction= rulePaperAction EOF )
-            // InternalTaskDSL.g:449:2: iv_rulePaperAction= rulePaperAction EOF
+            // InternalTaskDSL.g:486:52: (iv_rulePaperAction= rulePaperAction EOF )
+            // InternalTaskDSL.g:487:2: iv_rulePaperAction= rulePaperAction EOF
             {
              newCompositeNode(grammarAccess.getPaperActionRule()); 
             pushFollow(FOLLOW_1);
@@ -1105,7 +1212,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePaperAction"
-    // InternalTaskDSL.g:455:1: rulePaperAction returns [EObject current=null] : (otherlv_0= 'Report' ( (lv_report_1_0= RULE_ID ) ) ) ;
+    // InternalTaskDSL.g:493:1: rulePaperAction returns [EObject current=null] : (otherlv_0= 'Report' ( (lv_report_1_0= RULE_ID ) ) ) ;
     public final EObject rulePaperAction() throws RecognitionException {
         EObject current = null;
 
@@ -1116,21 +1223,21 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalTaskDSL.g:461:2: ( (otherlv_0= 'Report' ( (lv_report_1_0= RULE_ID ) ) ) )
-            // InternalTaskDSL.g:462:2: (otherlv_0= 'Report' ( (lv_report_1_0= RULE_ID ) ) )
+            // InternalTaskDSL.g:499:2: ( (otherlv_0= 'Report' ( (lv_report_1_0= RULE_ID ) ) ) )
+            // InternalTaskDSL.g:500:2: (otherlv_0= 'Report' ( (lv_report_1_0= RULE_ID ) ) )
             {
-            // InternalTaskDSL.g:462:2: (otherlv_0= 'Report' ( (lv_report_1_0= RULE_ID ) ) )
-            // InternalTaskDSL.g:463:3: otherlv_0= 'Report' ( (lv_report_1_0= RULE_ID ) )
+            // InternalTaskDSL.g:500:2: (otherlv_0= 'Report' ( (lv_report_1_0= RULE_ID ) ) )
+            // InternalTaskDSL.g:501:3: otherlv_0= 'Report' ( (lv_report_1_0= RULE_ID ) )
             {
             otherlv_0=(Token)match(input,19,FOLLOW_3); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPaperActionAccess().getReportKeyword_0());
             		
-            // InternalTaskDSL.g:467:3: ( (lv_report_1_0= RULE_ID ) )
-            // InternalTaskDSL.g:468:4: (lv_report_1_0= RULE_ID )
+            // InternalTaskDSL.g:505:3: ( (lv_report_1_0= RULE_ID ) )
+            // InternalTaskDSL.g:506:4: (lv_report_1_0= RULE_ID )
             {
-            // InternalTaskDSL.g:468:4: (lv_report_1_0= RULE_ID )
-            // InternalTaskDSL.g:469:5: lv_report_1_0= RULE_ID
+            // InternalTaskDSL.g:506:4: (lv_report_1_0= RULE_ID )
+            // InternalTaskDSL.g:507:5: lv_report_1_0= RULE_ID
             {
             lv_report_1_0=(Token)match(input,RULE_ID,FOLLOW_2); 
 
@@ -1175,7 +1282,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "entryRulePaymentAction"
-    // InternalTaskDSL.g:489:1: entryRulePaymentAction returns [EObject current=null] : iv_rulePaymentAction= rulePaymentAction EOF ;
+    // InternalTaskDSL.g:527:1: entryRulePaymentAction returns [EObject current=null] : iv_rulePaymentAction= rulePaymentAction EOF ;
     public final EObject entryRulePaymentAction() throws RecognitionException {
         EObject current = null;
 
@@ -1183,8 +1290,8 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
         try {
-            // InternalTaskDSL.g:489:54: (iv_rulePaymentAction= rulePaymentAction EOF )
-            // InternalTaskDSL.g:490:2: iv_rulePaymentAction= rulePaymentAction EOF
+            // InternalTaskDSL.g:527:54: (iv_rulePaymentAction= rulePaymentAction EOF )
+            // InternalTaskDSL.g:528:2: iv_rulePaymentAction= rulePaymentAction EOF
             {
              newCompositeNode(grammarAccess.getPaymentActionRule()); 
             pushFollow(FOLLOW_1);
@@ -1211,7 +1318,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "rulePaymentAction"
-    // InternalTaskDSL.g:496:1: rulePaymentAction returns [EObject current=null] : (otherlv_0= 'Pay' ( (lv_amount_1_0= RULE_INT ) ) otherlv_2= 'euro' ) ;
+    // InternalTaskDSL.g:534:1: rulePaymentAction returns [EObject current=null] : (otherlv_0= 'Pay' ( (lv_amount_1_0= RULE_INT ) ) otherlv_2= 'euro' ) ;
     public final EObject rulePaymentAction() throws RecognitionException {
         EObject current = null;
 
@@ -1223,21 +1330,21 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalTaskDSL.g:502:2: ( (otherlv_0= 'Pay' ( (lv_amount_1_0= RULE_INT ) ) otherlv_2= 'euro' ) )
-            // InternalTaskDSL.g:503:2: (otherlv_0= 'Pay' ( (lv_amount_1_0= RULE_INT ) ) otherlv_2= 'euro' )
+            // InternalTaskDSL.g:540:2: ( (otherlv_0= 'Pay' ( (lv_amount_1_0= RULE_INT ) ) otherlv_2= 'euro' ) )
+            // InternalTaskDSL.g:541:2: (otherlv_0= 'Pay' ( (lv_amount_1_0= RULE_INT ) ) otherlv_2= 'euro' )
             {
-            // InternalTaskDSL.g:503:2: (otherlv_0= 'Pay' ( (lv_amount_1_0= RULE_INT ) ) otherlv_2= 'euro' )
-            // InternalTaskDSL.g:504:3: otherlv_0= 'Pay' ( (lv_amount_1_0= RULE_INT ) ) otherlv_2= 'euro'
+            // InternalTaskDSL.g:541:2: (otherlv_0= 'Pay' ( (lv_amount_1_0= RULE_INT ) ) otherlv_2= 'euro' )
+            // InternalTaskDSL.g:542:3: otherlv_0= 'Pay' ( (lv_amount_1_0= RULE_INT ) ) otherlv_2= 'euro'
             {
             otherlv_0=(Token)match(input,20,FOLLOW_8); 
 
             			newLeafNode(otherlv_0, grammarAccess.getPaymentActionAccess().getPayKeyword_0());
             		
-            // InternalTaskDSL.g:508:3: ( (lv_amount_1_0= RULE_INT ) )
-            // InternalTaskDSL.g:509:4: (lv_amount_1_0= RULE_INT )
+            // InternalTaskDSL.g:546:3: ( (lv_amount_1_0= RULE_INT ) )
+            // InternalTaskDSL.g:547:4: (lv_amount_1_0= RULE_INT )
             {
-            // InternalTaskDSL.g:509:4: (lv_amount_1_0= RULE_INT )
-            // InternalTaskDSL.g:510:5: lv_amount_1_0= RULE_INT
+            // InternalTaskDSL.g:547:4: (lv_amount_1_0= RULE_INT )
+            // InternalTaskDSL.g:548:5: lv_amount_1_0= RULE_INT
             {
             lv_amount_1_0=(Token)match(input,RULE_INT,FOLLOW_12); 
 
@@ -1286,7 +1393,7 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
 
     // $ANTLR start "ruleTimeUnit"
-    // InternalTaskDSL.g:534:1: ruleTimeUnit returns [Enumerator current=null] : ( (enumLiteral_0= 'min' ) | (enumLiteral_1= 'hour' ) | (enumLiteral_2= 'day' ) | (enumLiteral_3= 'week' ) ) ;
+    // InternalTaskDSL.g:572:1: ruleTimeUnit returns [Enumerator current=null] : ( (enumLiteral_0= 'min' ) | (enumLiteral_1= 'hour' ) | (enumLiteral_2= 'day' ) | (enumLiteral_3= 'week' ) ) ;
     public final Enumerator ruleTimeUnit() throws RecognitionException {
         Enumerator current = null;
 
@@ -1299,10 +1406,10 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
         	enterRule();
 
         try {
-            // InternalTaskDSL.g:540:2: ( ( (enumLiteral_0= 'min' ) | (enumLiteral_1= 'hour' ) | (enumLiteral_2= 'day' ) | (enumLiteral_3= 'week' ) ) )
-            // InternalTaskDSL.g:541:2: ( (enumLiteral_0= 'min' ) | (enumLiteral_1= 'hour' ) | (enumLiteral_2= 'day' ) | (enumLiteral_3= 'week' ) )
+            // InternalTaskDSL.g:578:2: ( ( (enumLiteral_0= 'min' ) | (enumLiteral_1= 'hour' ) | (enumLiteral_2= 'day' ) | (enumLiteral_3= 'week' ) ) )
+            // InternalTaskDSL.g:579:2: ( (enumLiteral_0= 'min' ) | (enumLiteral_1= 'hour' ) | (enumLiteral_2= 'day' ) | (enumLiteral_3= 'week' ) )
             {
-            // InternalTaskDSL.g:541:2: ( (enumLiteral_0= 'min' ) | (enumLiteral_1= 'hour' ) | (enumLiteral_2= 'day' ) | (enumLiteral_3= 'week' ) )
+            // InternalTaskDSL.g:579:2: ( (enumLiteral_0= 'min' ) | (enumLiteral_1= 'hour' ) | (enumLiteral_2= 'day' ) | (enumLiteral_3= 'week' ) )
             int alt5=4;
             switch ( input.LA(1) ) {
             case 22:
@@ -1334,10 +1441,10 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
 
             switch (alt5) {
                 case 1 :
-                    // InternalTaskDSL.g:542:3: (enumLiteral_0= 'min' )
+                    // InternalTaskDSL.g:580:3: (enumLiteral_0= 'min' )
                     {
-                    // InternalTaskDSL.g:542:3: (enumLiteral_0= 'min' )
-                    // InternalTaskDSL.g:543:4: enumLiteral_0= 'min'
+                    // InternalTaskDSL.g:580:3: (enumLiteral_0= 'min' )
+                    // InternalTaskDSL.g:581:4: enumLiteral_0= 'min'
                     {
                     enumLiteral_0=(Token)match(input,22,FOLLOW_2); 
 
@@ -1351,10 +1458,10 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 2 :
-                    // InternalTaskDSL.g:550:3: (enumLiteral_1= 'hour' )
+                    // InternalTaskDSL.g:588:3: (enumLiteral_1= 'hour' )
                     {
-                    // InternalTaskDSL.g:550:3: (enumLiteral_1= 'hour' )
-                    // InternalTaskDSL.g:551:4: enumLiteral_1= 'hour'
+                    // InternalTaskDSL.g:588:3: (enumLiteral_1= 'hour' )
+                    // InternalTaskDSL.g:589:4: enumLiteral_1= 'hour'
                     {
                     enumLiteral_1=(Token)match(input,23,FOLLOW_2); 
 
@@ -1368,10 +1475,10 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 3 :
-                    // InternalTaskDSL.g:558:3: (enumLiteral_2= 'day' )
+                    // InternalTaskDSL.g:596:3: (enumLiteral_2= 'day' )
                     {
-                    // InternalTaskDSL.g:558:3: (enumLiteral_2= 'day' )
-                    // InternalTaskDSL.g:559:4: enumLiteral_2= 'day'
+                    // InternalTaskDSL.g:596:3: (enumLiteral_2= 'day' )
+                    // InternalTaskDSL.g:597:4: enumLiteral_2= 'day'
                     {
                     enumLiteral_2=(Token)match(input,24,FOLLOW_2); 
 
@@ -1385,10 +1492,10 @@ public class InternalTaskDSLParser extends AbstractInternalAntlrParser {
                     }
                     break;
                 case 4 :
-                    // InternalTaskDSL.g:566:3: (enumLiteral_3= 'week' )
+                    // InternalTaskDSL.g:604:3: (enumLiteral_3= 'week' )
                     {
-                    // InternalTaskDSL.g:566:3: (enumLiteral_3= 'week' )
-                    // InternalTaskDSL.g:567:4: enumLiteral_3= 'week'
+                    // InternalTaskDSL.g:604:3: (enumLiteral_3= 'week' )
+                    // InternalTaskDSL.g:605:4: enumLiteral_3= 'week'
                     {
                     enumLiteral_3=(Token)match(input,25,FOLLOW_2); 
 

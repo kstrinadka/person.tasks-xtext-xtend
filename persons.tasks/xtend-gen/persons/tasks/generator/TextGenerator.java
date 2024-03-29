@@ -5,6 +5,7 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import persons.tasks.taskDSL.Action;
+import persons.tasks.taskDSL.Duration;
 import persons.tasks.taskDSL.LunchAction;
 import persons.tasks.taskDSL.MeetingAction;
 import persons.tasks.taskDSL.PaperAction;
@@ -121,18 +122,20 @@ public class TextGenerator {
   public static CharSequence infoAction(final Task t) {
     StringConcatenation _builder = new StringConcatenation();
     {
-      TimeUnit _unit = t.getUnit();
-      boolean _tripleNotEquals = (_unit != null);
+      Duration _duration = t.getDuration();
+      boolean _tripleNotEquals = (_duration != null);
       if (_tripleNotEquals) {
         _builder.append(" with duration: ");
-        int _dl = t.getDl();
-        _builder.append(_dl);
+        _builder.newLineIfNotEmpty();
+        _builder.append("\t");
+        int _dl = t.getDuration().getDl();
+        _builder.append(_dl, "\t");
         _builder.append(" ");
-        CharSequence _text = TextGenerator.toText(t.getUnit());
-        _builder.append(_text);
+        CharSequence _text = TextGenerator.toText(t.getDuration().getUnit());
+        _builder.append(_text, "\t");
+        _builder.newLineIfNotEmpty();
       }
     }
-    _builder.newLineIfNotEmpty();
     return _builder;
   }
 

@@ -12,6 +12,7 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import persons.tasks.taskDSL.Action;
+import persons.tasks.taskDSL.Duration;
 import persons.tasks.taskDSL.LunchAction;
 import persons.tasks.taskDSL.MeetingAction;
 import persons.tasks.taskDSL.PaperAction;
@@ -51,6 +52,13 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
    * @generated
    */
   private EClass taskEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass durationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -272,9 +280,9 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
    * @generated
    */
   @Override
-  public EAttribute getTask_Dl()
+  public EReference getTask_Duration()
   {
-    return (EAttribute)taskEClass.getEStructuralFeatures().get(3);
+    return (EReference)taskEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -283,9 +291,31 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
    * @generated
    */
   @Override
-  public EAttribute getTask_Unit()
+  public EClass getDuration()
   {
-    return (EAttribute)taskEClass.getEStructuralFeatures().get(4);
+    return durationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDuration_Dl()
+  {
+    return (EAttribute)durationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getDuration_Unit()
+  {
+    return (EAttribute)durationEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -441,8 +471,11 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
     createEReference(taskEClass, TASK__ACTION);
     createEReference(taskEClass, TASK__PERSONS);
     createEAttribute(taskEClass, TASK__PRIO);
-    createEAttribute(taskEClass, TASK__DL);
-    createEAttribute(taskEClass, TASK__UNIT);
+    createEReference(taskEClass, TASK__DURATION);
+
+    durationEClass = createEClass(DURATION);
+    createEAttribute(durationEClass, DURATION__DL);
+    createEAttribute(durationEClass, DURATION__UNIT);
 
     actionEClass = createEClass(ACTION);
 
@@ -509,8 +542,11 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
     initEReference(getTask_Action(), this.getAction(), null, "action", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getTask_Persons(), this.getPerson(), null, "persons", null, 0, -1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, !IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEAttribute(getTask_Prio(), ecorePackage.getEInt(), "prio", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTask_Dl(), ecorePackage.getEInt(), "dl", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
-    initEAttribute(getTask_Unit(), this.getTimeUnit(), "unit", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getTask_Duration(), this.getDuration(), null, "duration", null, 0, 1, Task.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(durationEClass, Duration.class, "Duration", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getDuration_Dl(), ecorePackage.getEInt(), "dl", null, 0, 1, Duration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getDuration_Unit(), this.getTimeUnit(), "unit", null, 0, 1, Duration.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(actionEClass, Action.class, "Action", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
 

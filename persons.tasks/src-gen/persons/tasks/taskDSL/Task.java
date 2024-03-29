@@ -19,8 +19,7 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link persons.tasks.taskDSL.Task#getAction <em>Action</em>}</li>
  *   <li>{@link persons.tasks.taskDSL.Task#getPersons <em>Persons</em>}</li>
  *   <li>{@link persons.tasks.taskDSL.Task#getPrio <em>Prio</em>}</li>
- *   <li>{@link persons.tasks.taskDSL.Task#getDl <em>Dl</em>}</li>
- *   <li>{@link persons.tasks.taskDSL.Task#getUnit <em>Unit</em>}</li>
+ *   <li>{@link persons.tasks.taskDSL.Task#getDuration <em>Duration</em>}</li>
  * </ul>
  *
  * @see persons.tasks.taskDSL.TaskDSLPackage#getTask()
@@ -86,50 +85,25 @@ public interface Task extends EObject
   void setPrio(int value);
 
   /**
-   * Returns the value of the '<em><b>Dl</b></em>' attribute.
+   * Returns the value of the '<em><b>Duration</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Dl</em>' attribute.
-   * @see #setDl(int)
-   * @see persons.tasks.taskDSL.TaskDSLPackage#getTask_Dl()
-   * @model
+   * @return the value of the '<em>Duration</em>' containment reference.
+   * @see #setDuration(Duration)
+   * @see persons.tasks.taskDSL.TaskDSLPackage#getTask_Duration()
+   * @model containment="true"
    * @generated
    */
-  int getDl();
+  Duration getDuration();
 
   /**
-   * Sets the value of the '{@link persons.tasks.taskDSL.Task#getDl <em>Dl</em>}' attribute.
+   * Sets the value of the '{@link persons.tasks.taskDSL.Task#getDuration <em>Duration</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Dl</em>' attribute.
-   * @see #getDl()
+   * @param value the new value of the '<em>Duration</em>' containment reference.
+   * @see #getDuration()
    * @generated
    */
-  void setDl(int value);
-
-  /**
-   * Returns the value of the '<em><b>Unit</b></em>' attribute.
-   * The literals are from the enumeration {@link persons.tasks.taskDSL.TimeUnit}.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @return the value of the '<em>Unit</em>' attribute.
-   * @see persons.tasks.taskDSL.TimeUnit
-   * @see #setUnit(TimeUnit)
-   * @see persons.tasks.taskDSL.TaskDSLPackage#getTask_Unit()
-   * @model
-   * @generated
-   */
-  TimeUnit getUnit();
-
-  /**
-   * Sets the value of the '{@link persons.tasks.taskDSL.Task#getUnit <em>Unit</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Unit</em>' attribute.
-   * @see persons.tasks.taskDSL.TimeUnit
-   * @see #getUnit()
-   * @generated
-   */
-  void setUnit(TimeUnit value);
+  void setDuration(Duration value);
 
 } // Task

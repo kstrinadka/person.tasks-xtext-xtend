@@ -37,6 +37,8 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Assignment cTasksAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
 		private final RuleCall cTasksTaskParserRuleCall_2_1_0 = (RuleCall)cTasksAssignment_2_1.eContents().get(0);
 		
+		//// Что поменялось?
+		//// Добавляем тип Duration
 		//Planning:
 		//    'Planning' name = ID
 		//    (persons += Person |
@@ -113,10 +115,8 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final RuleCall cPrioINTTerminalRuleCall_5_0 = (RuleCall)cPrioAssignment_5.eContents().get(0);
 		private final Group cGroup_6 = (Group)cGroup.eContents().get(6);
 		private final Keyword cDurationKeyword_6_0 = (Keyword)cGroup_6.eContents().get(0);
-		private final Assignment cDlAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
-		private final RuleCall cDlINTTerminalRuleCall_6_1_0 = (RuleCall)cDlAssignment_6_1.eContents().get(0);
-		private final Assignment cUnitAssignment_6_2 = (Assignment)cGroup_6.eContents().get(2);
-		private final RuleCall cUnitTimeUnitEnumRuleCall_6_2_0 = (RuleCall)cUnitAssignment_6_2.eContents().get(0);
+		private final Assignment cDurationAssignment_6_1 = (Assignment)cGroup_6.eContents().get(1);
+		private final RuleCall cDurationDurationParserRuleCall_6_1_0 = (RuleCall)cDurationAssignment_6_1.eContents().get(0);
 		
 		//// для таски тоже можно имя задать, чтоб как для персоны?? (хотя у видов тасок есть различные ID и названия строк)
 		//// Двоеточия теперь почему-то в терминальных символах
@@ -124,14 +124,14 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//    'Task:' action = Action
 		//    'persons:' persons += [Person]+
 		//    'priority:' prio = INT
-		//    ('duration:' dl = INT unit = TimeUnit)?
+		//    ('duration:' duration = Duration)?
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Task:' action = Action
 		//'persons:' persons += [Person]+
 		//'priority:' prio = INT
-		//('duration:' dl = INT unit = TimeUnit)?
+		//('duration:' duration = Duration)?
 		public Group getGroup() { return cGroup; }
 		
 		//'Task:'
@@ -164,23 +164,45 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//INT
 		public RuleCall getPrioINTTerminalRuleCall_5_0() { return cPrioINTTerminalRuleCall_5_0; }
 		
-		//('duration:' dl = INT unit = TimeUnit)?
+		//('duration:' duration = Duration)?
 		public Group getGroup_6() { return cGroup_6; }
 		
 		//'duration:'
 		public Keyword getDurationKeyword_6_0() { return cDurationKeyword_6_0; }
 		
+		//duration = Duration
+		public Assignment getDurationAssignment_6_1() { return cDurationAssignment_6_1; }
+		
+		//Duration
+		public RuleCall getDurationDurationParserRuleCall_6_1_0() { return cDurationDurationParserRuleCall_6_1_0; }
+	}
+	public class DurationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.Duration");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cDlAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cDlINTTerminalRuleCall_0_0 = (RuleCall)cDlAssignment_0.eContents().get(0);
+		private final Assignment cUnitAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cUnitTimeUnitEnumRuleCall_1_0 = (RuleCall)cUnitAssignment_1.eContents().get(0);
+		
+		//Duration:
+		//    dl = INT unit = TimeUnit
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//dl = INT unit = TimeUnit
+		public Group getGroup() { return cGroup; }
+		
 		//dl = INT
-		public Assignment getDlAssignment_6_1() { return cDlAssignment_6_1; }
+		public Assignment getDlAssignment_0() { return cDlAssignment_0; }
 		
 		//INT
-		public RuleCall getDlINTTerminalRuleCall_6_1_0() { return cDlINTTerminalRuleCall_6_1_0; }
+		public RuleCall getDlINTTerminalRuleCall_0_0() { return cDlINTTerminalRuleCall_0_0; }
 		
 		//unit = TimeUnit
-		public Assignment getUnitAssignment_6_2() { return cUnitAssignment_6_2; }
+		public Assignment getUnitAssignment_1() { return cUnitAssignment_1; }
 		
 		//TimeUnit
-		public RuleCall getUnitTimeUnitEnumRuleCall_6_2_0() { return cUnitTimeUnitEnumRuleCall_6_2_0; }
+		public RuleCall getUnitTimeUnitEnumRuleCall_1_0() { return cUnitTimeUnitEnumRuleCall_1_0; }
 	}
 	public class ActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.Action");
@@ -365,6 +387,7 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	private final PlanningElements pPlanning;
 	private final PersonElements pPerson;
 	private final TaskElements pTask;
+	private final DurationElements pDuration;
 	private final ActionElements pAction;
 	private final LunchActionElements pLunchAction;
 	private final MeetingActionElements pMeetingAction;
@@ -384,6 +407,7 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		this.pPlanning = new PlanningElements();
 		this.pPerson = new PersonElements();
 		this.pTask = new TaskElements();
+		this.pDuration = new DurationElements();
 		this.pAction = new ActionElements();
 		this.pLunchAction = new LunchActionElements();
 		this.pMeetingAction = new MeetingActionElements();
@@ -419,6 +443,8 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 
 	
+	//// Что поменялось?
+	//// Добавляем тип Duration
 	//Planning:
 	//    'Planning' name = ID
 	//    (persons += Person |
@@ -449,7 +475,7 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	//    'Task:' action = Action
 	//    'persons:' persons += [Person]+
 	//    'priority:' prio = INT
-	//    ('duration:' dl = INT unit = TimeUnit)?
+	//    ('duration:' duration = Duration)?
 	//;
 	public TaskElements getTaskAccess() {
 		return pTask;
@@ -457,6 +483,17 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	public ParserRule getTaskRule() {
 		return getTaskAccess().getRule();
+	}
+	
+	//Duration:
+	//    dl = INT unit = TimeUnit
+	//;
+	public DurationElements getDurationAccess() {
+		return pDuration;
+	}
+	
+	public ParserRule getDurationRule() {
+		return getDurationAccess().getRule();
 	}
 	
 	//Action:

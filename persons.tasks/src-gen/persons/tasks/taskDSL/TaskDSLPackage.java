@@ -170,22 +170,13 @@ public interface TaskDSLPackage extends EPackage
   int TASK__PRIO = 2;
 
   /**
-   * The feature id for the '<em><b>Dl</b></em>' attribute.
+   * The feature id for the '<em><b>Duration</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int TASK__DL = 3;
-
-  /**
-   * The feature id for the '<em><b>Unit</b></em>' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   * @ordered
-   */
-  int TASK__UNIT = 4;
+  int TASK__DURATION = 3;
 
   /**
    * The number of structural features of the '<em>Task</em>' class.
@@ -194,7 +185,44 @@ public interface TaskDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int TASK_FEATURE_COUNT = 5;
+  int TASK_FEATURE_COUNT = 4;
+
+  /**
+   * The meta object id for the '{@link persons.tasks.taskDSL.impl.DurationImpl <em>Duration</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see persons.tasks.taskDSL.impl.DurationImpl
+   * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getDuration()
+   * @generated
+   */
+  int DURATION = 3;
+
+  /**
+   * The feature id for the '<em><b>Dl</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DURATION__DL = 0;
+
+  /**
+   * The feature id for the '<em><b>Unit</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DURATION__UNIT = 1;
+
+  /**
+   * The number of structural features of the '<em>Duration</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int DURATION_FEATURE_COUNT = 2;
 
   /**
    * The meta object id for the '{@link persons.tasks.taskDSL.impl.ActionImpl <em>Action</em>}' class.
@@ -204,7 +232,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getAction()
    * @generated
    */
-  int ACTION = 3;
+  int ACTION = 4;
 
   /**
    * The number of structural features of the '<em>Action</em>' class.
@@ -223,7 +251,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getLunchAction()
    * @generated
    */
-  int LUNCH_ACTION = 4;
+  int LUNCH_ACTION = 5;
 
   /**
    * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -251,7 +279,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getMeetingAction()
    * @generated
    */
-  int MEETING_ACTION = 5;
+  int MEETING_ACTION = 6;
 
   /**
    * The feature id for the '<em><b>Topic</b></em>' attribute.
@@ -279,7 +307,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getPaperAction()
    * @generated
    */
-  int PAPER_ACTION = 6;
+  int PAPER_ACTION = 7;
 
   /**
    * The feature id for the '<em><b>Report</b></em>' attribute.
@@ -307,7 +335,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getPaymentAction()
    * @generated
    */
-  int PAYMENT_ACTION = 7;
+  int PAYMENT_ACTION = 8;
 
   /**
    * The feature id for the '<em><b>Amount</b></em>' attribute.
@@ -335,7 +363,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getTimeUnit()
    * @generated
    */
-  int TIME_UNIT = 8;
+  int TIME_UNIT = 9;
 
 
   /**
@@ -446,26 +474,47 @@ public interface TaskDSLPackage extends EPackage
   EAttribute getTask_Prio();
 
   /**
-   * Returns the meta object for the attribute '{@link persons.tasks.taskDSL.Task#getDl <em>Dl</em>}'.
+   * Returns the meta object for the containment reference '{@link persons.tasks.taskDSL.Task#getDuration <em>Duration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Duration</em>'.
+   * @see persons.tasks.taskDSL.Task#getDuration()
+   * @see #getTask()
+   * @generated
+   */
+  EReference getTask_Duration();
+
+  /**
+   * Returns the meta object for class '{@link persons.tasks.taskDSL.Duration <em>Duration</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Duration</em>'.
+   * @see persons.tasks.taskDSL.Duration
+   * @generated
+   */
+  EClass getDuration();
+
+  /**
+   * Returns the meta object for the attribute '{@link persons.tasks.taskDSL.Duration#getDl <em>Dl</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Dl</em>'.
-   * @see persons.tasks.taskDSL.Task#getDl()
-   * @see #getTask()
+   * @see persons.tasks.taskDSL.Duration#getDl()
+   * @see #getDuration()
    * @generated
    */
-  EAttribute getTask_Dl();
+  EAttribute getDuration_Dl();
 
   /**
-   * Returns the meta object for the attribute '{@link persons.tasks.taskDSL.Task#getUnit <em>Unit</em>}'.
+   * Returns the meta object for the attribute '{@link persons.tasks.taskDSL.Duration#getUnit <em>Unit</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @return the meta object for the attribute '<em>Unit</em>'.
-   * @see persons.tasks.taskDSL.Task#getUnit()
-   * @see #getTask()
+   * @see persons.tasks.taskDSL.Duration#getUnit()
+   * @see #getDuration()
    * @generated
    */
-  EAttribute getTask_Unit();
+  EAttribute getDuration_Unit();
 
   /**
    * Returns the meta object for class '{@link persons.tasks.taskDSL.Action <em>Action</em>}'.
@@ -681,12 +730,30 @@ public interface TaskDSLPackage extends EPackage
     EAttribute TASK__PRIO = eINSTANCE.getTask_Prio();
 
     /**
+     * The meta object literal for the '<em><b>Duration</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference TASK__DURATION = eINSTANCE.getTask_Duration();
+
+    /**
+     * The meta object literal for the '{@link persons.tasks.taskDSL.impl.DurationImpl <em>Duration</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see persons.tasks.taskDSL.impl.DurationImpl
+     * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getDuration()
+     * @generated
+     */
+    EClass DURATION = eINSTANCE.getDuration();
+
+    /**
      * The meta object literal for the '<em><b>Dl</b></em>' attribute feature.
      * <!-- begin-user-doc -->
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TASK__DL = eINSTANCE.getTask_Dl();
+    EAttribute DURATION__DL = eINSTANCE.getDuration_Dl();
 
     /**
      * The meta object literal for the '<em><b>Unit</b></em>' attribute feature.
@@ -694,7 +761,7 @@ public interface TaskDSLPackage extends EPackage
      * <!-- end-user-doc -->
      * @generated
      */
-    EAttribute TASK__UNIT = eINSTANCE.getTask_Unit();
+    EAttribute DURATION__UNIT = eINSTANCE.getDuration_Unit();
 
     /**
      * The meta object literal for the '{@link persons.tasks.taskDSL.impl.ActionImpl <em>Action</em>}' class.

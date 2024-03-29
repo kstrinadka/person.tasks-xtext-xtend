@@ -15,6 +15,7 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import persons.tasks.services.TaskDSLGrammarAccess;
+import persons.tasks.taskDSL.Duration;
 import persons.tasks.taskDSL.LunchAction;
 import persons.tasks.taskDSL.MeetingAction;
 import persons.tasks.taskDSL.PaperAction;
@@ -38,6 +39,9 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == TaskDSLPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case TaskDSLPackage.DURATION:
+				sequence_Duration(context, (Duration) semanticObject); 
+				return; 
 			case TaskDSLPackage.LUNCH_ACTION:
 				sequence_LunchAction(context, (LunchAction) semanticObject); 
 				return; 
@@ -63,6 +67,29 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     Duration returns Duration
+	 *
+	 * Constraint:
+	 *     (dl=INT unit=TimeUnit)
+	 * </pre>
+	 */
+	protected void sequence_Duration(ISerializationContext context, Duration semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.DURATION__DL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.DURATION__DL));
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.DURATION__UNIT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.DURATION__UNIT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getDurationAccess().getDlINTTerminalRuleCall_0_0(), semanticObject.getDl());
+		feeder.accept(grammarAccess.getDurationAccess().getUnitTimeUnitEnumRuleCall_1_0(), semanticObject.getUnit());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * <pre>
@@ -188,7 +215,7 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Task returns Task
 	 *
 	 * Constraint:
-	 *     (action=Action persons+=[Person|ID]+ prio=INT (dl=INT unit=TimeUnit)?)
+	 *     (action=Action persons+=[Person|ID]+ prio=INT duration=Duration?)
 	 * </pre>
 	 */
 	protected void sequence_Task(ISerializationContext context, Task semanticObject) {

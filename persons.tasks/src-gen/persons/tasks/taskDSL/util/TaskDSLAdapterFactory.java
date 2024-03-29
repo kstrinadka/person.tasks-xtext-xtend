@@ -91,6 +91,11 @@ public class TaskDSLAdapterFactory extends AdapterFactoryImpl
         return createTaskAdapter();
       }
       @Override
+      public Adapter caseDuration(Duration object)
+      {
+        return createDurationAdapter();
+      }
+      @Override
       public Adapter caseAction(Action object)
       {
         return createActionAdapter();
@@ -178,6 +183,21 @@ public class TaskDSLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createTaskAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.Duration <em>Duration</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.Duration
+   * @generated
+   */
+  public Adapter createDurationAdapter()
   {
     return null;
   }

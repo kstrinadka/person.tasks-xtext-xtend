@@ -3,6 +3,8 @@ grammar persons.tasks.TaskDSL with org.eclipse.xtext.common.Terminals
 generate taskDSL "http://www.tasks.persons/TaskDSL"
 
 
+// Что поменялось?
+// Добавляем тип Duration
 
 
 Planning:
@@ -21,9 +23,12 @@ Task:
 	'Task:' action = Action
 	'persons:' persons += [Person]+
 	'priority:' prio = INT
-	('duration:' dl = INT unit = TimeUnit)?
+	('duration:' duration = Duration)?
 ;
 
+Duration:
+	dl = INT unit = TimeUnit
+;
 
 Action: 
 	LunchAction | 

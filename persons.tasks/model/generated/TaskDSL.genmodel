@@ -24,8 +24,11 @@
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//Task/action"/>
       <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//Task/persons"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//Task/prio"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//Task/dl"/>
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//Task/unit"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//Task/duration"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//Duration">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//Duration/dl"/>
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//Duration/unit"/>
     </genClasses>
     <genClasses ecoreClass="TaskDSL.ecore#//Action"/>
     <genClasses ecoreClass="TaskDSL.ecore#//LunchAction">

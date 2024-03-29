@@ -269,42 +269,80 @@ ruleTask returns [EObject current=null]
 			}
 			(
 				(
-					lv_dl_7_0=RULE_INT
 					{
-						newLeafNode(lv_dl_7_0, grammarAccess.getTaskAccess().getDlINTTerminalRuleCall_6_1_0());
+						newCompositeNode(grammarAccess.getTaskAccess().getDurationDurationParserRuleCall_6_1_0());
 					}
-					{
-						if ($current==null) {
-							$current = createModelElement(grammarAccess.getTaskRule());
-						}
-						setWithLastConsumed(
-							$current,
-							"dl",
-							lv_dl_7_0,
-							"org.eclipse.xtext.common.Terminals.INT");
-					}
-				)
-			)
-			(
-				(
-					{
-						newCompositeNode(grammarAccess.getTaskAccess().getUnitTimeUnitEnumRuleCall_6_2_0());
-					}
-					lv_unit_8_0=ruleTimeUnit
+					lv_duration_7_0=ruleDuration
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getTaskRule());
 						}
 						set(
 							$current,
-							"unit",
-							lv_unit_8_0,
-							"persons.tasks.TaskDSL.TimeUnit");
+							"duration",
+							lv_duration_7_0,
+							"persons.tasks.TaskDSL.Duration");
 						afterParserOrEnumRuleCall();
 					}
 				)
 			)
 		)?
+	)
+;
+
+// Entry rule entryRuleDuration
+entryRuleDuration returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getDurationRule()); }
+	iv_ruleDuration=ruleDuration
+	{ $current=$iv_ruleDuration.current; }
+	EOF;
+
+// Rule Duration
+ruleDuration returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			(
+				lv_dl_0_0=RULE_INT
+				{
+					newLeafNode(lv_dl_0_0, grammarAccess.getDurationAccess().getDlINTTerminalRuleCall_0_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getDurationRule());
+					}
+					setWithLastConsumed(
+						$current,
+						"dl",
+						lv_dl_0_0,
+						"org.eclipse.xtext.common.Terminals.INT");
+				}
+			)
+		)
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getDurationAccess().getUnitTimeUnitEnumRuleCall_1_0());
+				}
+				lv_unit_1_0=ruleTimeUnit
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getDurationRule());
+					}
+					set(
+						$current,
+						"unit",
+						lv_unit_1_0,
+						"persons.tasks.TaskDSL.TimeUnit");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
 	)
 ;
 
