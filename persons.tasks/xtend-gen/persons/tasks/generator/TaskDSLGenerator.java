@@ -3,10 +3,13 @@
  */
 package persons.tasks.generator;
 
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.emf.ecore.resource.Resource;
 import org.eclipse.xtext.generator.AbstractGenerator;
 import org.eclipse.xtext.generator.IFileSystemAccess2;
 import org.eclipse.xtext.generator.IGeneratorContext;
+import org.eclipse.xtext.xbase.lib.IteratorExtensions;
+import persons.tasks.taskDSL.Planning;
 
 /**
  * Generates code from your model files on save.
@@ -17,5 +20,10 @@ import org.eclipse.xtext.generator.IGeneratorContext;
 public class TaskDSLGenerator extends AbstractGenerator {
   @Override
   public void doGenerate(final Resource resource, final IFileSystemAccess2 fsa, final IGeneratorContext context) {
+    EObject _head = IteratorExtensions.<EObject>head(resource.getAllContents());
+    final Planning root = ((Planning) _head);
+    if ((root != null)) {
+      fsa.generateFile("PlanningInfo.txt", TextGenerator.toText(root));
+    }
   }
 }
