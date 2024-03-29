@@ -1,5 +1,18 @@
 package persons.tasks.generator
 
+import persons.tasks.taskDSL.ExpressionAddition
+import persons.tasks.taskDSL.ExpressionBalance
+import persons.tasks.taskDSL.ExpressionBracket
+import persons.tasks.taskDSL.ExpressionConstantInt
+import persons.tasks.taskDSL.ExpressionDivision
+import persons.tasks.taskDSL.ExpressionMaximum
+import persons.tasks.taskDSL.ExpressionMinimum
+import persons.tasks.taskDSL.ExpressionMinus
+import persons.tasks.taskDSL.ExpressionModulo
+import persons.tasks.taskDSL.ExpressionMultiply
+import persons.tasks.taskDSL.ExpressionPlus
+import persons.tasks.taskDSL.ExpressionPower
+import persons.tasks.taskDSL.ExpressionSubtraction
 import persons.tasks.taskDSL.LunchAction
 import persons.tasks.taskDSL.MeetingAction
 import persons.tasks.taskDSL.PaperAction
@@ -9,6 +22,69 @@ import persons.tasks.taskDSL.Task
 import persons.tasks.taskDSL.TimeUnit
 
 class TextGenerator {
+	
+	
+	def static dispatch CharSequence generateExpression(ExpressionAddition expr)
+	'''
+		(«generateExpression(expr.left)» + «generateExpression(expr.right)»)
+	'''
+	
+	def static dispatch CharSequence generateExpression(ExpressionSubtraction expr)
+	'''
+		(«generateExpression(expr.left)» - «generateExpression(expr.right)»)
+	'''
+	
+	def static dispatch CharSequence generateExpression(ExpressionMultiply expr)
+	'''
+		(«generateExpression(expr.left)» * «generateExpression(expr.right)»)
+	'''
+
+	def static dispatch CharSequence generateExpression(ExpressionDivision expr)
+	'''
+		(«generateExpression(expr.left)» / «generateExpression(expr.right)»)
+	'''
+
+	def static dispatch CharSequence generateExpression(ExpressionMaximum expr)
+	'''
+		max(«generateExpression(expr.left)», «generateExpression(expr.right)»)
+	'''
+
+	def static dispatch CharSequence generateExpression(ExpressionMinimum expr)
+	'''
+		min(«generateExpression(expr.left)», «generateExpression(expr.right)»)
+	'''
+
+	def static dispatch CharSequence generateExpression(ExpressionModulo expr)
+	'''
+		(fmod(«generateExpression(expr.left)», «generateExpression(expr.right)») >=
+		0 ? fmod(«generateExpression(expr.left)», «generateExpression(expr.right)») :
+		fmod(«generateExpression(expr.left)», «generateExpression(expr.right)») +
+		«generateExpression(expr.right)»)
+	'''
+
+	def static dispatch CharSequence generateExpression(ExpressionPower expr)
+	'''
+		pow(«generateExpression(expr.left)», 
+		«generateExpression(expr.right)»)
+	'''
+
+	def static dispatch CharSequence generateExpression(ExpressionMinus expr)
+	'''(-«generateExpression(expr.sub)»)'''
+	
+	
+	def static dispatch CharSequence generateExpression(ExpressionPlus expr)
+	'''(+«generateExpression(expr.sub)»)'''
+	
+	def static dispatch CharSequence generateExpression(ExpressionBracket expr)
+	'''(«generateExpression(expr.sub)»)'''
+	
+	def static dispatch CharSequence generateExpression(ExpressionConstantInt expr)
+	'''«expr.value»'''
+	
+	
+	def static dispatch CharSequence generateExpression(ExpressionBalance expr)
+	'''«expr.value»'''
+
 	
 	def static toText(Planning root)
 	'''
@@ -46,7 +122,7 @@ class TextGenerator {
 	
 	def static dispatch action2Text(PaymentAction action)
 	'''
-	Pay «action.amount» euro
+		Pay «generateExpression(action.amount)» euro
 	'''
 	
 	def static infoAction(Task t)

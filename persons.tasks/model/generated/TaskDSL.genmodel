@@ -12,6 +12,9 @@
       <genEnumLiterals ecoreEnumLiteral="TaskDSL.ecore#//TimeUnit/DAY"/>
       <genEnumLiterals ecoreEnumLiteral="TaskDSL.ecore#//TimeUnit/WEEK"/>
     </genEnums>
+    <genEnums typeSafeEnumCompatible="false" ecoreEnum="TaskDSL.ecore#//Balance">
+      <genEnumLiterals ecoreEnumLiteral="TaskDSL.ecore#//Balance/BALANCE"/>
+    </genEnums>
     <genClasses ecoreClass="TaskDSL.ecore#//Planning">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//Planning/name"/>
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//Planning/anonymous"/>
@@ -42,7 +45,55 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//PaperAction/report"/>
     </genClasses>
     <genClasses ecoreClass="TaskDSL.ecore#//PaymentAction">
-      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//PaymentAction/amount"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//PaymentAction/amount"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//IntExpression"/>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionMinus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionMinus/sub"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionPlus">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionPlus/sub"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionBracket">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionBracket/sub"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionConstantInt">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//ExpressionConstantInt/value"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionBalance">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//ExpressionBalance/value"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionAddition">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionAddition/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionAddition/right"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionSubtraction">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionSubtraction/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionSubtraction/right"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionMultiply">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionMultiply/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionMultiply/right"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionDivision">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionDivision/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionDivision/right"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionMaximum">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionMaximum/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionMaximum/right"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionMinimum">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionMinimum/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionMinimum/right"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionModulo">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionModulo/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionModulo/right"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ExpressionPower">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionPower/left"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ExpressionPower/right"/>
     </genClasses>
   </genPackages>
 </genmodel:GenModel>

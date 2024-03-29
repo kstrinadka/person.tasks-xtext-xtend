@@ -23,25 +23,25 @@ package persons.tasks.taskDSL;
 public interface PaymentAction extends Action
 {
   /**
-   * Returns the value of the '<em><b>Amount</b></em>' attribute.
+   * Returns the value of the '<em><b>Amount</b></em>' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @return the value of the '<em>Amount</em>' attribute.
-   * @see #setAmount(int)
+   * @return the value of the '<em>Amount</em>' containment reference.
+   * @see #setAmount(IntExpression)
    * @see persons.tasks.taskDSL.TaskDSLPackage#getPaymentAction_Amount()
-   * @model
+   * @model containment="true"
    * @generated
    */
-  int getAmount();
+  IntExpression getAmount();
 
   /**
-   * Sets the value of the '{@link persons.tasks.taskDSL.PaymentAction#getAmount <em>Amount</em>}' attribute.
+   * Sets the value of the '{@link persons.tasks.taskDSL.PaymentAction#getAmount <em>Amount</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
-   * @param value the new value of the '<em>Amount</em>' attribute.
+   * @param value the new value of the '<em>Amount</em>' containment reference.
    * @see #getAmount()
    * @generated
    */
-  void setAmount(int value);
+  void setAmount(IntExpression value);
 
 } // PaymentAction

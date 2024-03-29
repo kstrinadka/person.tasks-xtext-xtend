@@ -5,7 +5,22 @@ import java.util.List;
 import org.eclipse.emf.common.util.EList;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import persons.tasks.taskDSL.Action;
+import persons.tasks.taskDSL.Balance;
 import persons.tasks.taskDSL.Duration;
+import persons.tasks.taskDSL.ExpressionAddition;
+import persons.tasks.taskDSL.ExpressionBalance;
+import persons.tasks.taskDSL.ExpressionBracket;
+import persons.tasks.taskDSL.ExpressionConstantInt;
+import persons.tasks.taskDSL.ExpressionDivision;
+import persons.tasks.taskDSL.ExpressionMaximum;
+import persons.tasks.taskDSL.ExpressionMinimum;
+import persons.tasks.taskDSL.ExpressionMinus;
+import persons.tasks.taskDSL.ExpressionModulo;
+import persons.tasks.taskDSL.ExpressionMultiply;
+import persons.tasks.taskDSL.ExpressionPlus;
+import persons.tasks.taskDSL.ExpressionPower;
+import persons.tasks.taskDSL.ExpressionSubtraction;
+import persons.tasks.taskDSL.IntExpression;
 import persons.tasks.taskDSL.LunchAction;
 import persons.tasks.taskDSL.MeetingAction;
 import persons.tasks.taskDSL.PaperAction;
@@ -17,6 +32,172 @@ import persons.tasks.taskDSL.TimeUnit;
 
 @SuppressWarnings("all")
 public class TextGenerator {
+  protected static CharSequence _generateExpression(final ExpressionAddition expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getLeft());
+    _builder.append(_generateExpression);
+    _builder.append(" + ");
+    CharSequence _generateExpression_1 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionSubtraction expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getLeft());
+    _builder.append(_generateExpression);
+    _builder.append(" - ");
+    CharSequence _generateExpression_1 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionMultiply expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getLeft());
+    _builder.append(_generateExpression);
+    _builder.append(" * ");
+    CharSequence _generateExpression_1 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionDivision expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getLeft());
+    _builder.append(_generateExpression);
+    _builder.append(" / ");
+    CharSequence _generateExpression_1 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionMaximum expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("max(");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getLeft());
+    _builder.append(_generateExpression);
+    _builder.append(", ");
+    CharSequence _generateExpression_1 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionMinimum expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("min(");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getLeft());
+    _builder.append(_generateExpression);
+    _builder.append(", ");
+    CharSequence _generateExpression_1 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionModulo expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(fmod(");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getLeft());
+    _builder.append(_generateExpression);
+    _builder.append(", ");
+    CharSequence _generateExpression_1 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_1);
+    _builder.append(") >=");
+    _builder.newLineIfNotEmpty();
+    _builder.append("0 ? fmod(");
+    CharSequence _generateExpression_2 = TextGenerator.generateExpression(expr.getLeft());
+    _builder.append(_generateExpression_2);
+    _builder.append(", ");
+    CharSequence _generateExpression_3 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_3);
+    _builder.append(") :");
+    _builder.newLineIfNotEmpty();
+    _builder.append("fmod(");
+    CharSequence _generateExpression_4 = TextGenerator.generateExpression(expr.getLeft());
+    _builder.append(_generateExpression_4);
+    _builder.append(", ");
+    CharSequence _generateExpression_5 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_5);
+    _builder.append(") +");
+    _builder.newLineIfNotEmpty();
+    CharSequence _generateExpression_6 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_6);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionPower expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("pow(");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getLeft());
+    _builder.append(_generateExpression);
+    _builder.append(", ");
+    _builder.newLineIfNotEmpty();
+    CharSequence _generateExpression_1 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionMinus expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(-");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getSub());
+    _builder.append(_generateExpression);
+    _builder.append(")");
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionPlus expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(+");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getSub());
+    _builder.append(_generateExpression);
+    _builder.append(")");
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionBracket expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getSub());
+    _builder.append(_generateExpression);
+    _builder.append(")");
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionConstantInt expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    int _value = expr.getValue();
+    _builder.append(_value);
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionBalance expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    Balance _value = expr.getValue();
+    _builder.append(_value);
+    return _builder;
+  }
+
   public static CharSequence toText(final Planning root) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("Info of the planning ");
@@ -112,8 +293,8 @@ public class TextGenerator {
   protected static CharSequence _action2Text(final PaymentAction action) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("Pay ");
-    int _amount = action.getAmount();
-    _builder.append(_amount);
+    CharSequence _generateExpression = TextGenerator.generateExpression(action.getAmount());
+    _builder.append(_generateExpression);
     _builder.append(" euro");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -163,6 +344,39 @@ public class TextGenerator {
       }
     }
     return null;
+  }
+
+  public static CharSequence generateExpression(final IntExpression expr) {
+    if (expr instanceof ExpressionAddition) {
+      return _generateExpression((ExpressionAddition)expr);
+    } else if (expr instanceof ExpressionBalance) {
+      return _generateExpression((ExpressionBalance)expr);
+    } else if (expr instanceof ExpressionBracket) {
+      return _generateExpression((ExpressionBracket)expr);
+    } else if (expr instanceof ExpressionConstantInt) {
+      return _generateExpression((ExpressionConstantInt)expr);
+    } else if (expr instanceof ExpressionDivision) {
+      return _generateExpression((ExpressionDivision)expr);
+    } else if (expr instanceof ExpressionMaximum) {
+      return _generateExpression((ExpressionMaximum)expr);
+    } else if (expr instanceof ExpressionMinimum) {
+      return _generateExpression((ExpressionMinimum)expr);
+    } else if (expr instanceof ExpressionMinus) {
+      return _generateExpression((ExpressionMinus)expr);
+    } else if (expr instanceof ExpressionModulo) {
+      return _generateExpression((ExpressionModulo)expr);
+    } else if (expr instanceof ExpressionMultiply) {
+      return _generateExpression((ExpressionMultiply)expr);
+    } else if (expr instanceof ExpressionPlus) {
+      return _generateExpression((ExpressionPlus)expr);
+    } else if (expr instanceof ExpressionPower) {
+      return _generateExpression((ExpressionPower)expr);
+    } else if (expr instanceof ExpressionSubtraction) {
+      return _generateExpression((ExpressionSubtraction)expr);
+    } else {
+      throw new IllegalArgumentException("Unhandled parameter types: " +
+        Arrays.<Object>asList(expr).toString());
+    }
   }
 
   public static CharSequence action2Text(final Action action) {

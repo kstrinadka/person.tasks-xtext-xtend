@@ -75,6 +75,20 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
       case TaskDSLPackage.MEETING_ACTION: return createMeetingAction();
       case TaskDSLPackage.PAPER_ACTION: return createPaperAction();
       case TaskDSLPackage.PAYMENT_ACTION: return createPaymentAction();
+      case TaskDSLPackage.INT_EXPRESSION: return createIntExpression();
+      case TaskDSLPackage.EXPRESSION_MINUS: return createExpressionMinus();
+      case TaskDSLPackage.EXPRESSION_PLUS: return createExpressionPlus();
+      case TaskDSLPackage.EXPRESSION_BRACKET: return createExpressionBracket();
+      case TaskDSLPackage.EXPRESSION_CONSTANT_INT: return createExpressionConstantInt();
+      case TaskDSLPackage.EXPRESSION_BALANCE: return createExpressionBalance();
+      case TaskDSLPackage.EXPRESSION_ADDITION: return createExpressionAddition();
+      case TaskDSLPackage.EXPRESSION_SUBTRACTION: return createExpressionSubtraction();
+      case TaskDSLPackage.EXPRESSION_MULTIPLY: return createExpressionMultiply();
+      case TaskDSLPackage.EXPRESSION_DIVISION: return createExpressionDivision();
+      case TaskDSLPackage.EXPRESSION_MAXIMUM: return createExpressionMaximum();
+      case TaskDSLPackage.EXPRESSION_MINIMUM: return createExpressionMinimum();
+      case TaskDSLPackage.EXPRESSION_MODULO: return createExpressionModulo();
+      case TaskDSLPackage.EXPRESSION_POWER: return createExpressionPower();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -92,6 +106,8 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
     {
       case TaskDSLPackage.TIME_UNIT:
         return createTimeUnitFromString(eDataType, initialValue);
+      case TaskDSLPackage.BALANCE:
+        return createBalanceFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -109,6 +125,8 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
     {
       case TaskDSLPackage.TIME_UNIT:
         return convertTimeUnitToString(eDataType, instanceValue);
+      case TaskDSLPackage.BALANCE:
+        return convertBalanceToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -227,6 +245,174 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
+  public IntExpression createIntExpression()
+  {
+    IntExpressionImpl intExpression = new IntExpressionImpl();
+    return intExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionMinus createExpressionMinus()
+  {
+    ExpressionMinusImpl expressionMinus = new ExpressionMinusImpl();
+    return expressionMinus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionPlus createExpressionPlus()
+  {
+    ExpressionPlusImpl expressionPlus = new ExpressionPlusImpl();
+    return expressionPlus;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionBracket createExpressionBracket()
+  {
+    ExpressionBracketImpl expressionBracket = new ExpressionBracketImpl();
+    return expressionBracket;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionConstantInt createExpressionConstantInt()
+  {
+    ExpressionConstantIntImpl expressionConstantInt = new ExpressionConstantIntImpl();
+    return expressionConstantInt;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionBalance createExpressionBalance()
+  {
+    ExpressionBalanceImpl expressionBalance = new ExpressionBalanceImpl();
+    return expressionBalance;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionAddition createExpressionAddition()
+  {
+    ExpressionAdditionImpl expressionAddition = new ExpressionAdditionImpl();
+    return expressionAddition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionSubtraction createExpressionSubtraction()
+  {
+    ExpressionSubtractionImpl expressionSubtraction = new ExpressionSubtractionImpl();
+    return expressionSubtraction;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionMultiply createExpressionMultiply()
+  {
+    ExpressionMultiplyImpl expressionMultiply = new ExpressionMultiplyImpl();
+    return expressionMultiply;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionDivision createExpressionDivision()
+  {
+    ExpressionDivisionImpl expressionDivision = new ExpressionDivisionImpl();
+    return expressionDivision;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionMaximum createExpressionMaximum()
+  {
+    ExpressionMaximumImpl expressionMaximum = new ExpressionMaximumImpl();
+    return expressionMaximum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionMinimum createExpressionMinimum()
+  {
+    ExpressionMinimumImpl expressionMinimum = new ExpressionMinimumImpl();
+    return expressionMinimum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionModulo createExpressionModulo()
+  {
+    ExpressionModuloImpl expressionModulo = new ExpressionModuloImpl();
+    return expressionModulo;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionPower createExpressionPower()
+  {
+    ExpressionPowerImpl expressionPower = new ExpressionPowerImpl();
+    return expressionPower;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TimeUnit createTimeUnitFromString(EDataType eDataType, String initialValue)
   {
     TimeUnit result = TimeUnit.get(initialValue);
@@ -240,6 +426,28 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
    * @generated
    */
   public String convertTimeUnitToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public Balance createBalanceFromString(EDataType eDataType, String initialValue)
+  {
+    Balance result = Balance.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertBalanceToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

@@ -4,11 +4,14 @@
 package persons.tasks.taskDSL.impl;
 
 import org.eclipse.emf.common.notify.Notification;
+import org.eclipse.emf.common.notify.NotificationChain;
 
 import org.eclipse.emf.ecore.EClass;
+import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import persons.tasks.taskDSL.IntExpression;
 import persons.tasks.taskDSL.PaymentAction;
 import persons.tasks.taskDSL.TaskDSLPackage;
 
@@ -28,24 +31,14 @@ import persons.tasks.taskDSL.TaskDSLPackage;
 public class PaymentActionImpl extends ActionImpl implements PaymentAction
 {
   /**
-   * The default value of the '{@link #getAmount() <em>Amount</em>}' attribute.
+   * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @see #getAmount()
    * @generated
    * @ordered
    */
-  protected static final int AMOUNT_EDEFAULT = 0;
-
-  /**
-   * The cached value of the '{@link #getAmount() <em>Amount</em>}' attribute.
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @see #getAmount()
-   * @generated
-   * @ordered
-   */
-  protected int amount = AMOUNT_EDEFAULT;
+  protected IntExpression amount;
 
   /**
    * <!-- begin-user-doc -->
@@ -74,7 +67,7 @@ public class PaymentActionImpl extends ActionImpl implements PaymentAction
    * @generated
    */
   @Override
-  public int getAmount()
+  public IntExpression getAmount()
   {
     return amount;
   }
@@ -84,13 +77,54 @@ public class PaymentActionImpl extends ActionImpl implements PaymentAction
    * <!-- end-user-doc -->
    * @generated
    */
-  @Override
-  public void setAmount(int newAmount)
+  public NotificationChain basicSetAmount(IntExpression newAmount, NotificationChain msgs)
   {
-    int oldAmount = amount;
+    IntExpression oldAmount = amount;
     amount = newAmount;
     if (eNotificationRequired())
-      eNotify(new ENotificationImpl(this, Notification.SET, TaskDSLPackage.PAYMENT_ACTION__AMOUNT, oldAmount, amount));
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskDSLPackage.PAYMENT_ACTION__AMOUNT, oldAmount, newAmount);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setAmount(IntExpression newAmount)
+  {
+    if (newAmount != amount)
+    {
+      NotificationChain msgs = null;
+      if (amount != null)
+        msgs = ((InternalEObject)amount).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskDSLPackage.PAYMENT_ACTION__AMOUNT, null, msgs);
+      if (newAmount != null)
+        msgs = ((InternalEObject)newAmount).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskDSLPackage.PAYMENT_ACTION__AMOUNT, null, msgs);
+      msgs = basicSetAmount(newAmount, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TaskDSLPackage.PAYMENT_ACTION__AMOUNT, newAmount, newAmount));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
+  {
+    switch (featureID)
+    {
+      case TaskDSLPackage.PAYMENT_ACTION__AMOUNT:
+        return basicSetAmount(null, msgs);
+    }
+    return super.eInverseRemove(otherEnd, featureID, msgs);
   }
 
   /**
@@ -120,7 +154,7 @@ public class PaymentActionImpl extends ActionImpl implements PaymentAction
     switch (featureID)
     {
       case TaskDSLPackage.PAYMENT_ACTION__AMOUNT:
-        setAmount((Integer)newValue);
+        setAmount((IntExpression)newValue);
         return;
     }
     super.eSet(featureID, newValue);
@@ -137,7 +171,7 @@ public class PaymentActionImpl extends ActionImpl implements PaymentAction
     switch (featureID)
     {
       case TaskDSLPackage.PAYMENT_ACTION__AMOUNT:
-        setAmount(AMOUNT_EDEFAULT);
+        setAmount((IntExpression)null);
         return;
     }
     super.eUnset(featureID);
@@ -154,26 +188,9 @@ public class PaymentActionImpl extends ActionImpl implements PaymentAction
     switch (featureID)
     {
       case TaskDSLPackage.PAYMENT_ACTION__AMOUNT:
-        return amount != AMOUNT_EDEFAULT;
+        return amount != null;
     }
     return super.eIsSet(featureID);
-  }
-
-  /**
-   * <!-- begin-user-doc -->
-   * <!-- end-user-doc -->
-   * @generated
-   */
-  @Override
-  public String toString()
-  {
-    if (eIsProxy()) return super.toString();
-
-    StringBuilder result = new StringBuilder(super.toString());
-    result.append(" (amount: ");
-    result.append(amount);
-    result.append(')');
-    return result.toString();
   }
 
 } //PaymentActionImpl

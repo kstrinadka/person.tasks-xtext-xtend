@@ -51,7 +51,7 @@ PaperAction:
 
 
 PaymentAction: 
-	'Pay' amount = INT 'euro';
+	'Pay' amount = IntExpression 'euro';
 
 
 enum TimeUnit:
@@ -59,3 +59,70 @@ enum TimeUnit:
 	HOUR = 'hour' |
 	DAY = 'day' |
 	WEEK = 'week';
+
+
+
+
+IntExpression: ExpressionLevel1
+;
+
+ExpressionLevel1 returns IntExpression: // Left associativity
+	ExpressionLevel2
+		( ({ExpressionAddition.left =current} "+" right=ExpressionLevel2)
+		| ({ExpressionSubtraction.left=current} "-" right=ExpressionLevel2)
+		)*
+;
+
+
+ExpressionLevel2 returns IntExpression: // Left associativity
+	ExpressionLevel3
+		( ({ExpressionMultiply.left=current} "*" right=ExpressionLevel3)
+		| ({ExpressionDivision.left=current} "/" right=ExpressionLevel3)
+		| ({ExpressionMaximum.left =current} "max" right=ExpressionLevel3)
+		| ({ExpressionMinimum.left =current} "min" right=ExpressionLevel3)
+		| ({ExpressionModulo.left =current} "mod" right=ExpressionLevel3)
+	)*
+;
+
+
+ExpressionLevel3 returns IntExpression: // Right associativity
+	ExpressionLevel4
+		( ({ExpressionPower.left=current} "^" right=ExpressionLevel3))?
+;
+
+
+ExpressionLevel4 returns IntExpression:
+	ExpressionMinus | ExpressionPlus | ExpressionLevel5
+;
+
+ExpressionMinus:
+	"-" sub=ExpressionLevel5
+;
+
+ExpressionPlus:
+	"+" sub=ExpressionLevel5
+;
+
+ExpressionLevel5 returns IntExpression:
+	ExpressionBracket |
+	ExpressionConstantInt |
+	ExpressionBalance
+;
+
+ExpressionBracket:
+	"(" sub=IntExpression ")"
+;
+
+ExpressionConstantInt:
+	value=INT
+;
+
+ExpressionBalance:
+	value=Balance
+;
+
+enum Balance:
+	BALANCE = 'balance'
+;
+
+

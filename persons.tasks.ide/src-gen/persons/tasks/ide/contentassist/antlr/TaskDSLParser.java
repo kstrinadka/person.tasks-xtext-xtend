@@ -33,6 +33,10 @@ public class TaskDSLParser extends AbstractContentAssistParser {
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, TaskDSLGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getPlanningAccess().getAlternatives_3(), "rule__Planning__Alternatives_3");
 			builder.put(grammarAccess.getActionAccess().getAlternatives(), "rule__Action__Alternatives");
+			builder.put(grammarAccess.getExpressionLevel1Access().getAlternatives_1(), "rule__ExpressionLevel1__Alternatives_1");
+			builder.put(grammarAccess.getExpressionLevel2Access().getAlternatives_1(), "rule__ExpressionLevel2__Alternatives_1");
+			builder.put(grammarAccess.getExpressionLevel4Access().getAlternatives(), "rule__ExpressionLevel4__Alternatives");
+			builder.put(grammarAccess.getExpressionLevel5Access().getAlternatives(), "rule__ExpressionLevel5__Alternatives");
 			builder.put(grammarAccess.getTimeUnitAccess().getAlternatives(), "rule__TimeUnit__Alternatives");
 			builder.put(grammarAccess.getPlanningAccess().getGroup(), "rule__Planning__Group__0");
 			builder.put(grammarAccess.getPersonAccess().getGroup(), "rule__Person__Group__0");
@@ -43,6 +47,20 @@ public class TaskDSLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMeetingActionAccess().getGroup(), "rule__MeetingAction__Group__0");
 			builder.put(grammarAccess.getPaperActionAccess().getGroup(), "rule__PaperAction__Group__0");
 			builder.put(grammarAccess.getPaymentActionAccess().getGroup(), "rule__PaymentAction__Group__0");
+			builder.put(grammarAccess.getExpressionLevel1Access().getGroup(), "rule__ExpressionLevel1__Group__0");
+			builder.put(grammarAccess.getExpressionLevel1Access().getGroup_1_0(), "rule__ExpressionLevel1__Group_1_0__0");
+			builder.put(grammarAccess.getExpressionLevel1Access().getGroup_1_1(), "rule__ExpressionLevel1__Group_1_1__0");
+			builder.put(grammarAccess.getExpressionLevel2Access().getGroup(), "rule__ExpressionLevel2__Group__0");
+			builder.put(grammarAccess.getExpressionLevel2Access().getGroup_1_0(), "rule__ExpressionLevel2__Group_1_0__0");
+			builder.put(grammarAccess.getExpressionLevel2Access().getGroup_1_1(), "rule__ExpressionLevel2__Group_1_1__0");
+			builder.put(grammarAccess.getExpressionLevel2Access().getGroup_1_2(), "rule__ExpressionLevel2__Group_1_2__0");
+			builder.put(grammarAccess.getExpressionLevel2Access().getGroup_1_3(), "rule__ExpressionLevel2__Group_1_3__0");
+			builder.put(grammarAccess.getExpressionLevel2Access().getGroup_1_4(), "rule__ExpressionLevel2__Group_1_4__0");
+			builder.put(grammarAccess.getExpressionLevel3Access().getGroup(), "rule__ExpressionLevel3__Group__0");
+			builder.put(grammarAccess.getExpressionLevel3Access().getGroup_1(), "rule__ExpressionLevel3__Group_1__0");
+			builder.put(grammarAccess.getExpressionMinusAccess().getGroup(), "rule__ExpressionMinus__Group__0");
+			builder.put(grammarAccess.getExpressionPlusAccess().getGroup(), "rule__ExpressionPlus__Group__0");
+			builder.put(grammarAccess.getExpressionBracketAccess().getGroup(), "rule__ExpressionBracket__Group__0");
 			builder.put(grammarAccess.getPlanningAccess().getNameAssignment_1(), "rule__Planning__NameAssignment_1");
 			builder.put(grammarAccess.getPlanningAccess().getAnonymousAssignment_2(), "rule__Planning__AnonymousAssignment_2");
 			builder.put(grammarAccess.getPlanningAccess().getPersonsAssignment_3_0(), "rule__Planning__PersonsAssignment_3_0");
@@ -58,6 +76,19 @@ public class TaskDSLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getMeetingActionAccess().getTopicAssignment_1(), "rule__MeetingAction__TopicAssignment_1");
 			builder.put(grammarAccess.getPaperActionAccess().getReportAssignment_1(), "rule__PaperAction__ReportAssignment_1");
 			builder.put(grammarAccess.getPaymentActionAccess().getAmountAssignment_1(), "rule__PaymentAction__AmountAssignment_1");
+			builder.put(grammarAccess.getExpressionLevel1Access().getRightAssignment_1_0_2(), "rule__ExpressionLevel1__RightAssignment_1_0_2");
+			builder.put(grammarAccess.getExpressionLevel1Access().getRightAssignment_1_1_2(), "rule__ExpressionLevel1__RightAssignment_1_1_2");
+			builder.put(grammarAccess.getExpressionLevel2Access().getRightAssignment_1_0_2(), "rule__ExpressionLevel2__RightAssignment_1_0_2");
+			builder.put(grammarAccess.getExpressionLevel2Access().getRightAssignment_1_1_2(), "rule__ExpressionLevel2__RightAssignment_1_1_2");
+			builder.put(grammarAccess.getExpressionLevel2Access().getRightAssignment_1_2_2(), "rule__ExpressionLevel2__RightAssignment_1_2_2");
+			builder.put(grammarAccess.getExpressionLevel2Access().getRightAssignment_1_3_2(), "rule__ExpressionLevel2__RightAssignment_1_3_2");
+			builder.put(grammarAccess.getExpressionLevel2Access().getRightAssignment_1_4_2(), "rule__ExpressionLevel2__RightAssignment_1_4_2");
+			builder.put(grammarAccess.getExpressionLevel3Access().getRightAssignment_1_2(), "rule__ExpressionLevel3__RightAssignment_1_2");
+			builder.put(grammarAccess.getExpressionMinusAccess().getSubAssignment_1(), "rule__ExpressionMinus__SubAssignment_1");
+			builder.put(grammarAccess.getExpressionPlusAccess().getSubAssignment_1(), "rule__ExpressionPlus__SubAssignment_1");
+			builder.put(grammarAccess.getExpressionBracketAccess().getSubAssignment_1(), "rule__ExpressionBracket__SubAssignment_1");
+			builder.put(grammarAccess.getExpressionConstantIntAccess().getValueAssignment(), "rule__ExpressionConstantInt__ValueAssignment");
+			builder.put(grammarAccess.getExpressionBalanceAccess().getValueAssignment(), "rule__ExpressionBalance__ValueAssignment");
 		}
 	}
 	

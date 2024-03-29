@@ -559,19 +559,20 @@ rulePaymentAction returns [EObject current=null]
 		}
 		(
 			(
-				lv_amount_1_0=RULE_INT
 				{
-					newLeafNode(lv_amount_1_0, grammarAccess.getPaymentActionAccess().getAmountINTTerminalRuleCall_1_0());
+					newCompositeNode(grammarAccess.getPaymentActionAccess().getAmountIntExpressionParserRuleCall_1_0());
 				}
+				lv_amount_1_0=ruleIntExpression
 				{
 					if ($current==null) {
-						$current = createModelElement(grammarAccess.getPaymentActionRule());
+						$current = createModelElementForParent(grammarAccess.getPaymentActionRule());
 					}
-					setWithLastConsumed(
+					set(
 						$current,
 						"amount",
 						lv_amount_1_0,
-						"org.eclipse.xtext.common.Terminals.INT");
+						"persons.tasks.TaskDSL.IntExpression");
+					afterParserOrEnumRuleCall();
 				}
 			)
 		)
@@ -579,6 +580,668 @@ rulePaymentAction returns [EObject current=null]
 		{
 			newLeafNode(otherlv_2, grammarAccess.getPaymentActionAccess().getEuroKeyword_2());
 		}
+	)
+;
+
+// Entry rule entryRuleIntExpression
+entryRuleIntExpression returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getIntExpressionRule()); }
+	iv_ruleIntExpression=ruleIntExpression
+	{ $current=$iv_ruleIntExpression.current; }
+	EOF;
+
+// Rule IntExpression
+ruleIntExpression returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	{
+		newCompositeNode(grammarAccess.getIntExpressionAccess().getExpressionLevel1ParserRuleCall());
+	}
+	this_ExpressionLevel1_0=ruleExpressionLevel1
+	{
+		$current = $this_ExpressionLevel1_0.current;
+		afterParserOrEnumRuleCall();
+	}
+;
+
+// Entry rule entryRuleExpressionLevel1
+entryRuleExpressionLevel1 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionLevel1Rule()); }
+	iv_ruleExpressionLevel1=ruleExpressionLevel1
+	{ $current=$iv_ruleExpressionLevel1.current; }
+	EOF;
+
+// Rule ExpressionLevel1
+ruleExpressionLevel1 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpressionLevel1Access().getExpressionLevel2ParserRuleCall_0());
+		}
+		this_ExpressionLevel2_0=ruleExpressionLevel2
+		{
+			$current = $this_ExpressionLevel2_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpressionLevel1Access().getExpressionAdditionLeftAction_1_0_0(),
+							$current);
+					}
+				)
+				otherlv_2='+'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getExpressionLevel1Access().getPlusSignKeyword_1_0_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpressionLevel1Access().getRightExpressionLevel2ParserRuleCall_1_0_2_0());
+						}
+						lv_right_3_0=ruleExpressionLevel2
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpressionLevel1Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_3_0,
+								"persons.tasks.TaskDSL.ExpressionLevel2");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpressionLevel1Access().getExpressionSubtractionLeftAction_1_1_0(),
+							$current);
+					}
+				)
+				otherlv_5='-'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getExpressionLevel1Access().getHyphenMinusKeyword_1_1_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpressionLevel1Access().getRightExpressionLevel2ParserRuleCall_1_1_2_0());
+						}
+						lv_right_6_0=ruleExpressionLevel2
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpressionLevel1Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_6_0,
+								"persons.tasks.TaskDSL.ExpressionLevel2");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleExpressionLevel2
+entryRuleExpressionLevel2 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionLevel2Rule()); }
+	iv_ruleExpressionLevel2=ruleExpressionLevel2
+	{ $current=$iv_ruleExpressionLevel2.current; }
+	EOF;
+
+// Rule ExpressionLevel2
+ruleExpressionLevel2 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpressionLevel2Access().getExpressionLevel3ParserRuleCall_0());
+		}
+		this_ExpressionLevel3_0=ruleExpressionLevel3
+		{
+			$current = $this_ExpressionLevel3_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpressionLevel2Access().getExpressionMultiplyLeftAction_1_0_0(),
+							$current);
+					}
+				)
+				otherlv_2='*'
+				{
+					newLeafNode(otherlv_2, grammarAccess.getExpressionLevel2Access().getAsteriskKeyword_1_0_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpressionLevel2Access().getRightExpressionLevel3ParserRuleCall_1_0_2_0());
+						}
+						lv_right_3_0=ruleExpressionLevel3
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpressionLevel2Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_3_0,
+								"persons.tasks.TaskDSL.ExpressionLevel3");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpressionLevel2Access().getExpressionDivisionLeftAction_1_1_0(),
+							$current);
+					}
+				)
+				otherlv_5='/'
+				{
+					newLeafNode(otherlv_5, grammarAccess.getExpressionLevel2Access().getSolidusKeyword_1_1_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpressionLevel2Access().getRightExpressionLevel3ParserRuleCall_1_1_2_0());
+						}
+						lv_right_6_0=ruleExpressionLevel3
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpressionLevel2Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_6_0,
+								"persons.tasks.TaskDSL.ExpressionLevel3");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpressionLevel2Access().getExpressionMaximumLeftAction_1_2_0(),
+							$current);
+					}
+				)
+				otherlv_8='max'
+				{
+					newLeafNode(otherlv_8, grammarAccess.getExpressionLevel2Access().getMaxKeyword_1_2_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpressionLevel2Access().getRightExpressionLevel3ParserRuleCall_1_2_2_0());
+						}
+						lv_right_9_0=ruleExpressionLevel3
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpressionLevel2Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_9_0,
+								"persons.tasks.TaskDSL.ExpressionLevel3");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpressionLevel2Access().getExpressionMinimumLeftAction_1_3_0(),
+							$current);
+					}
+				)
+				otherlv_11='min'
+				{
+					newLeafNode(otherlv_11, grammarAccess.getExpressionLevel2Access().getMinKeyword_1_3_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpressionLevel2Access().getRightExpressionLevel3ParserRuleCall_1_3_2_0());
+						}
+						lv_right_12_0=ruleExpressionLevel3
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpressionLevel2Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_12_0,
+								"persons.tasks.TaskDSL.ExpressionLevel3");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+			    |
+			(
+				(
+					{
+						$current = forceCreateModelElementAndSet(
+							grammarAccess.getExpressionLevel2Access().getExpressionModuloLeftAction_1_4_0(),
+							$current);
+					}
+				)
+				otherlv_14='mod'
+				{
+					newLeafNode(otherlv_14, grammarAccess.getExpressionLevel2Access().getModKeyword_1_4_1());
+				}
+				(
+					(
+						{
+							newCompositeNode(grammarAccess.getExpressionLevel2Access().getRightExpressionLevel3ParserRuleCall_1_4_2_0());
+						}
+						lv_right_15_0=ruleExpressionLevel3
+						{
+							if ($current==null) {
+								$current = createModelElementForParent(grammarAccess.getExpressionLevel2Rule());
+							}
+							set(
+								$current,
+								"right",
+								lv_right_15_0,
+								"persons.tasks.TaskDSL.ExpressionLevel3");
+							afterParserOrEnumRuleCall();
+						}
+					)
+				)
+			)
+		)*
+	)
+;
+
+// Entry rule entryRuleExpressionLevel3
+entryRuleExpressionLevel3 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionLevel3Rule()); }
+	iv_ruleExpressionLevel3=ruleExpressionLevel3
+	{ $current=$iv_ruleExpressionLevel3.current; }
+	EOF;
+
+// Rule ExpressionLevel3
+ruleExpressionLevel3 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpressionLevel3Access().getExpressionLevel4ParserRuleCall_0());
+		}
+		this_ExpressionLevel4_0=ruleExpressionLevel4
+		{
+			$current = $this_ExpressionLevel4_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		(
+			(
+				{
+					$current = forceCreateModelElementAndSet(
+						grammarAccess.getExpressionLevel3Access().getExpressionPowerLeftAction_1_0(),
+						$current);
+				}
+			)
+			otherlv_2='^'
+			{
+				newLeafNode(otherlv_2, grammarAccess.getExpressionLevel3Access().getCircumflexAccentKeyword_1_1());
+			}
+			(
+				(
+					{
+						newCompositeNode(grammarAccess.getExpressionLevel3Access().getRightExpressionLevel3ParserRuleCall_1_2_0());
+					}
+					lv_right_3_0=ruleExpressionLevel3
+					{
+						if ($current==null) {
+							$current = createModelElementForParent(grammarAccess.getExpressionLevel3Rule());
+						}
+						set(
+							$current,
+							"right",
+							lv_right_3_0,
+							"persons.tasks.TaskDSL.ExpressionLevel3");
+						afterParserOrEnumRuleCall();
+					}
+				)
+			)
+		)?
+	)
+;
+
+// Entry rule entryRuleExpressionLevel4
+entryRuleExpressionLevel4 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionLevel4Rule()); }
+	iv_ruleExpressionLevel4=ruleExpressionLevel4
+	{ $current=$iv_ruleExpressionLevel4.current; }
+	EOF;
+
+// Rule ExpressionLevel4
+ruleExpressionLevel4 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpressionLevel4Access().getExpressionMinusParserRuleCall_0());
+		}
+		this_ExpressionMinus_0=ruleExpressionMinus
+		{
+			$current = $this_ExpressionMinus_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getExpressionLevel4Access().getExpressionPlusParserRuleCall_1());
+		}
+		this_ExpressionPlus_1=ruleExpressionPlus
+		{
+			$current = $this_ExpressionPlus_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getExpressionLevel4Access().getExpressionLevel5ParserRuleCall_2());
+		}
+		this_ExpressionLevel5_2=ruleExpressionLevel5
+		{
+			$current = $this_ExpressionLevel5_2.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleExpressionMinus
+entryRuleExpressionMinus returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionMinusRule()); }
+	iv_ruleExpressionMinus=ruleExpressionMinus
+	{ $current=$iv_ruleExpressionMinus.current; }
+	EOF;
+
+// Rule ExpressionMinus
+ruleExpressionMinus returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='-'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getExpressionMinusAccess().getHyphenMinusKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getExpressionMinusAccess().getSubExpressionLevel5ParserRuleCall_1_0());
+				}
+				lv_sub_1_0=ruleExpressionLevel5
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getExpressionMinusRule());
+					}
+					set(
+						$current,
+						"sub",
+						lv_sub_1_0,
+						"persons.tasks.TaskDSL.ExpressionLevel5");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleExpressionPlus
+entryRuleExpressionPlus returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionPlusRule()); }
+	iv_ruleExpressionPlus=ruleExpressionPlus
+	{ $current=$iv_ruleExpressionPlus.current; }
+	EOF;
+
+// Rule ExpressionPlus
+ruleExpressionPlus returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='+'
+		{
+			newLeafNode(otherlv_0, grammarAccess.getExpressionPlusAccess().getPlusSignKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getExpressionPlusAccess().getSubExpressionLevel5ParserRuleCall_1_0());
+				}
+				lv_sub_1_0=ruleExpressionLevel5
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getExpressionPlusRule());
+					}
+					set(
+						$current,
+						"sub",
+						lv_sub_1_0,
+						"persons.tasks.TaskDSL.ExpressionLevel5");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+	)
+;
+
+// Entry rule entryRuleExpressionLevel5
+entryRuleExpressionLevel5 returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionLevel5Rule()); }
+	iv_ruleExpressionLevel5=ruleExpressionLevel5
+	{ $current=$iv_ruleExpressionLevel5.current; }
+	EOF;
+
+// Rule ExpressionLevel5
+ruleExpressionLevel5 returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		{
+			newCompositeNode(grammarAccess.getExpressionLevel5Access().getExpressionBracketParserRuleCall_0());
+		}
+		this_ExpressionBracket_0=ruleExpressionBracket
+		{
+			$current = $this_ExpressionBracket_0.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getExpressionLevel5Access().getExpressionConstantIntParserRuleCall_1());
+		}
+		this_ExpressionConstantInt_1=ruleExpressionConstantInt
+		{
+			$current = $this_ExpressionConstantInt_1.current;
+			afterParserOrEnumRuleCall();
+		}
+		    |
+		{
+			newCompositeNode(grammarAccess.getExpressionLevel5Access().getExpressionBalanceParserRuleCall_2());
+		}
+		this_ExpressionBalance_2=ruleExpressionBalance
+		{
+			$current = $this_ExpressionBalance_2.current;
+			afterParserOrEnumRuleCall();
+		}
+	)
+;
+
+// Entry rule entryRuleExpressionBracket
+entryRuleExpressionBracket returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionBracketRule()); }
+	iv_ruleExpressionBracket=ruleExpressionBracket
+	{ $current=$iv_ruleExpressionBracket.current; }
+	EOF;
+
+// Rule ExpressionBracket
+ruleExpressionBracket returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		otherlv_0='('
+		{
+			newLeafNode(otherlv_0, grammarAccess.getExpressionBracketAccess().getLeftParenthesisKeyword_0());
+		}
+		(
+			(
+				{
+					newCompositeNode(grammarAccess.getExpressionBracketAccess().getSubIntExpressionParserRuleCall_1_0());
+				}
+				lv_sub_1_0=ruleIntExpression
+				{
+					if ($current==null) {
+						$current = createModelElementForParent(grammarAccess.getExpressionBracketRule());
+					}
+					set(
+						$current,
+						"sub",
+						lv_sub_1_0,
+						"persons.tasks.TaskDSL.IntExpression");
+					afterParserOrEnumRuleCall();
+				}
+			)
+		)
+		otherlv_2=')'
+		{
+			newLeafNode(otherlv_2, grammarAccess.getExpressionBracketAccess().getRightParenthesisKeyword_2());
+		}
+	)
+;
+
+// Entry rule entryRuleExpressionConstantInt
+entryRuleExpressionConstantInt returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionConstantIntRule()); }
+	iv_ruleExpressionConstantInt=ruleExpressionConstantInt
+	{ $current=$iv_ruleExpressionConstantInt.current; }
+	EOF;
+
+// Rule ExpressionConstantInt
+ruleExpressionConstantInt returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			lv_value_0_0=RULE_INT
+			{
+				newLeafNode(lv_value_0_0, grammarAccess.getExpressionConstantIntAccess().getValueINTTerminalRuleCall_0());
+			}
+			{
+				if ($current==null) {
+					$current = createModelElement(grammarAccess.getExpressionConstantIntRule());
+				}
+				setWithLastConsumed(
+					$current,
+					"value",
+					lv_value_0_0,
+					"org.eclipse.xtext.common.Terminals.INT");
+			}
+		)
+	)
+;
+
+// Entry rule entryRuleExpressionBalance
+entryRuleExpressionBalance returns [EObject current=null]:
+	{ newCompositeNode(grammarAccess.getExpressionBalanceRule()); }
+	iv_ruleExpressionBalance=ruleExpressionBalance
+	{ $current=$iv_ruleExpressionBalance.current; }
+	EOF;
+
+// Rule ExpressionBalance
+ruleExpressionBalance returns [EObject current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		(
+			{
+				newCompositeNode(grammarAccess.getExpressionBalanceAccess().getValueBalanceEnumRuleCall_0());
+			}
+			lv_value_0_0=ruleBalance
+			{
+				if ($current==null) {
+					$current = createModelElementForParent(grammarAccess.getExpressionBalanceRule());
+				}
+				set(
+					$current,
+					"value",
+					lv_value_0_0,
+					"persons.tasks.TaskDSL.Balance");
+				afterParserOrEnumRuleCall();
+			}
+		)
 	)
 ;
 
@@ -622,6 +1285,23 @@ ruleTimeUnit returns [Enumerator current=null]
 				newLeafNode(enumLiteral_3, grammarAccess.getTimeUnitAccess().getWEEKEnumLiteralDeclaration_3());
 			}
 		)
+	)
+;
+
+// Rule Balance
+ruleBalance returns [Enumerator current=null]
+@init {
+	enterRule();
+}
+@after {
+	leaveRule();
+}:
+	(
+		enumLiteral_0='balance'
+		{
+			$current = grammarAccess.getBalanceAccess().getBALANCEEnumLiteralDeclaration().getEnumLiteral().getInstance();
+			newLeafNode(enumLiteral_0, grammarAccess.getBalanceAccess().getBALANCEEnumLiteralDeclaration());
+		}
 	)
 ;
 
