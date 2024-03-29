@@ -78,13 +78,22 @@ public interface TaskDSLPackage extends EPackage
   int PLANNING__NAME = 0;
 
   /**
+   * The feature id for the '<em><b>Anonymous</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLANNING__ANONYMOUS = 1;
+
+  /**
    * The feature id for the '<em><b>Persons</b></em>' containment reference list.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PLANNING__PERSONS = 1;
+  int PLANNING__PERSONS = 2;
 
   /**
    * The feature id for the '<em><b>Tasks</b></em>' containment reference list.
@@ -93,7 +102,7 @@ public interface TaskDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PLANNING__TASKS = 2;
+  int PLANNING__TASKS = 3;
 
   /**
    * The number of structural features of the '<em>Planning</em>' class.
@@ -102,7 +111,7 @@ public interface TaskDSLPackage extends EPackage
    * @generated
    * @ordered
    */
-  int PLANNING_FEATURE_COUNT = 3;
+  int PLANNING_FEATURE_COUNT = 4;
 
   /**
    * The meta object id for the '{@link persons.tasks.taskDSL.impl.PersonImpl <em>Person</em>}' class.
@@ -388,6 +397,17 @@ public interface TaskDSLPackage extends EPackage
   EAttribute getPlanning_Name();
 
   /**
+   * Returns the meta object for the attribute '{@link persons.tasks.taskDSL.Planning#isAnonymous <em>Anonymous</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Anonymous</em>'.
+   * @see persons.tasks.taskDSL.Planning#isAnonymous()
+   * @see #getPlanning()
+   * @generated
+   */
+  EAttribute getPlanning_Anonymous();
+
+  /**
    * Returns the meta object for the containment reference list '{@link persons.tasks.taskDSL.Planning#getPersons <em>Persons</em>}'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -660,6 +680,14 @@ public interface TaskDSLPackage extends EPackage
      * @generated
      */
     EAttribute PLANNING__NAME = eINSTANCE.getPlanning_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Anonymous</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute PLANNING__ANONYMOUS = eINSTANCE.getPlanning_Anonymous();
 
     /**
      * The meta object literal for the '<em><b>Persons</b></em>' containment reference list feature.

@@ -31,22 +31,26 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Keyword cPlanningKeyword_0 = (Keyword)cGroup.eContents().get(0);
 		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
 		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
-		private final Alternatives cAlternatives_2 = (Alternatives)cGroup.eContents().get(2);
-		private final Assignment cPersonsAssignment_2_0 = (Assignment)cAlternatives_2.eContents().get(0);
-		private final RuleCall cPersonsPersonParserRuleCall_2_0_0 = (RuleCall)cPersonsAssignment_2_0.eContents().get(0);
-		private final Assignment cTasksAssignment_2_1 = (Assignment)cAlternatives_2.eContents().get(1);
-		private final RuleCall cTasksTaskParserRuleCall_2_1_0 = (RuleCall)cTasksAssignment_2_1.eContents().get(0);
+		private final Assignment cAnonymousAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final Keyword cAnonymousAnonymousKeyword_2_0 = (Keyword)cAnonymousAssignment_2.eContents().get(0);
+		private final Alternatives cAlternatives_3 = (Alternatives)cGroup.eContents().get(3);
+		private final Assignment cPersonsAssignment_3_0 = (Assignment)cAlternatives_3.eContents().get(0);
+		private final RuleCall cPersonsPersonParserRuleCall_3_0_0 = (RuleCall)cPersonsAssignment_3_0.eContents().get(0);
+		private final Assignment cTasksAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
+		private final RuleCall cTasksTaskParserRuleCall_3_1_0 = (RuleCall)cTasksAssignment_3_1.eContents().get(0);
 		
 		//// Что поменялось?
-		//// Добавляем тип Duration
+		//// добавляем анонимность по галочке (имена не сгенерируются, если флаг анонимности включен)
 		//Planning:
 		//    'Planning' name = ID
+		//    (anonymous ?= 'anonymous')?    // ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
 		//    (persons += Person |
 		//    tasks += Task)* //если не поставить звездочку, то только первая сущность сможет объявиться
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Planning' name = ID
+		//(anonymous ?= 'anonymous')?    // ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
 		//(persons += Person |
 		//tasks += Task)*
 		public Group getGroup() { return cGroup; }
@@ -60,21 +64,28 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//ID
 		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
 		
+		//(anonymous ?= 'anonymous')?
+		public Assignment getAnonymousAssignment_2() { return cAnonymousAssignment_2; }
+		
+		//'anonymous'
+		public Keyword getAnonymousAnonymousKeyword_2_0() { return cAnonymousAnonymousKeyword_2_0; }
+		
+		//// ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
 		//(persons += Person |
 		//tasks += Task)*
-		public Alternatives getAlternatives_2() { return cAlternatives_2; }
+		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 		
 		//persons += Person
-		public Assignment getPersonsAssignment_2_0() { return cPersonsAssignment_2_0; }
+		public Assignment getPersonsAssignment_3_0() { return cPersonsAssignment_3_0; }
 		
 		//Person
-		public RuleCall getPersonsPersonParserRuleCall_2_0_0() { return cPersonsPersonParserRuleCall_2_0_0; }
+		public RuleCall getPersonsPersonParserRuleCall_3_0_0() { return cPersonsPersonParserRuleCall_3_0_0; }
 		
 		//tasks += Task
-		public Assignment getTasksAssignment_2_1() { return cTasksAssignment_2_1; }
+		public Assignment getTasksAssignment_3_1() { return cTasksAssignment_3_1; }
 		
 		//Task
-		public RuleCall getTasksTaskParserRuleCall_2_1_0() { return cTasksTaskParserRuleCall_2_1_0; }
+		public RuleCall getTasksTaskParserRuleCall_3_1_0() { return cTasksTaskParserRuleCall_3_1_0; }
 	}
 	public class PersonElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.Person");
@@ -444,9 +455,10 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 
 	
 	//// Что поменялось?
-	//// Добавляем тип Duration
+	//// добавляем анонимность по галочке (имена не сгенерируются, если флаг анонимности включен)
 	//Planning:
 	//    'Planning' name = ID
+	//    (anonymous ?= 'anonymous')?    // ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
 	//    (persons += Person |
 	//    tasks += Task)* //если не поставить звездочку, то только первая сущность сможет объявиться
 	//;

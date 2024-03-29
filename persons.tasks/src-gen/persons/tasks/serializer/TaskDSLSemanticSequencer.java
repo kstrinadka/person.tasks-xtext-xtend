@@ -201,7 +201,7 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Planning returns Planning
 	 *
 	 * Constraint:
-	 *     (name=ID (persons+=Person | tasks+=Task)*)
+	 *     (name=ID anonymous?='anonymous'? (persons+=Person | tasks+=Task)*)
 	 * </pre>
 	 */
 	protected void sequence_Planning(ISerializationContext context, Planning semanticObject) {

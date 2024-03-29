@@ -40,7 +40,7 @@ class HtmlGenerator {
 			</tr>
 			«FOR t: root.tasks»
 			<tr>
-				<td>«listPersons(t)»</td>
+				<td>«IF (!root.anonymous)»«listPersons(t)»«ENDIF»</td>
 				<td>«action2Html(t.action)»</td>
 				<td>«t.prio»</td>
 			</tr>

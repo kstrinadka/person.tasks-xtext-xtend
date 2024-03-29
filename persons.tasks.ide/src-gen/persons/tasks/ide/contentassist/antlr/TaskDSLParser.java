@@ -31,7 +31,7 @@ public class TaskDSLParser extends AbstractContentAssistParser {
 		}
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, TaskDSLGrammarAccess grammarAccess) {
-			builder.put(grammarAccess.getPlanningAccess().getAlternatives_2(), "rule__Planning__Alternatives_2");
+			builder.put(grammarAccess.getPlanningAccess().getAlternatives_3(), "rule__Planning__Alternatives_3");
 			builder.put(grammarAccess.getActionAccess().getAlternatives(), "rule__Action__Alternatives");
 			builder.put(grammarAccess.getTimeUnitAccess().getAlternatives(), "rule__TimeUnit__Alternatives");
 			builder.put(grammarAccess.getPlanningAccess().getGroup(), "rule__Planning__Group__0");
@@ -44,8 +44,9 @@ public class TaskDSLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPaperActionAccess().getGroup(), "rule__PaperAction__Group__0");
 			builder.put(grammarAccess.getPaymentActionAccess().getGroup(), "rule__PaymentAction__Group__0");
 			builder.put(grammarAccess.getPlanningAccess().getNameAssignment_1(), "rule__Planning__NameAssignment_1");
-			builder.put(grammarAccess.getPlanningAccess().getPersonsAssignment_2_0(), "rule__Planning__PersonsAssignment_2_0");
-			builder.put(grammarAccess.getPlanningAccess().getTasksAssignment_2_1(), "rule__Planning__TasksAssignment_2_1");
+			builder.put(grammarAccess.getPlanningAccess().getAnonymousAssignment_2(), "rule__Planning__AnonymousAssignment_2");
+			builder.put(grammarAccess.getPlanningAccess().getPersonsAssignment_3_0(), "rule__Planning__PersonsAssignment_3_0");
+			builder.put(grammarAccess.getPlanningAccess().getTasksAssignment_3_1(), "rule__Planning__TasksAssignment_3_1");
 			builder.put(grammarAccess.getPersonAccess().getNameAssignment_1(), "rule__Person__NameAssignment_1");
 			builder.put(grammarAccess.getTaskAccess().getActionAssignment_1(), "rule__Task__ActionAssignment_1");
 			builder.put(grammarAccess.getTaskAccess().getPersonsAssignment_3(), "rule__Task__PersonsAssignment_3");

@@ -101,11 +101,25 @@ rulePlanning returns [EObject current=null]
 		)
 		(
 			(
+				lv_anonymous_2_0='anonymous'
+				{
+					newLeafNode(lv_anonymous_2_0, grammarAccess.getPlanningAccess().getAnonymousAnonymousKeyword_2_0());
+				}
+				{
+					if ($current==null) {
+						$current = createModelElement(grammarAccess.getPlanningRule());
+					}
+					setWithLastConsumed($current, "anonymous", lv_anonymous_2_0 != null, "anonymous");
+				}
+			)
+		)?
+		(
+			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPlanningAccess().getPersonsPersonParserRuleCall_2_0_0());
+						newCompositeNode(grammarAccess.getPlanningAccess().getPersonsPersonParserRuleCall_3_0_0());
 					}
-					lv_persons_2_0=rulePerson
+					lv_persons_3_0=rulePerson
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPlanningRule());
@@ -113,7 +127,7 @@ rulePlanning returns [EObject current=null]
 						add(
 							$current,
 							"persons",
-							lv_persons_2_0,
+							lv_persons_3_0,
 							"persons.tasks.TaskDSL.Person");
 						afterParserOrEnumRuleCall();
 					}
@@ -123,9 +137,9 @@ rulePlanning returns [EObject current=null]
 			(
 				(
 					{
-						newCompositeNode(grammarAccess.getPlanningAccess().getTasksTaskParserRuleCall_2_1_0());
+						newCompositeNode(grammarAccess.getPlanningAccess().getTasksTaskParserRuleCall_3_1_0());
 					}
-					lv_tasks_3_0=ruleTask
+					lv_tasks_4_0=ruleTask
 					{
 						if ($current==null) {
 							$current = createModelElementForParent(grammarAccess.getPlanningRule());
@@ -133,7 +147,7 @@ rulePlanning returns [EObject current=null]
 						add(
 							$current,
 							"tasks",
-							lv_tasks_3_0,
+							lv_tasks_4_0,
 							"persons.tasks.TaskDSL.Task");
 						afterParserOrEnumRuleCall();
 					}

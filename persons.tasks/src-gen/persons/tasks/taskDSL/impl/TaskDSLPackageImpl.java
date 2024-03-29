@@ -192,9 +192,20 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
    * @generated
    */
   @Override
+  public EAttribute getPlanning_Anonymous()
+  {
+    return (EAttribute)planningEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EReference getPlanning_Persons()
   {
-    return (EReference)planningEClass.getEStructuralFeatures().get(1);
+    return (EReference)planningEClass.getEStructuralFeatures().get(2);
   }
 
   /**
@@ -205,7 +216,7 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
   @Override
   public EReference getPlanning_Tasks()
   {
-    return (EReference)planningEClass.getEStructuralFeatures().get(2);
+    return (EReference)planningEClass.getEStructuralFeatures().get(3);
   }
 
   /**
@@ -461,6 +472,7 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
     // Create classes and their features
     planningEClass = createEClass(PLANNING);
     createEAttribute(planningEClass, PLANNING__NAME);
+    createEAttribute(planningEClass, PLANNING__ANONYMOUS);
     createEReference(planningEClass, PLANNING__PERSONS);
     createEReference(planningEClass, PLANNING__TASKS);
 
@@ -532,6 +544,7 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
     // Initialize classes and features; add operations and parameters
     initEClass(planningEClass, Planning.class, "Planning", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPlanning_Name(), ecorePackage.getEString(), "name", null, 0, 1, Planning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getPlanning_Anonymous(), ecorePackage.getEBoolean(), "anonymous", null, 0, 1, Planning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPlanning_Persons(), this.getPerson(), null, "persons", null, 0, -1, Planning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPlanning_Tasks(), this.getTask(), null, "tasks", null, 0, -1, Planning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 

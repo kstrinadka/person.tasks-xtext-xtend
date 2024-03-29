@@ -33,6 +33,7 @@ import persons.tasks.taskDSL.TaskDSLPackage;
  * </p>
  * <ul>
  *   <li>{@link persons.tasks.taskDSL.impl.PlanningImpl#getName <em>Name</em>}</li>
+ *   <li>{@link persons.tasks.taskDSL.impl.PlanningImpl#isAnonymous <em>Anonymous</em>}</li>
  *   <li>{@link persons.tasks.taskDSL.impl.PlanningImpl#getPersons <em>Persons</em>}</li>
  *   <li>{@link persons.tasks.taskDSL.impl.PlanningImpl#getTasks <em>Tasks</em>}</li>
  * </ul>
@@ -60,6 +61,26 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
    * @ordered
    */
   protected String name = NAME_EDEFAULT;
+
+  /**
+   * The default value of the '{@link #isAnonymous() <em>Anonymous</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAnonymous()
+   * @generated
+   * @ordered
+   */
+  protected static final boolean ANONYMOUS_EDEFAULT = false;
+
+  /**
+   * The cached value of the '{@link #isAnonymous() <em>Anonymous</em>}' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #isAnonymous()
+   * @generated
+   * @ordered
+   */
+  protected boolean anonymous = ANONYMOUS_EDEFAULT;
 
   /**
    * The cached value of the '{@link #getPersons() <em>Persons</em>}' containment reference list.
@@ -133,6 +154,31 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
    * @generated
    */
   @Override
+  public boolean isAnonymous()
+  {
+    return anonymous;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setAnonymous(boolean newAnonymous)
+  {
+    boolean oldAnonymous = anonymous;
+    anonymous = newAnonymous;
+    if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TaskDSLPackage.PLANNING__ANONYMOUS, oldAnonymous, anonymous));
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EList<Person> getPersons()
   {
     if (persons == null)
@@ -187,6 +233,8 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
     {
       case TaskDSLPackage.PLANNING__NAME:
         return getName();
+      case TaskDSLPackage.PLANNING__ANONYMOUS:
+        return isAnonymous();
       case TaskDSLPackage.PLANNING__PERSONS:
         return getPersons();
       case TaskDSLPackage.PLANNING__TASKS:
@@ -208,6 +256,9 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
     {
       case TaskDSLPackage.PLANNING__NAME:
         setName((String)newValue);
+        return;
+      case TaskDSLPackage.PLANNING__ANONYMOUS:
+        setAnonymous((Boolean)newValue);
         return;
       case TaskDSLPackage.PLANNING__PERSONS:
         getPersons().clear();
@@ -234,6 +285,9 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
       case TaskDSLPackage.PLANNING__NAME:
         setName(NAME_EDEFAULT);
         return;
+      case TaskDSLPackage.PLANNING__ANONYMOUS:
+        setAnonymous(ANONYMOUS_EDEFAULT);
+        return;
       case TaskDSLPackage.PLANNING__PERSONS:
         getPersons().clear();
         return;
@@ -256,6 +310,8 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
     {
       case TaskDSLPackage.PLANNING__NAME:
         return NAME_EDEFAULT == null ? name != null : !NAME_EDEFAULT.equals(name);
+      case TaskDSLPackage.PLANNING__ANONYMOUS:
+        return anonymous != ANONYMOUS_EDEFAULT;
       case TaskDSLPackage.PLANNING__PERSONS:
         return persons != null && !persons.isEmpty();
       case TaskDSLPackage.PLANNING__TASKS:
@@ -277,6 +333,8 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
     StringBuilder result = new StringBuilder(super.toString());
     result.append(" (name: ");
     result.append(name);
+    result.append(", anonymous: ");
+    result.append(anonymous);
     result.append(')');
     return result.toString();
   }

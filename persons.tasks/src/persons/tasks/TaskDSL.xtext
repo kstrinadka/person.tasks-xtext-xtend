@@ -4,11 +4,12 @@ generate taskDSL "http://www.tasks.persons/TaskDSL"
 
 
 // Что поменялось?
-// Добавляем тип Duration
+// добавляем анонимность по галочке (имена не сгенерируются, если флаг анонимности включен)
 
 
 Planning:
 	'Planning' name = ID
+	(anonymous ?= 'anonymous')?	// ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
 	(persons += Person |
 	tasks += Task)* //если не поставить звездочку, то только первая сущность сможет объявиться
 ;

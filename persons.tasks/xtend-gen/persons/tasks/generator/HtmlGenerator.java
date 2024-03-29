@@ -97,8 +97,14 @@ public class HtmlGenerator {
         _builder.append("\t");
         _builder.append("\t");
         _builder.append("<td>");
-        CharSequence _listPersons = HtmlGenerator.listPersons(t);
-        _builder.append(_listPersons, "\t\t");
+        {
+          boolean _isAnonymous = root.isAnonymous();
+          boolean _not = (!_isAnonymous);
+          if (_not) {
+            CharSequence _listPersons = HtmlGenerator.listPersons(t);
+            _builder.append(_listPersons, "\t\t");
+          }
+        }
         _builder.append("</td>");
         _builder.newLineIfNotEmpty();
         _builder.append("\t");
