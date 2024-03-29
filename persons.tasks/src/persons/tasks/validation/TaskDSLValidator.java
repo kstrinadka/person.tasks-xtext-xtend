@@ -3,6 +3,13 @@
  */
 package persons.tasks.validation;
 
+import org.eclipse.emf.common.util.EList;
+import org.eclipse.xtext.validation.Check;
+
+import persons.tasks.taskDSL.Duration;
+import persons.tasks.taskDSL.Person;
+import persons.tasks.taskDSL.Planning;
+import persons.tasks.taskDSL.Task;
 
 /**
  * This class contains custom validation rules. 
@@ -21,5 +28,42 @@ public class TaskDSLValidator extends AbstractTaskDSLValidator {
 //					INVALID_NAME);
 //		}
 //	}
+	
+	@Check
+	void checkTimeUnit(Task task) {
+		Duration duration = task.getDuration();
+		if (duration != null) {
+			switch(duration.getUnit()) {
+				case MINUTE:
+					if (duration.getDl() > 1000) 
+						warning("Rewrite to other unit", null);
+					break;
+				case HOUR:
+					break;
+				case DAY:
+					if (duration.getDl() > 150)
+						info("Maybe rewrite to weeks", null);
+					break;
+				case WEEK:
+					if (duration.getDl() > 52)
+						error("Deadline longer than 1 year not allowed", null);
+					break;
+				
+			}
+		}
+	}
+	
+	@Check
+	void checkDoublePersons(Planning planning) {
+		EList<Person> plist = planning.getPersons(); // lists start at position 0
+		for (int i = 0; i < plist.size() ; i++) {
+			for (int j = i+1; j < plist.size() ; j++) {
+				if (plist.get(i).getName().equals(plist.get(j).getName())) {
+					error("Double name",null);
+				}
+			}
+		}
+	}
+	
 	
 }
