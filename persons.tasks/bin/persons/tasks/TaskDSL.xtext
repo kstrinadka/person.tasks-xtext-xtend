@@ -7,8 +7,8 @@ import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
  
 // Что поменялось?
-// Добавлены выражения для мат. операций
-// Добавлены булевы выражения
+// Добавляем Scoping
+// Новые сущности: Project, ProjectUse
 
 
 Planning:
@@ -73,6 +73,7 @@ IntExpression: ExpressionLevel1
 
 // что означает current ???
 // что за ExpressionAddition.left ???
+// Наверное ассоциативность скобочками {} указывается
 ExpressionLevel1 returns IntExpression: // Left associativity
 	ExpressionLevel2
 		( ({ExpressionAddition.left = current} "+" right = ExpressionLevel2)

@@ -131,16 +131,15 @@ class TextGenerator {
 
 
 	def static dispatch CharSequence generateExpression(BooleanExpressionBracket expr)
-'''(«generateExpression(expr.sub)»)'''
+	'''(«generateExpression(expr.sub)»)'''
 
 
 	def static dispatch CharSequence generateExpression(NotExpression expr)
-'''NOT («generateExpression(expr.sub)»)'''
+	'''NOT («generateExpression(expr.sub)»)'''
 
 
-	def static dispatch CharSequence generateExpression(BooleanExpressionConstant
-expr)
-'''«expr.value»''' // use literal
+	def static dispatch CharSequence generateExpression(BooleanExpressionConstant expr)
+	'''«expr.value»''' // use literal
 
 
 	

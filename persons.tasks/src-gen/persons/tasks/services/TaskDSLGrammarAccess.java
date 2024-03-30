@@ -41,8 +41,8 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final RuleCall cTasksTaskParserRuleCall_3_1_0 = (RuleCall)cTasksAssignment_3_1.eContents().get(0);
 		
 		//// Что поменялось?
-		//// Добавлены выражения для мат. операций
-		//// Добавлены булевы выражения
+		//// Добавляем Scoping
+		//// Новые сущности: Project, ProjectUse
 		//Planning:
 		//    'Planning' name = ID
 		//    (anonymous ?= 'anonymous')?    // ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
@@ -393,6 +393,7 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		
 		//// что означает current ???
 		//// что за ExpressionAddition.left ???
+		//// Наверное ассоциативность скобочками {} указывается
 		//ExpressionLevel1 returns IntExpression: // Left associativity
 		//    ExpressionLevel2
 		//        ( ({ExpressionAddition.left = current} "+" right = ExpressionLevel2)
@@ -1279,8 +1280,8 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 
 	
 	//// Что поменялось?
-	//// Добавлены выражения для мат. операций
-	//// Добавлены булевы выражения
+	//// Добавляем Scoping
+	//// Новые сущности: Project, ProjectUse
 	//Planning:
 	//    'Planning' name = ID
 	//    (anonymous ?= 'anonymous')?    // ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
@@ -1412,6 +1413,7 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	//// что означает current ???
 	//// что за ExpressionAddition.left ???
+	//// Наверное ассоциативность скобочками {} указывается
 	//ExpressionLevel1 returns IntExpression: // Left associativity
 	//    ExpressionLevel2
 	//        ( ({ExpressionAddition.left = current} "+" right = ExpressionLevel2)
