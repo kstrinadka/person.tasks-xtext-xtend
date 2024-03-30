@@ -11,6 +11,7 @@ import org.eclipse.emf.ecore.InternalEObject;
 
 import org.eclipse.emf.ecore.impl.ENotificationImpl;
 
+import persons.tasks.taskDSL.BooleanExpression;
 import persons.tasks.taskDSL.IntExpression;
 import persons.tasks.taskDSL.PaymentAction;
 import persons.tasks.taskDSL.TaskDSLPackage;
@@ -23,6 +24,7 @@ import persons.tasks.taskDSL.TaskDSLPackage;
  * The following features are implemented:
  * </p>
  * <ul>
+ *   <li>{@link persons.tasks.taskDSL.impl.PaymentActionImpl#getCondition <em>Condition</em>}</li>
  *   <li>{@link persons.tasks.taskDSL.impl.PaymentActionImpl#getAmount <em>Amount</em>}</li>
  * </ul>
  *
@@ -30,6 +32,16 @@ import persons.tasks.taskDSL.TaskDSLPackage;
  */
 public class PaymentActionImpl extends ActionImpl implements PaymentAction
 {
+  /**
+   * The cached value of the '{@link #getCondition() <em>Condition</em>}' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getCondition()
+   * @generated
+   * @ordered
+   */
+  protected BooleanExpression condition;
+
   /**
    * The cached value of the '{@link #getAmount() <em>Amount</em>}' containment reference.
    * <!-- begin-user-doc -->
@@ -59,6 +71,56 @@ public class PaymentActionImpl extends ActionImpl implements PaymentAction
   protected EClass eStaticClass()
   {
     return TaskDSLPackage.Literals.PAYMENT_ACTION;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BooleanExpression getCondition()
+  {
+    return condition;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public NotificationChain basicSetCondition(BooleanExpression newCondition, NotificationChain msgs)
+  {
+    BooleanExpression oldCondition = condition;
+    condition = newCondition;
+    if (eNotificationRequired())
+    {
+      ENotificationImpl notification = new ENotificationImpl(this, Notification.SET, TaskDSLPackage.PAYMENT_ACTION__CONDITION, oldCondition, newCondition);
+      if (msgs == null) msgs = notification; else msgs.add(notification);
+    }
+    return msgs;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public void setCondition(BooleanExpression newCondition)
+  {
+    if (newCondition != condition)
+    {
+      NotificationChain msgs = null;
+      if (condition != null)
+        msgs = ((InternalEObject)condition).eInverseRemove(this, EOPPOSITE_FEATURE_BASE - TaskDSLPackage.PAYMENT_ACTION__CONDITION, null, msgs);
+      if (newCondition != null)
+        msgs = ((InternalEObject)newCondition).eInverseAdd(this, EOPPOSITE_FEATURE_BASE - TaskDSLPackage.PAYMENT_ACTION__CONDITION, null, msgs);
+      msgs = basicSetCondition(newCondition, msgs);
+      if (msgs != null) msgs.dispatch();
+    }
+    else if (eNotificationRequired())
+      eNotify(new ENotificationImpl(this, Notification.SET, TaskDSLPackage.PAYMENT_ACTION__CONDITION, newCondition, newCondition));
   }
 
   /**
@@ -121,6 +183,8 @@ public class PaymentActionImpl extends ActionImpl implements PaymentAction
   {
     switch (featureID)
     {
+      case TaskDSLPackage.PAYMENT_ACTION__CONDITION:
+        return basicSetCondition(null, msgs);
       case TaskDSLPackage.PAYMENT_ACTION__AMOUNT:
         return basicSetAmount(null, msgs);
     }
@@ -137,6 +201,8 @@ public class PaymentActionImpl extends ActionImpl implements PaymentAction
   {
     switch (featureID)
     {
+      case TaskDSLPackage.PAYMENT_ACTION__CONDITION:
+        return getCondition();
       case TaskDSLPackage.PAYMENT_ACTION__AMOUNT:
         return getAmount();
     }
@@ -153,6 +219,9 @@ public class PaymentActionImpl extends ActionImpl implements PaymentAction
   {
     switch (featureID)
     {
+      case TaskDSLPackage.PAYMENT_ACTION__CONDITION:
+        setCondition((BooleanExpression)newValue);
+        return;
       case TaskDSLPackage.PAYMENT_ACTION__AMOUNT:
         setAmount((IntExpression)newValue);
         return;
@@ -170,6 +239,9 @@ public class PaymentActionImpl extends ActionImpl implements PaymentAction
   {
     switch (featureID)
     {
+      case TaskDSLPackage.PAYMENT_ACTION__CONDITION:
+        setCondition((BooleanExpression)null);
+        return;
       case TaskDSLPackage.PAYMENT_ACTION__AMOUNT:
         setAmount((IntExpression)null);
         return;
@@ -187,6 +259,8 @@ public class PaymentActionImpl extends ActionImpl implements PaymentAction
   {
     switch (featureID)
     {
+      case TaskDSLPackage.PAYMENT_ACTION__CONDITION:
+        return condition != null;
       case TaskDSLPackage.PAYMENT_ACTION__AMOUNT:
         return amount != null;
     }

@@ -15,10 +15,14 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import persons.tasks.services.TaskDSLGrammarAccess;
+import persons.tasks.taskDSL.BooleanExpressionBracket;
+import persons.tasks.taskDSL.BooleanExpressionConstant;
 import persons.tasks.taskDSL.Duration;
 import persons.tasks.taskDSL.ExpressionAddition;
 import persons.tasks.taskDSL.ExpressionBalance;
+import persons.tasks.taskDSL.ExpressionBinOp;
 import persons.tasks.taskDSL.ExpressionBracket;
+import persons.tasks.taskDSL.ExpressionCompOp;
 import persons.tasks.taskDSL.ExpressionConstantInt;
 import persons.tasks.taskDSL.ExpressionDivision;
 import persons.tasks.taskDSL.ExpressionMaximum;
@@ -31,6 +35,7 @@ import persons.tasks.taskDSL.ExpressionPower;
 import persons.tasks.taskDSL.ExpressionSubtraction;
 import persons.tasks.taskDSL.LunchAction;
 import persons.tasks.taskDSL.MeetingAction;
+import persons.tasks.taskDSL.NotExpression;
 import persons.tasks.taskDSL.PaperAction;
 import persons.tasks.taskDSL.PaymentAction;
 import persons.tasks.taskDSL.Person;
@@ -52,6 +57,12 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == TaskDSLPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case TaskDSLPackage.BOOLEAN_EXPRESSION_BRACKET:
+				sequence_BooleanExpressionBracket(context, (BooleanExpressionBracket) semanticObject); 
+				return; 
+			case TaskDSLPackage.BOOLEAN_EXPRESSION_CONSTANT:
+				sequence_BooleanExpressionConstant(context, (BooleanExpressionConstant) semanticObject); 
+				return; 
 			case TaskDSLPackage.DURATION:
 				sequence_Duration(context, (Duration) semanticObject); 
 				return; 
@@ -61,8 +72,14 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case TaskDSLPackage.EXPRESSION_BALANCE:
 				sequence_ExpressionBalance(context, (ExpressionBalance) semanticObject); 
 				return; 
+			case TaskDSLPackage.EXPRESSION_BIN_OP:
+				sequence_BooleanExpressionLevel1(context, (ExpressionBinOp) semanticObject); 
+				return; 
 			case TaskDSLPackage.EXPRESSION_BRACKET:
 				sequence_ExpressionBracket(context, (ExpressionBracket) semanticObject); 
+				return; 
+			case TaskDSLPackage.EXPRESSION_COMP_OP:
+				sequence_ComparisonExpression(context, (ExpressionCompOp) semanticObject); 
 				return; 
 			case TaskDSLPackage.EXPRESSION_CONSTANT_INT:
 				sequence_ExpressionConstantInt(context, (ExpressionConstantInt) semanticObject); 
@@ -100,6 +117,9 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case TaskDSLPackage.MEETING_ACTION:
 				sequence_MeetingAction(context, (MeetingAction) semanticObject); 
 				return; 
+			case TaskDSLPackage.NOT_EXPRESSION:
+				sequence_NotExpression(context, (NotExpression) semanticObject); 
+				return; 
 			case TaskDSLPackage.PAPER_ACTION:
 				sequence_PaperAction(context, (PaperAction) semanticObject); 
 				return; 
@@ -119,6 +139,115 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     BooleanExpression returns BooleanExpressionBracket
+	 *     BooleanExpressionLevel1 returns BooleanExpressionBracket
+	 *     BooleanExpressionLevel1.ExpressionBinOp_1_0 returns BooleanExpressionBracket
+	 *     BooleanExpressionLevel2 returns BooleanExpressionBracket
+	 *     BooleanExpressionLevel3 returns BooleanExpressionBracket
+	 *     BooleanExpressionBracket returns BooleanExpressionBracket
+	 *
+	 * Constraint:
+	 *     sub=BooleanExpression
+	 * </pre>
+	 */
+	protected void sequence_BooleanExpressionBracket(ISerializationContext context, BooleanExpressionBracket semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.BOOLEAN_EXPRESSION_BRACKET__SUB) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.BOOLEAN_EXPRESSION_BRACKET__SUB));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBooleanExpressionBracketAccess().getSubBooleanExpressionParserRuleCall_1_0(), semanticObject.getSub());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     BooleanExpression returns BooleanExpressionConstant
+	 *     BooleanExpressionLevel1 returns BooleanExpressionConstant
+	 *     BooleanExpressionLevel1.ExpressionBinOp_1_0 returns BooleanExpressionConstant
+	 *     BooleanExpressionLevel2 returns BooleanExpressionConstant
+	 *     BooleanExpressionLevel3 returns BooleanExpressionConstant
+	 *     BooleanExpressionConstant returns BooleanExpressionConstant
+	 *
+	 * Constraint:
+	 *     value=BOOL_LITERAL
+	 * </pre>
+	 */
+	protected void sequence_BooleanExpressionConstant(ISerializationContext context, BooleanExpressionConstant semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.BOOLEAN_EXPRESSION_CONSTANT__VALUE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.BOOLEAN_EXPRESSION_CONSTANT__VALUE));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBooleanExpressionConstantAccess().getValueBOOL_LITERALTerminalRuleCall_0(), semanticObject.isValue());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     BooleanExpression returns ExpressionBinOp
+	 *     BooleanExpressionLevel1 returns ExpressionBinOp
+	 *     BooleanExpressionLevel1.ExpressionBinOp_1_0 returns ExpressionBinOp
+	 *
+	 * Constraint:
+	 *     (left=BooleanExpressionLevel1_ExpressionBinOp_1_0 bop=BinaryBooleanOperator right=BooleanExpressionLevel2)
+	 * </pre>
+	 */
+	protected void sequence_BooleanExpressionLevel1(ISerializationContext context, ExpressionBinOp semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.EXPRESSION_BIN_OP__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.EXPRESSION_BIN_OP__LEFT));
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.EXPRESSION_BIN_OP__BOP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.EXPRESSION_BIN_OP__BOP));
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.EXPRESSION_BIN_OP__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.EXPRESSION_BIN_OP__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getBooleanExpressionLevel1Access().getExpressionBinOpLeftAction_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getBooleanExpressionLevel1Access().getBopBinaryBooleanOperatorEnumRuleCall_1_1_0(), semanticObject.getBop());
+		feeder.accept(grammarAccess.getBooleanExpressionLevel1Access().getRightBooleanExpressionLevel2ParserRuleCall_1_2_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     BooleanExpression returns ExpressionCompOp
+	 *     BooleanExpressionLevel1 returns ExpressionCompOp
+	 *     BooleanExpressionLevel1.ExpressionBinOp_1_0 returns ExpressionCompOp
+	 *     BooleanExpressionLevel2 returns ExpressionCompOp
+	 *     BooleanExpressionLevel3 returns ExpressionCompOp
+	 *     ComparisonExpression returns ExpressionCompOp
+	 *
+	 * Constraint:
+	 *     (left=IntExpression op=CompareOperator right=IntExpression)
+	 * </pre>
+	 */
+	protected void sequence_ComparisonExpression(ISerializationContext context, ExpressionCompOp semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.EXPRESSION_COMP_OP__LEFT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.EXPRESSION_COMP_OP__LEFT));
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.EXPRESSION_COMP_OP__OP) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.EXPRESSION_COMP_OP__OP));
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.EXPRESSION_COMP_OP__RIGHT) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.EXPRESSION_COMP_OP__RIGHT));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getComparisonExpressionAccess().getLeftIntExpressionParserRuleCall_1_0(), semanticObject.getLeft());
+		feeder.accept(grammarAccess.getComparisonExpressionAccess().getOpCompareOperatorEnumRuleCall_2_0(), semanticObject.getOp());
+		feeder.accept(grammarAccess.getComparisonExpressionAccess().getRightIntExpressionParserRuleCall_3_0(), semanticObject.getRight());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * <pre>
@@ -601,6 +730,30 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     BooleanExpression returns NotExpression
+	 *     BooleanExpressionLevel1 returns NotExpression
+	 *     BooleanExpressionLevel1.ExpressionBinOp_1_0 returns NotExpression
+	 *     BooleanExpressionLevel2 returns NotExpression
+	 *     NotExpression returns NotExpression
+	 *
+	 * Constraint:
+	 *     sub=BooleanExpressionLevel3
+	 * </pre>
+	 */
+	protected void sequence_NotExpression(ISerializationContext context, NotExpression semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.NOT_EXPRESSION__SUB) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.NOT_EXPRESSION__SUB));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getNotExpressionAccess().getSubBooleanExpressionLevel3ParserRuleCall_1_0(), semanticObject.getSub());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     Action returns PaperAction
 	 *     PaperAction returns PaperAction
 	 *
@@ -626,17 +779,11 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     PaymentAction returns PaymentAction
 	 *
 	 * Constraint:
-	 *     amount=IntExpression
+	 *     (condition=BooleanExpression? amount=IntExpression)
 	 * </pre>
 	 */
 	protected void sequence_PaymentAction(ISerializationContext context, PaymentAction semanticObject) {
-		if (errorAcceptor != null) {
-			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.PAYMENT_ACTION__AMOUNT) == ValueTransient.YES)
-				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.PAYMENT_ACTION__AMOUNT));
-		}
-		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
-		feeder.accept(grammarAccess.getPaymentActionAccess().getAmountIntExpressionParserRuleCall_1_0(), semanticObject.getAmount());
-		feeder.finish();
+		genericSequencer.createSequence(context, semanticObject);
 	}
 	
 	

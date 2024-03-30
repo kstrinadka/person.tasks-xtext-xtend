@@ -13,10 +13,17 @@ import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import persons.tasks.taskDSL.Action;
 import persons.tasks.taskDSL.Balance;
+import persons.tasks.taskDSL.BinaryBooleanOperator;
+import persons.tasks.taskDSL.BooleanExpression;
+import persons.tasks.taskDSL.BooleanExpressionBracket;
+import persons.tasks.taskDSL.BooleanExpressionConstant;
+import persons.tasks.taskDSL.CompareOperator;
 import persons.tasks.taskDSL.Duration;
 import persons.tasks.taskDSL.ExpressionAddition;
 import persons.tasks.taskDSL.ExpressionBalance;
+import persons.tasks.taskDSL.ExpressionBinOp;
 import persons.tasks.taskDSL.ExpressionBracket;
+import persons.tasks.taskDSL.ExpressionCompOp;
 import persons.tasks.taskDSL.ExpressionConstantInt;
 import persons.tasks.taskDSL.ExpressionDivision;
 import persons.tasks.taskDSL.ExpressionMaximum;
@@ -30,6 +37,7 @@ import persons.tasks.taskDSL.ExpressionSubtraction;
 import persons.tasks.taskDSL.IntExpression;
 import persons.tasks.taskDSL.LunchAction;
 import persons.tasks.taskDSL.MeetingAction;
+import persons.tasks.taskDSL.NotExpression;
 import persons.tasks.taskDSL.PaperAction;
 import persons.tasks.taskDSL.PaymentAction;
 import persons.tasks.taskDSL.Person;
@@ -157,6 +165,34 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass booleanExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass notExpressionEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass booleanExpressionBracketEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass booleanExpressionConstantEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EClass expressionAdditionEClass = null;
 
   /**
@@ -213,6 +249,20 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
    * <!-- end-user-doc -->
    * @generated
    */
+  private EClass expressionBinOpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass expressionCompOpEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   private EEnum timeUnitEEnum = null;
 
   /**
@@ -221,6 +271,20 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
    * @generated
    */
   private EEnum balanceEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum binaryBooleanOperatorEEnum = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EEnum compareOperatorEEnum = null;
 
   /**
    * Creates an instance of the model <b>Package</b>, registered with
@@ -543,9 +607,20 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
    * @generated
    */
   @Override
-  public EReference getPaymentAction_Amount()
+  public EReference getPaymentAction_Condition()
   {
     return (EReference)paymentActionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPaymentAction_Amount()
+  {
+    return (EReference)paymentActionEClass.getEStructuralFeatures().get(1);
   }
 
   /**
@@ -667,6 +742,83 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
   public EAttribute getExpressionBalance_Value()
   {
     return (EAttribute)expressionBalanceEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBooleanExpression()
+  {
+    return booleanExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getNotExpression()
+  {
+    return notExpressionEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getNotExpression_Sub()
+  {
+    return (EReference)notExpressionEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBooleanExpressionBracket()
+  {
+    return booleanExpressionBracketEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getBooleanExpressionBracket_Sub()
+  {
+    return (EReference)booleanExpressionBracketEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getBooleanExpressionConstant()
+  {
+    return booleanExpressionConstantEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getBooleanExpressionConstant_Value()
+  {
+    return (EAttribute)booleanExpressionConstantEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -939,6 +1091,94 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
    * @generated
    */
   @Override
+  public EClass getExpressionBinOp()
+  {
+    return expressionBinOpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExpressionBinOp_Left()
+  {
+    return (EReference)expressionBinOpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExpressionBinOp_Bop()
+  {
+    return (EAttribute)expressionBinOpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExpressionBinOp_Right()
+  {
+    return (EReference)expressionBinOpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getExpressionCompOp()
+  {
+    return expressionCompOpEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExpressionCompOp_Left()
+  {
+    return (EReference)expressionCompOpEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getExpressionCompOp_Op()
+  {
+    return (EAttribute)expressionCompOpEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getExpressionCompOp_Right()
+  {
+    return (EReference)expressionCompOpEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public EEnum getTimeUnit()
   {
     return timeUnitEEnum;
@@ -953,6 +1193,28 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
   public EEnum getBalance()
   {
     return balanceEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EEnum getBinaryBooleanOperator()
+  {
+    return binaryBooleanOperatorEEnum;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EEnum getCompareOperator()
+  {
+    return compareOperatorEEnum;
   }
 
   /**
@@ -1017,6 +1279,7 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
     createEAttribute(paperActionEClass, PAPER_ACTION__REPORT);
 
     paymentActionEClass = createEClass(PAYMENT_ACTION);
+    createEReference(paymentActionEClass, PAYMENT_ACTION__CONDITION);
     createEReference(paymentActionEClass, PAYMENT_ACTION__AMOUNT);
 
     intExpressionEClass = createEClass(INT_EXPRESSION);
@@ -1035,6 +1298,17 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
 
     expressionBalanceEClass = createEClass(EXPRESSION_BALANCE);
     createEAttribute(expressionBalanceEClass, EXPRESSION_BALANCE__VALUE);
+
+    booleanExpressionEClass = createEClass(BOOLEAN_EXPRESSION);
+
+    notExpressionEClass = createEClass(NOT_EXPRESSION);
+    createEReference(notExpressionEClass, NOT_EXPRESSION__SUB);
+
+    booleanExpressionBracketEClass = createEClass(BOOLEAN_EXPRESSION_BRACKET);
+    createEReference(booleanExpressionBracketEClass, BOOLEAN_EXPRESSION_BRACKET__SUB);
+
+    booleanExpressionConstantEClass = createEClass(BOOLEAN_EXPRESSION_CONSTANT);
+    createEAttribute(booleanExpressionConstantEClass, BOOLEAN_EXPRESSION_CONSTANT__VALUE);
 
     expressionAdditionEClass = createEClass(EXPRESSION_ADDITION);
     createEReference(expressionAdditionEClass, EXPRESSION_ADDITION__LEFT);
@@ -1068,9 +1342,21 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
     createEReference(expressionPowerEClass, EXPRESSION_POWER__LEFT);
     createEReference(expressionPowerEClass, EXPRESSION_POWER__RIGHT);
 
+    expressionBinOpEClass = createEClass(EXPRESSION_BIN_OP);
+    createEReference(expressionBinOpEClass, EXPRESSION_BIN_OP__LEFT);
+    createEAttribute(expressionBinOpEClass, EXPRESSION_BIN_OP__BOP);
+    createEReference(expressionBinOpEClass, EXPRESSION_BIN_OP__RIGHT);
+
+    expressionCompOpEClass = createEClass(EXPRESSION_COMP_OP);
+    createEReference(expressionCompOpEClass, EXPRESSION_COMP_OP__LEFT);
+    createEAttribute(expressionCompOpEClass, EXPRESSION_COMP_OP__OP);
+    createEReference(expressionCompOpEClass, EXPRESSION_COMP_OP__RIGHT);
+
     // Create enums
     timeUnitEEnum = createEEnum(TIME_UNIT);
     balanceEEnum = createEEnum(BALANCE);
+    binaryBooleanOperatorEEnum = createEEnum(BINARY_BOOLEAN_OPERATOR);
+    compareOperatorEEnum = createEEnum(COMPARE_OPERATOR);
   }
 
   /**
@@ -1111,6 +1397,9 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
     expressionBracketEClass.getESuperTypes().add(this.getIntExpression());
     expressionConstantIntEClass.getESuperTypes().add(this.getIntExpression());
     expressionBalanceEClass.getESuperTypes().add(this.getIntExpression());
+    notExpressionEClass.getESuperTypes().add(this.getBooleanExpression());
+    booleanExpressionBracketEClass.getESuperTypes().add(this.getBooleanExpression());
+    booleanExpressionConstantEClass.getESuperTypes().add(this.getBooleanExpression());
     expressionAdditionEClass.getESuperTypes().add(this.getIntExpression());
     expressionSubtractionEClass.getESuperTypes().add(this.getIntExpression());
     expressionMultiplyEClass.getESuperTypes().add(this.getIntExpression());
@@ -1119,6 +1408,8 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
     expressionMinimumEClass.getESuperTypes().add(this.getIntExpression());
     expressionModuloEClass.getESuperTypes().add(this.getIntExpression());
     expressionPowerEClass.getESuperTypes().add(this.getIntExpression());
+    expressionBinOpEClass.getESuperTypes().add(this.getBooleanExpression());
+    expressionCompOpEClass.getESuperTypes().add(this.getBooleanExpression());
 
     // Initialize classes and features; add operations and parameters
     initEClass(planningEClass, Planning.class, "Planning", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1152,6 +1443,7 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
     initEAttribute(getPaperAction_Report(), ecorePackage.getEString(), "report", null, 0, 1, PaperAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(paymentActionEClass, PaymentAction.class, "PaymentAction", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getPaymentAction_Condition(), this.getBooleanExpression(), null, "condition", null, 0, 1, PaymentAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPaymentAction_Amount(), this.getIntExpression(), null, "amount", null, 0, 1, PaymentAction.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(intExpressionEClass, IntExpression.class, "IntExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
@@ -1170,6 +1462,17 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
 
     initEClass(expressionBalanceEClass, ExpressionBalance.class, "ExpressionBalance", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getExpressionBalance_Value(), this.getBalance(), "value", null, 0, 1, ExpressionBalance.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(booleanExpressionEClass, BooleanExpression.class, "BooleanExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+
+    initEClass(notExpressionEClass, NotExpression.class, "NotExpression", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getNotExpression_Sub(), this.getBooleanExpression(), null, "sub", null, 0, 1, NotExpression.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(booleanExpressionBracketEClass, BooleanExpressionBracket.class, "BooleanExpressionBracket", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getBooleanExpressionBracket_Sub(), this.getBooleanExpression(), null, "sub", null, 0, 1, BooleanExpressionBracket.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(booleanExpressionConstantEClass, BooleanExpressionConstant.class, "BooleanExpressionConstant", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getBooleanExpressionConstant_Value(), ecorePackage.getEBoolean(), "value", null, 0, 1, BooleanExpressionConstant.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(expressionAdditionEClass, ExpressionAddition.class, "ExpressionAddition", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEReference(getExpressionAddition_Left(), this.getIntExpression(), null, "left", null, 0, 1, ExpressionAddition.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
@@ -1203,6 +1506,16 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
     initEReference(getExpressionPower_Left(), this.getIntExpression(), null, "left", null, 0, 1, ExpressionPower.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getExpressionPower_Right(), this.getIntExpression(), null, "right", null, 0, 1, ExpressionPower.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
+    initEClass(expressionBinOpEClass, ExpressionBinOp.class, "ExpressionBinOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpressionBinOp_Left(), this.getBooleanExpression(), null, "left", null, 0, 1, ExpressionBinOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpressionBinOp_Bop(), this.getBinaryBooleanOperator(), "bop", null, 0, 1, ExpressionBinOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpressionBinOp_Right(), this.getBooleanExpression(), null, "right", null, 0, 1, ExpressionBinOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(expressionCompOpEClass, ExpressionCompOp.class, "ExpressionCompOp", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getExpressionCompOp_Left(), this.getIntExpression(), null, "left", null, 0, 1, ExpressionCompOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEAttribute(getExpressionCompOp_Op(), this.getCompareOperator(), "op", null, 0, 1, ExpressionCompOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getExpressionCompOp_Right(), this.getIntExpression(), null, "right", null, 0, 1, ExpressionCompOp.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
     // Initialize enums and add enum literals
     initEEnum(timeUnitEEnum, TimeUnit.class, "TimeUnit");
     addEEnumLiteral(timeUnitEEnum, TimeUnit.MINUTE);
@@ -1212,6 +1525,18 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
 
     initEEnum(balanceEEnum, Balance.class, "Balance");
     addEEnumLiteral(balanceEEnum, Balance.BALANCE);
+
+    initEEnum(binaryBooleanOperatorEEnum, BinaryBooleanOperator.class, "BinaryBooleanOperator");
+    addEEnumLiteral(binaryBooleanOperatorEEnum, BinaryBooleanOperator.AND);
+    addEEnumLiteral(binaryBooleanOperatorEEnum, BinaryBooleanOperator.OR);
+
+    initEEnum(compareOperatorEEnum, CompareOperator.class, "CompareOperator");
+    addEEnumLiteral(compareOperatorEEnum, CompareOperator.EQ);
+    addEEnumLiteral(compareOperatorEEnum, CompareOperator.NEQ);
+    addEEnumLiteral(compareOperatorEEnum, CompareOperator.GEQ);
+    addEEnumLiteral(compareOperatorEEnum, CompareOperator.G);
+    addEEnumLiteral(compareOperatorEEnum, CompareOperator.LEQ);
+    addEEnumLiteral(compareOperatorEEnum, CompareOperator.L);
 
     // Create resource
     createResource(eNS_URI);

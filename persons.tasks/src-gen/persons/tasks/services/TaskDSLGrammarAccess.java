@@ -321,29 +321,47 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	public class PaymentActionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.PaymentAction");
 		private final Group cGroup = (Group)rule.eContents().get(1);
-		private final Keyword cPayKeyword_0 = (Keyword)cGroup.eContents().get(0);
-		private final Assignment cAmountAssignment_1 = (Assignment)cGroup.eContents().get(1);
-		private final RuleCall cAmountIntExpressionParserRuleCall_1_0 = (RuleCall)cAmountAssignment_1.eContents().get(0);
-		private final Keyword cEuroKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Group cGroup_0 = (Group)cGroup.eContents().get(0);
+		private final Keyword cIfKeyword_0_0 = (Keyword)cGroup_0.eContents().get(0);
+		private final Assignment cConditionAssignment_0_1 = (Assignment)cGroup_0.eContents().get(1);
+		private final RuleCall cConditionBooleanExpressionParserRuleCall_0_1_0 = (RuleCall)cConditionAssignment_0_1.eContents().get(0);
+		private final Keyword cPayKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cAmountAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cAmountIntExpressionParserRuleCall_2_0 = (RuleCall)cAmountAssignment_2.eContents().get(0);
+		private final Keyword cEuroKeyword_3 = (Keyword)cGroup.eContents().get(3);
 		
 		//PaymentAction:
+		//    ('If' condition = BooleanExpression)?
 		//    'Pay' amount = IntExpression 'euro';
 		@Override public ParserRule getRule() { return rule; }
 		
+		//('If' condition = BooleanExpression)?
 		//'Pay' amount = IntExpression 'euro'
 		public Group getGroup() { return cGroup; }
 		
+		//('If' condition = BooleanExpression)?
+		public Group getGroup_0() { return cGroup_0; }
+		
+		//'If'
+		public Keyword getIfKeyword_0_0() { return cIfKeyword_0_0; }
+		
+		//condition = BooleanExpression
+		public Assignment getConditionAssignment_0_1() { return cConditionAssignment_0_1; }
+		
+		//BooleanExpression
+		public RuleCall getConditionBooleanExpressionParserRuleCall_0_1_0() { return cConditionBooleanExpressionParserRuleCall_0_1_0; }
+		
 		//'Pay'
-		public Keyword getPayKeyword_0() { return cPayKeyword_0; }
+		public Keyword getPayKeyword_1() { return cPayKeyword_1; }
 		
 		//amount = IntExpression
-		public Assignment getAmountAssignment_1() { return cAmountAssignment_1; }
+		public Assignment getAmountAssignment_2() { return cAmountAssignment_2; }
 		
 		//IntExpression
-		public RuleCall getAmountIntExpressionParserRuleCall_1_0() { return cAmountIntExpressionParserRuleCall_1_0; }
+		public RuleCall getAmountIntExpressionParserRuleCall_2_0() { return cAmountIntExpressionParserRuleCall_2_0; }
 		
 		//'euro'
-		public Keyword getEuroKeyword_2() { return cEuroKeyword_2; }
+		public Keyword getEuroKeyword_3() { return cEuroKeyword_3; }
 	}
 	public class IntExpressionElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.IntExpression");
@@ -372,18 +390,20 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final Assignment cRightAssignment_1_1_2 = (Assignment)cGroup_1_1.eContents().get(2);
 		private final RuleCall cRightExpressionLevel2ParserRuleCall_1_1_2_0 = (RuleCall)cRightAssignment_1_1_2.eContents().get(0);
 		
+		//// что означает current ???
+		//// что за ExpressionAddition.left ???
 		//ExpressionLevel1 returns IntExpression: // Left associativity
 		//    ExpressionLevel2
-		//        ( ({ExpressionAddition.left =current} "+" right=ExpressionLevel2)
-		//        | ({ExpressionSubtraction.left=current} "-" right=ExpressionLevel2)
+		//        ( ({ExpressionAddition.left = current} "+" right = ExpressionLevel2)
+		//        | ({ExpressionSubtraction.left = current} "-" right = ExpressionLevel2)
 		//        )*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//// Left associativity
 		//   ExpressionLevel2
-		//       ( ({ExpressionAddition.left =current} "+" right=ExpressionLevel2)
-		//       | ({ExpressionSubtraction.left=current} "-" right=ExpressionLevel2)
+		//       ( ({ExpressionAddition.left = current} "+" right = ExpressionLevel2)
+		//       | ({ExpressionSubtraction.left = current} "-" right = ExpressionLevel2)
 		//       )*
 		public Group getGroup() { return cGroup; }
 		
@@ -391,36 +411,36 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//   ExpressionLevel2
 		public RuleCall getExpressionLevel2ParserRuleCall_0() { return cExpressionLevel2ParserRuleCall_0; }
 		
-		//( ({ExpressionAddition.left =current} "+" right=ExpressionLevel2)
-		//| ({ExpressionSubtraction.left=current} "-" right=ExpressionLevel2)
+		//( ({ExpressionAddition.left = current} "+" right = ExpressionLevel2)
+		//| ({ExpressionSubtraction.left = current} "-" right = ExpressionLevel2)
 		//)*
 		public Alternatives getAlternatives_1() { return cAlternatives_1; }
 		
-		//({ExpressionAddition.left =current} "+" right=ExpressionLevel2)
+		//({ExpressionAddition.left = current} "+" right = ExpressionLevel2)
 		public Group getGroup_1_0() { return cGroup_1_0; }
 		
-		//{ExpressionAddition.left =current}
+		//{ExpressionAddition.left = current}
 		public Action getExpressionAdditionLeftAction_1_0_0() { return cExpressionAdditionLeftAction_1_0_0; }
 		
 		//"+"
 		public Keyword getPlusSignKeyword_1_0_1() { return cPlusSignKeyword_1_0_1; }
 		
-		//right=ExpressionLevel2
+		//right = ExpressionLevel2
 		public Assignment getRightAssignment_1_0_2() { return cRightAssignment_1_0_2; }
 		
 		//ExpressionLevel2
 		public RuleCall getRightExpressionLevel2ParserRuleCall_1_0_2_0() { return cRightExpressionLevel2ParserRuleCall_1_0_2_0; }
 		
-		//({ExpressionSubtraction.left=current} "-" right=ExpressionLevel2)
+		//({ExpressionSubtraction.left = current} "-" right = ExpressionLevel2)
 		public Group getGroup_1_1() { return cGroup_1_1; }
 		
-		//{ExpressionSubtraction.left=current}
+		//{ExpressionSubtraction.left = current}
 		public Action getExpressionSubtractionLeftAction_1_1_0() { return cExpressionSubtractionLeftAction_1_1_0; }
 		
 		//"-"
 		public Keyword getHyphenMinusKeyword_1_1_1() { return cHyphenMinusKeyword_1_1_1; }
 		
-		//right=ExpressionLevel2
+		//right = ExpressionLevel2
 		public Assignment getRightAssignment_1_1_2() { return cRightAssignment_1_1_2; }
 		
 		//ExpressionLevel2
@@ -765,6 +785,226 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//Balance
 		public RuleCall getValueBalanceEnumRuleCall_0() { return cValueBalanceEnumRuleCall_0; }
 	}
+	public class BooleanExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.BooleanExpression");
+		private final RuleCall cBooleanExpressionLevel1ParserRuleCall = (RuleCall)rule.eContents().get(1);
+		
+		//BooleanExpression: BooleanExpressionLevel1
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//BooleanExpressionLevel1
+		public RuleCall getBooleanExpressionLevel1ParserRuleCall() { return cBooleanExpressionLevel1ParserRuleCall; }
+	}
+	public class BooleanExpressionLevel1Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.BooleanExpressionLevel1");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final RuleCall cBooleanExpressionLevel2ParserRuleCall_0 = (RuleCall)cGroup.eContents().get(0);
+		private final Group cGroup_1 = (Group)cGroup.eContents().get(1);
+		private final Action cExpressionBinOpLeftAction_1_0 = (Action)cGroup_1.eContents().get(0);
+		private final Assignment cBopAssignment_1_1 = (Assignment)cGroup_1.eContents().get(1);
+		private final RuleCall cBopBinaryBooleanOperatorEnumRuleCall_1_1_0 = (RuleCall)cBopAssignment_1_1.eContents().get(0);
+		private final Assignment cRightAssignment_1_2 = (Assignment)cGroup_1.eContents().get(2);
+		private final RuleCall cRightBooleanExpressionLevel2ParserRuleCall_1_2_0 = (RuleCall)cRightAssignment_1_2.eContents().get(0);
+		
+		//BooleanExpressionLevel1 returns BooleanExpression: // Left associativity
+		//    BooleanExpressionLevel2
+		//    ( {ExpressionBinOp.left=current} bop = BinaryBooleanOperator
+		//    right=BooleanExpressionLevel2
+		//    )*
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//// Left associativity
+		//   BooleanExpressionLevel2
+		//   ( {ExpressionBinOp.left=current} bop = BinaryBooleanOperator
+		//   right=BooleanExpressionLevel2
+		//   )*
+		public Group getGroup() { return cGroup; }
+		
+		//// Left associativity
+		//   BooleanExpressionLevel2
+		public RuleCall getBooleanExpressionLevel2ParserRuleCall_0() { return cBooleanExpressionLevel2ParserRuleCall_0; }
+		
+		//( {ExpressionBinOp.left=current} bop = BinaryBooleanOperator
+		//right=BooleanExpressionLevel2
+		//)*
+		public Group getGroup_1() { return cGroup_1; }
+		
+		//{ExpressionBinOp.left=current}
+		public Action getExpressionBinOpLeftAction_1_0() { return cExpressionBinOpLeftAction_1_0; }
+		
+		//bop = BinaryBooleanOperator
+		public Assignment getBopAssignment_1_1() { return cBopAssignment_1_1; }
+		
+		//BinaryBooleanOperator
+		public RuleCall getBopBinaryBooleanOperatorEnumRuleCall_1_1_0() { return cBopBinaryBooleanOperatorEnumRuleCall_1_1_0; }
+		
+		//right=BooleanExpressionLevel2
+		public Assignment getRightAssignment_1_2() { return cRightAssignment_1_2; }
+		
+		//BooleanExpressionLevel2
+		public RuleCall getRightBooleanExpressionLevel2ParserRuleCall_1_2_0() { return cRightBooleanExpressionLevel2ParserRuleCall_1_2_0; }
+	}
+	public class BooleanExpressionLevel2Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.BooleanExpressionLevel2");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cNotExpressionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBooleanExpressionLevel3ParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		
+		//BooleanExpressionLevel2 returns BooleanExpression:
+		//    NotExpression |
+		//    BooleanExpressionLevel3
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//NotExpression |
+		//BooleanExpressionLevel3
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//NotExpression
+		public RuleCall getNotExpressionParserRuleCall_0() { return cNotExpressionParserRuleCall_0; }
+		
+		//BooleanExpressionLevel3
+		public RuleCall getBooleanExpressionLevel3ParserRuleCall_1() { return cBooleanExpressionLevel3ParserRuleCall_1; }
+	}
+	public class NotExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.NotExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cNOTKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSubAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSubBooleanExpressionLevel3ParserRuleCall_1_0 = (RuleCall)cSubAssignment_1.eContents().get(0);
+		
+		//NotExpression:
+		//    "NOT" sub = BooleanExpressionLevel3
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"NOT" sub = BooleanExpressionLevel3
+		public Group getGroup() { return cGroup; }
+		
+		//"NOT"
+		public Keyword getNOTKeyword_0() { return cNOTKeyword_0; }
+		
+		//sub = BooleanExpressionLevel3
+		public Assignment getSubAssignment_1() { return cSubAssignment_1; }
+		
+		//BooleanExpressionLevel3
+		public RuleCall getSubBooleanExpressionLevel3ParserRuleCall_1_0() { return cSubBooleanExpressionLevel3ParserRuleCall_1_0; }
+	}
+	public class BooleanExpressionLevel3Elements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.BooleanExpressionLevel3");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final RuleCall cComparisonExpressionParserRuleCall_0 = (RuleCall)cAlternatives.eContents().get(0);
+		private final RuleCall cBooleanExpressionBracketParserRuleCall_1 = (RuleCall)cAlternatives.eContents().get(1);
+		private final RuleCall cBooleanExpressionConstantParserRuleCall_2 = (RuleCall)cAlternatives.eContents().get(2);
+		
+		//BooleanExpressionLevel3 returns BooleanExpression:
+		//    (=> ComparisonExpression) |
+		//    BooleanExpressionBracket |
+		//    BooleanExpressionConstant
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//(=> ComparisonExpression) |
+		//BooleanExpressionBracket |
+		//BooleanExpressionConstant
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//(=> ComparisonExpression)
+		public RuleCall getComparisonExpressionParserRuleCall_0() { return cComparisonExpressionParserRuleCall_0; }
+		
+		//BooleanExpressionBracket
+		public RuleCall getBooleanExpressionBracketParserRuleCall_1() { return cBooleanExpressionBracketParserRuleCall_1; }
+		
+		//BooleanExpressionConstant
+		public RuleCall getBooleanExpressionConstantParserRuleCall_2() { return cBooleanExpressionConstantParserRuleCall_2; }
+	}
+	public class ComparisonExpressionElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.ComparisonExpression");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Action cExpressionCompOpAction_0 = (Action)cGroup.eContents().get(0);
+		private final Assignment cLeftAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cLeftIntExpressionParserRuleCall_1_0 = (RuleCall)cLeftAssignment_1.eContents().get(0);
+		private final Assignment cOpAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cOpCompareOperatorEnumRuleCall_2_0 = (RuleCall)cOpAssignment_2.eContents().get(0);
+		private final Assignment cRightAssignment_3 = (Assignment)cGroup.eContents().get(3);
+		private final RuleCall cRightIntExpressionParserRuleCall_3_0 = (RuleCall)cRightAssignment_3.eContents().get(0);
+		
+		//ComparisonExpression returns BooleanExpression: {ExpressionCompOp}
+		//    left=IntExpression op = CompareOperator right = IntExpression
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//{ExpressionCompOp}
+		//   left=IntExpression op = CompareOperator right = IntExpression
+		public Group getGroup() { return cGroup; }
+		
+		//{ExpressionCompOp}
+		public Action getExpressionCompOpAction_0() { return cExpressionCompOpAction_0; }
+		
+		//left=IntExpression
+		public Assignment getLeftAssignment_1() { return cLeftAssignment_1; }
+		
+		//IntExpression
+		public RuleCall getLeftIntExpressionParserRuleCall_1_0() { return cLeftIntExpressionParserRuleCall_1_0; }
+		
+		//op = CompareOperator
+		public Assignment getOpAssignment_2() { return cOpAssignment_2; }
+		
+		//CompareOperator
+		public RuleCall getOpCompareOperatorEnumRuleCall_2_0() { return cOpCompareOperatorEnumRuleCall_2_0; }
+		
+		//right = IntExpression
+		public Assignment getRightAssignment_3() { return cRightAssignment_3; }
+		
+		//IntExpression
+		public RuleCall getRightIntExpressionParserRuleCall_3_0() { return cRightIntExpressionParserRuleCall_3_0; }
+	}
+	public class BooleanExpressionBracketElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.BooleanExpressionBracket");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftParenthesisKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cSubAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cSubBooleanExpressionParserRuleCall_1_0 = (RuleCall)cSubAssignment_1.eContents().get(0);
+		private final Keyword cRightParenthesisKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//BooleanExpressionBracket:
+		//    "(" sub=BooleanExpression ")"
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//"(" sub=BooleanExpression ")"
+		public Group getGroup() { return cGroup; }
+		
+		//"("
+		public Keyword getLeftParenthesisKeyword_0() { return cLeftParenthesisKeyword_0; }
+		
+		//sub=BooleanExpression
+		public Assignment getSubAssignment_1() { return cSubAssignment_1; }
+		
+		//BooleanExpression
+		public RuleCall getSubBooleanExpressionParserRuleCall_1_0() { return cSubBooleanExpressionParserRuleCall_1_0; }
+		
+		//")"
+		public Keyword getRightParenthesisKeyword_2() { return cRightParenthesisKeyword_2; }
+	}
+	public class BooleanExpressionConstantElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.BooleanExpressionConstant");
+		private final Assignment cValueAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cValueBOOL_LITERALTerminalRuleCall_0 = (RuleCall)cValueAssignment.eContents().get(0);
+		
+		//BooleanExpressionConstant:
+		//    value=BOOL_LITERAL
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//value=BOOL_LITERAL
+		public Assignment getValueAssignment() { return cValueAssignment; }
+		
+		//BOOL_LITERAL
+		public RuleCall getValueBOOL_LITERALTerminalRuleCall_0() { return cValueBOOL_LITERALTerminalRuleCall_0; }
+	}
 	
 	public class TimeUnitElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
 		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.TimeUnit");
@@ -831,6 +1071,106 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//'balance'
 		public Keyword getBALANCEBalanceKeyword_0() { return cBALANCEBalanceKeyword_0; }
 	}
+	public class BinaryBooleanOperatorElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.BinaryBooleanOperator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cANDEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cANDANDKeyword_0_0 = (Keyword)cANDEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cOREnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cORORKeyword_1_0 = (Keyword)cOREnumLiteralDeclaration_1.eContents().get(0);
+		
+		//enum BinaryBooleanOperator:
+		//    AND = 'AND' |
+		//    OR = 'OR'
+		//;
+		public EnumRule getRule() { return rule; }
+		
+		//AND = 'AND' |
+		//OR = 'OR'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//AND = 'AND'
+		public EnumLiteralDeclaration getANDEnumLiteralDeclaration_0() { return cANDEnumLiteralDeclaration_0; }
+		
+		//'AND'
+		public Keyword getANDANDKeyword_0_0() { return cANDANDKeyword_0_0; }
+		
+		//OR = 'OR'
+		public EnumLiteralDeclaration getOREnumLiteralDeclaration_1() { return cOREnumLiteralDeclaration_1; }
+		
+		//'OR'
+		public Keyword getORORKeyword_1_0() { return cORORKeyword_1_0; }
+	}
+	public class CompareOperatorElements extends AbstractElementFinder.AbstractEnumRuleElementFinder {
+		private final EnumRule rule = (EnumRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.CompareOperator");
+		private final Alternatives cAlternatives = (Alternatives)rule.eContents().get(1);
+		private final EnumLiteralDeclaration cEQEnumLiteralDeclaration_0 = (EnumLiteralDeclaration)cAlternatives.eContents().get(0);
+		private final Keyword cEQEqualsSignEqualsSignKeyword_0_0 = (Keyword)cEQEnumLiteralDeclaration_0.eContents().get(0);
+		private final EnumLiteralDeclaration cNEQEnumLiteralDeclaration_1 = (EnumLiteralDeclaration)cAlternatives.eContents().get(1);
+		private final Keyword cNEQExclamationMarkEqualsSignKeyword_1_0 = (Keyword)cNEQEnumLiteralDeclaration_1.eContents().get(0);
+		private final EnumLiteralDeclaration cGEQEnumLiteralDeclaration_2 = (EnumLiteralDeclaration)cAlternatives.eContents().get(2);
+		private final Keyword cGEQGreaterThanSignEqualsSignKeyword_2_0 = (Keyword)cGEQEnumLiteralDeclaration_2.eContents().get(0);
+		private final EnumLiteralDeclaration cGEnumLiteralDeclaration_3 = (EnumLiteralDeclaration)cAlternatives.eContents().get(3);
+		private final Keyword cGGreaterThanSignKeyword_3_0 = (Keyword)cGEnumLiteralDeclaration_3.eContents().get(0);
+		private final EnumLiteralDeclaration cLEQEnumLiteralDeclaration_4 = (EnumLiteralDeclaration)cAlternatives.eContents().get(4);
+		private final Keyword cLEQLessThanSignEqualsSignKeyword_4_0 = (Keyword)cLEQEnumLiteralDeclaration_4.eContents().get(0);
+		private final EnumLiteralDeclaration cLEnumLiteralDeclaration_5 = (EnumLiteralDeclaration)cAlternatives.eContents().get(5);
+		private final Keyword cLLessThanSignKeyword_5_0 = (Keyword)cLEnumLiteralDeclaration_5.eContents().get(0);
+		
+		//enum CompareOperator:
+		//    EQ  = '==' |
+		//    NEQ = '!=' |
+		//    GEQ = '>=' |
+		//    G   = '>'  |
+		//    LEQ = '<=' |
+		//    L   = '<'
+		//;
+		public EnumRule getRule() { return rule; }
+		
+		//EQ  = '==' |
+		//NEQ = '!=' |
+		//GEQ = '>=' |
+		//G   = '>'  |
+		//LEQ = '<=' |
+		//L   = '<'
+		public Alternatives getAlternatives() { return cAlternatives; }
+		
+		//EQ  = '=='
+		public EnumLiteralDeclaration getEQEnumLiteralDeclaration_0() { return cEQEnumLiteralDeclaration_0; }
+		
+		//'=='
+		public Keyword getEQEqualsSignEqualsSignKeyword_0_0() { return cEQEqualsSignEqualsSignKeyword_0_0; }
+		
+		//NEQ = '!='
+		public EnumLiteralDeclaration getNEQEnumLiteralDeclaration_1() { return cNEQEnumLiteralDeclaration_1; }
+		
+		//'!='
+		public Keyword getNEQExclamationMarkEqualsSignKeyword_1_0() { return cNEQExclamationMarkEqualsSignKeyword_1_0; }
+		
+		//GEQ = '>='
+		public EnumLiteralDeclaration getGEQEnumLiteralDeclaration_2() { return cGEQEnumLiteralDeclaration_2; }
+		
+		//'>='
+		public Keyword getGEQGreaterThanSignEqualsSignKeyword_2_0() { return cGEQGreaterThanSignEqualsSignKeyword_2_0; }
+		
+		//G   = '>'
+		public EnumLiteralDeclaration getGEnumLiteralDeclaration_3() { return cGEnumLiteralDeclaration_3; }
+		
+		//'>'
+		public Keyword getGGreaterThanSignKeyword_3_0() { return cGGreaterThanSignKeyword_3_0; }
+		
+		//LEQ = '<='
+		public EnumLiteralDeclaration getLEQEnumLiteralDeclaration_4() { return cLEQEnumLiteralDeclaration_4; }
+		
+		//'<='
+		public Keyword getLEQLessThanSignEqualsSignKeyword_4_0() { return cLEQLessThanSignEqualsSignKeyword_4_0; }
+		
+		//L   = '<'
+		public EnumLiteralDeclaration getLEnumLiteralDeclaration_5() { return cLEnumLiteralDeclaration_5; }
+		
+		//'<'
+		public Keyword getLLessThanSignKeyword_5_0() { return cLLessThanSignKeyword_5_0; }
+	}
 	
 	private final PlanningElements pPlanning;
 	private final PersonElements pPerson;
@@ -854,6 +1194,17 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	private final ExpressionConstantIntElements pExpressionConstantInt;
 	private final ExpressionBalanceElements pExpressionBalance;
 	private final BalanceElements eBalance;
+	private final BooleanExpressionElements pBooleanExpression;
+	private final BooleanExpressionLevel1Elements pBooleanExpressionLevel1;
+	private final BinaryBooleanOperatorElements eBinaryBooleanOperator;
+	private final BooleanExpressionLevel2Elements pBooleanExpressionLevel2;
+	private final NotExpressionElements pNotExpression;
+	private final BooleanExpressionLevel3Elements pBooleanExpressionLevel3;
+	private final ComparisonExpressionElements pComparisonExpression;
+	private final CompareOperatorElements eCompareOperator;
+	private final BooleanExpressionBracketElements pBooleanExpressionBracket;
+	private final BooleanExpressionConstantElements pBooleanExpressionConstant;
+	private final TerminalRule tBOOL_LITERAL;
 	
 	private final Grammar grammar;
 	
@@ -886,6 +1237,17 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		this.pExpressionConstantInt = new ExpressionConstantIntElements();
 		this.pExpressionBalance = new ExpressionBalanceElements();
 		this.eBalance = new BalanceElements();
+		this.pBooleanExpression = new BooleanExpressionElements();
+		this.pBooleanExpressionLevel1 = new BooleanExpressionLevel1Elements();
+		this.eBinaryBooleanOperator = new BinaryBooleanOperatorElements();
+		this.pBooleanExpressionLevel2 = new BooleanExpressionLevel2Elements();
+		this.pNotExpression = new NotExpressionElements();
+		this.pBooleanExpressionLevel3 = new BooleanExpressionLevel3Elements();
+		this.pComparisonExpression = new ComparisonExpressionElements();
+		this.eCompareOperator = new CompareOperatorElements();
+		this.pBooleanExpressionBracket = new BooleanExpressionBracketElements();
+		this.pBooleanExpressionConstant = new BooleanExpressionConstantElements();
+		this.tBOOL_LITERAL = (TerminalRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.BOOL_LITERAL");
 	}
 	
 	protected Grammar internalFindGrammar(GrammarProvider grammarProvider) {
@@ -1013,6 +1375,7 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	//PaymentAction:
+	//    ('If' condition = BooleanExpression)?
 	//    'Pay' amount = IntExpression 'euro';
 	public PaymentActionElements getPaymentActionAccess() {
 		return pPaymentAction;
@@ -1045,10 +1408,12 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		return getIntExpressionAccess().getRule();
 	}
 	
+	//// что означает current ???
+	//// что за ExpressionAddition.left ???
 	//ExpressionLevel1 returns IntExpression: // Left associativity
 	//    ExpressionLevel2
-	//        ( ({ExpressionAddition.left =current} "+" right=ExpressionLevel2)
-	//        | ({ExpressionSubtraction.left=current} "-" right=ExpressionLevel2)
+	//        ( ({ExpressionAddition.left = current} "+" right = ExpressionLevel2)
+	//        | ({ExpressionSubtraction.left = current} "-" right = ExpressionLevel2)
 	//        )*
 	//;
 	public ExpressionLevel1Elements getExpressionLevel1Access() {
@@ -1176,6 +1541,138 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	public EnumRule getBalanceRule() {
 		return getBalanceAccess().getRule();
+	}
+	
+	//BooleanExpression: BooleanExpressionLevel1
+	//;
+	public BooleanExpressionElements getBooleanExpressionAccess() {
+		return pBooleanExpression;
+	}
+	
+	public ParserRule getBooleanExpressionRule() {
+		return getBooleanExpressionAccess().getRule();
+	}
+	
+	//BooleanExpressionLevel1 returns BooleanExpression: // Left associativity
+	//    BooleanExpressionLevel2
+	//    ( {ExpressionBinOp.left=current} bop = BinaryBooleanOperator
+	//    right=BooleanExpressionLevel2
+	//    )*
+	//;
+	public BooleanExpressionLevel1Elements getBooleanExpressionLevel1Access() {
+		return pBooleanExpressionLevel1;
+	}
+	
+	public ParserRule getBooleanExpressionLevel1Rule() {
+		return getBooleanExpressionLevel1Access().getRule();
+	}
+	
+	//enum BinaryBooleanOperator:
+	//    AND = 'AND' |
+	//    OR = 'OR'
+	//;
+	public BinaryBooleanOperatorElements getBinaryBooleanOperatorAccess() {
+		return eBinaryBooleanOperator;
+	}
+	
+	public EnumRule getBinaryBooleanOperatorRule() {
+		return getBinaryBooleanOperatorAccess().getRule();
+	}
+	
+	//BooleanExpressionLevel2 returns BooleanExpression:
+	//    NotExpression |
+	//    BooleanExpressionLevel3
+	//;
+	public BooleanExpressionLevel2Elements getBooleanExpressionLevel2Access() {
+		return pBooleanExpressionLevel2;
+	}
+	
+	public ParserRule getBooleanExpressionLevel2Rule() {
+		return getBooleanExpressionLevel2Access().getRule();
+	}
+	
+	//NotExpression:
+	//    "NOT" sub = BooleanExpressionLevel3
+	//;
+	public NotExpressionElements getNotExpressionAccess() {
+		return pNotExpression;
+	}
+	
+	public ParserRule getNotExpressionRule() {
+		return getNotExpressionAccess().getRule();
+	}
+	
+	//BooleanExpressionLevel3 returns BooleanExpression:
+	//    (=> ComparisonExpression) |
+	//    BooleanExpressionBracket |
+	//    BooleanExpressionConstant
+	//;
+	public BooleanExpressionLevel3Elements getBooleanExpressionLevel3Access() {
+		return pBooleanExpressionLevel3;
+	}
+	
+	public ParserRule getBooleanExpressionLevel3Rule() {
+		return getBooleanExpressionLevel3Access().getRule();
+	}
+	
+	//ComparisonExpression returns BooleanExpression: {ExpressionCompOp}
+	//    left=IntExpression op = CompareOperator right = IntExpression
+	//;
+	public ComparisonExpressionElements getComparisonExpressionAccess() {
+		return pComparisonExpression;
+	}
+	
+	public ParserRule getComparisonExpressionRule() {
+		return getComparisonExpressionAccess().getRule();
+	}
+	
+	//enum CompareOperator:
+	//    EQ  = '==' |
+	//    NEQ = '!=' |
+	//    GEQ = '>=' |
+	//    G   = '>'  |
+	//    LEQ = '<=' |
+	//    L   = '<'
+	//;
+	public CompareOperatorElements getCompareOperatorAccess() {
+		return eCompareOperator;
+	}
+	
+	public EnumRule getCompareOperatorRule() {
+		return getCompareOperatorAccess().getRule();
+	}
+	
+	//BooleanExpressionBracket:
+	//    "(" sub=BooleanExpression ")"
+	//;
+	public BooleanExpressionBracketElements getBooleanExpressionBracketAccess() {
+		return pBooleanExpressionBracket;
+	}
+	
+	public ParserRule getBooleanExpressionBracketRule() {
+		return getBooleanExpressionBracketAccess().getRule();
+	}
+	
+	//BooleanExpressionConstant:
+	//    value=BOOL_LITERAL
+	//;
+	public BooleanExpressionConstantElements getBooleanExpressionConstantAccess() {
+		return pBooleanExpressionConstant;
+	}
+	
+	public ParserRule getBooleanExpressionConstantRule() {
+		return getBooleanExpressionConstantAccess().getRule();
+	}
+	
+	//terminal BOOL_LITERAL
+	//    returns ecore::EBoolean:
+	//        'true'  |
+	//        'false' |
+	//        'TRUE'  |
+	//        'FALSE'
+	//;
+	public TerminalRule getBOOL_LITERALRule() {
+		return tBOOL_LITERAL;
 	}
 	
 	//terminal ID: '^'?('a'..'z'|'A'..'Z'|'_') ('a'..'z'|'A'..'Z'|'_'|'0'..'9')*;

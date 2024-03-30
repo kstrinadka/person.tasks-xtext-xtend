@@ -159,6 +159,42 @@ public interface TaskDSLFactory extends EFactory
   ExpressionBalance createExpressionBalance();
 
   /**
+   * Returns a new object of class '<em>Boolean Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Expression</em>'.
+   * @generated
+   */
+  BooleanExpression createBooleanExpression();
+
+  /**
+   * Returns a new object of class '<em>Not Expression</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Not Expression</em>'.
+   * @generated
+   */
+  NotExpression createNotExpression();
+
+  /**
+   * Returns a new object of class '<em>Boolean Expression Bracket</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Expression Bracket</em>'.
+   * @generated
+   */
+  BooleanExpressionBracket createBooleanExpressionBracket();
+
+  /**
+   * Returns a new object of class '<em>Boolean Expression Constant</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Boolean Expression Constant</em>'.
+   * @generated
+   */
+  BooleanExpressionConstant createBooleanExpressionConstant();
+
+  /**
    * Returns a new object of class '<em>Expression Addition</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
@@ -229,6 +265,24 @@ public interface TaskDSLFactory extends EFactory
    * @generated
    */
   ExpressionPower createExpressionPower();
+
+  /**
+   * Returns a new object of class '<em>Expression Bin Op</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression Bin Op</em>'.
+   * @generated
+   */
+  ExpressionBinOp createExpressionBinOp();
+
+  /**
+   * Returns a new object of class '<em>Expression Comp Op</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Expression Comp Op</em>'.
+   * @generated
+   */
+  ExpressionCompOp createExpressionCompOp();
 
   /**
    * Returns the package supported by this factory.

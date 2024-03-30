@@ -81,6 +81,10 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
       case TaskDSLPackage.EXPRESSION_BRACKET: return createExpressionBracket();
       case TaskDSLPackage.EXPRESSION_CONSTANT_INT: return createExpressionConstantInt();
       case TaskDSLPackage.EXPRESSION_BALANCE: return createExpressionBalance();
+      case TaskDSLPackage.BOOLEAN_EXPRESSION: return createBooleanExpression();
+      case TaskDSLPackage.NOT_EXPRESSION: return createNotExpression();
+      case TaskDSLPackage.BOOLEAN_EXPRESSION_BRACKET: return createBooleanExpressionBracket();
+      case TaskDSLPackage.BOOLEAN_EXPRESSION_CONSTANT: return createBooleanExpressionConstant();
       case TaskDSLPackage.EXPRESSION_ADDITION: return createExpressionAddition();
       case TaskDSLPackage.EXPRESSION_SUBTRACTION: return createExpressionSubtraction();
       case TaskDSLPackage.EXPRESSION_MULTIPLY: return createExpressionMultiply();
@@ -89,6 +93,8 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
       case TaskDSLPackage.EXPRESSION_MINIMUM: return createExpressionMinimum();
       case TaskDSLPackage.EXPRESSION_MODULO: return createExpressionModulo();
       case TaskDSLPackage.EXPRESSION_POWER: return createExpressionPower();
+      case TaskDSLPackage.EXPRESSION_BIN_OP: return createExpressionBinOp();
+      case TaskDSLPackage.EXPRESSION_COMP_OP: return createExpressionCompOp();
       default:
         throw new IllegalArgumentException("The class '" + eClass.getName() + "' is not a valid classifier");
     }
@@ -108,6 +114,10 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
         return createTimeUnitFromString(eDataType, initialValue);
       case TaskDSLPackage.BALANCE:
         return createBalanceFromString(eDataType, initialValue);
+      case TaskDSLPackage.BINARY_BOOLEAN_OPERATOR:
+        return createBinaryBooleanOperatorFromString(eDataType, initialValue);
+      case TaskDSLPackage.COMPARE_OPERATOR:
+        return createCompareOperatorFromString(eDataType, initialValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -127,6 +137,10 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
         return convertTimeUnitToString(eDataType, instanceValue);
       case TaskDSLPackage.BALANCE:
         return convertBalanceToString(eDataType, instanceValue);
+      case TaskDSLPackage.BINARY_BOOLEAN_OPERATOR:
+        return convertBinaryBooleanOperatorToString(eDataType, instanceValue);
+      case TaskDSLPackage.COMPARE_OPERATOR:
+        return convertCompareOperatorToString(eDataType, instanceValue);
       default:
         throw new IllegalArgumentException("The datatype '" + eDataType.getName() + "' is not a valid classifier");
     }
@@ -318,6 +332,54 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
    * @generated
    */
   @Override
+  public BooleanExpression createBooleanExpression()
+  {
+    BooleanExpressionImpl booleanExpression = new BooleanExpressionImpl();
+    return booleanExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public NotExpression createNotExpression()
+  {
+    NotExpressionImpl notExpression = new NotExpressionImpl();
+    return notExpression;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BooleanExpressionBracket createBooleanExpressionBracket()
+  {
+    BooleanExpressionBracketImpl booleanExpressionBracket = new BooleanExpressionBracketImpl();
+    return booleanExpressionBracket;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public BooleanExpressionConstant createBooleanExpressionConstant()
+  {
+    BooleanExpressionConstantImpl booleanExpressionConstant = new BooleanExpressionConstantImpl();
+    return booleanExpressionConstant;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public ExpressionAddition createExpressionAddition()
   {
     ExpressionAdditionImpl expressionAddition = new ExpressionAdditionImpl();
@@ -413,6 +475,30 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
    * <!-- end-user-doc -->
    * @generated
    */
+  @Override
+  public ExpressionBinOp createExpressionBinOp()
+  {
+    ExpressionBinOpImpl expressionBinOp = new ExpressionBinOpImpl();
+    return expressionBinOp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ExpressionCompOp createExpressionCompOp()
+  {
+    ExpressionCompOpImpl expressionCompOp = new ExpressionCompOpImpl();
+    return expressionCompOp;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
   public TimeUnit createTimeUnitFromString(EDataType eDataType, String initialValue)
   {
     TimeUnit result = TimeUnit.get(initialValue);
@@ -448,6 +534,50 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
    * @generated
    */
   public String convertBalanceToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public BinaryBooleanOperator createBinaryBooleanOperatorFromString(EDataType eDataType, String initialValue)
+  {
+    BinaryBooleanOperator result = BinaryBooleanOperator.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertBinaryBooleanOperatorToString(EDataType eDataType, Object instanceValue)
+  {
+    return instanceValue == null ? null : instanceValue.toString();
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public CompareOperator createCompareOperatorFromString(EDataType eDataType, String initialValue)
+  {
+    CompareOperator result = CompareOperator.get(initialValue);
+    if (result == null) throw new IllegalArgumentException("The value '" + initialValue + "' is not a valid enumerator of '" + eDataType.getName() + "'");
+    return result;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  public String convertCompareOperatorToString(EDataType eDataType, Object instanceValue)
   {
     return instanceValue == null ? null : instanceValue.toString();
   }

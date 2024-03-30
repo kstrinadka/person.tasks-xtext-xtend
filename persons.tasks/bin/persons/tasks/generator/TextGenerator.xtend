@@ -71,7 +71,6 @@ class TextGenerator {
 	def static dispatch CharSequence generateExpression(ExpressionMinus expr)
 	'''(-«generateExpression(expr.sub)»)'''
 	
-	
 	def static dispatch CharSequence generateExpression(ExpressionPlus expr)
 	'''(+«generateExpression(expr.sub)»)'''
 	
@@ -81,10 +80,10 @@ class TextGenerator {
 	def static dispatch CharSequence generateExpression(ExpressionConstantInt expr)
 	'''«expr.value»'''
 	
-	
 	def static dispatch CharSequence generateExpression(ExpressionBalance expr)
 	'''«expr.value»'''
 
+	
 	
 	def static toText(Planning root)
 	'''

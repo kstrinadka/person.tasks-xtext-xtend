@@ -36,6 +36,8 @@
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="report" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="PaymentAction" eSuperTypes="#//Action">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="condition" eType="#//BooleanExpression"
+        containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="amount" eType="#//IntExpression"
         containment="true"/>
   </eClassifiers>
@@ -66,6 +68,30 @@
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EEnum" name="Balance">
     <eLiterals name="BALANCE" literal="balance"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpression"/>
+  <eClassifiers xsi:type="ecore:EEnum" name="BinaryBooleanOperator">
+    <eLiterals name="AND" literal="AND"/>
+    <eLiterals name="OR" value="1" literal="OR"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="NotExpression" eSuperTypes="#//BooleanExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sub" eType="#//BooleanExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="CompareOperator">
+    <eLiterals name="EQ" literal="=="/>
+    <eLiterals name="NEQ" value="1" literal="!="/>
+    <eLiterals name="GEQ" value="2" literal=">="/>
+    <eLiterals name="G" value="3" literal=">"/>
+    <eLiterals name="LEQ" value="4" literal="&lt;="/>
+    <eLiterals name="L" value="5" literal="&lt;"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpressionBracket" eSuperTypes="#//BooleanExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="sub" eType="#//BooleanExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="BooleanExpressionConstant" eSuperTypes="#//BooleanExpression">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="value" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EBoolean"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="ExpressionAddition" eSuperTypes="#//IntExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//IntExpression"
@@ -112,6 +138,20 @@
   <eClassifiers xsi:type="ecore:EClass" name="ExpressionPower" eSuperTypes="#//IntExpression">
     <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//IntExpression"
         containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//IntExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionBinOp" eSuperTypes="#//BooleanExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//BooleanExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="bop" eType="#//BinaryBooleanOperator"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//BooleanExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ExpressionCompOp" eSuperTypes="#//BooleanExpression">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="left" eType="#//IntExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="op" eType="#//CompareOperator"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="right" eType="#//IntExpression"
         containment="true"/>
   </eClassifiers>

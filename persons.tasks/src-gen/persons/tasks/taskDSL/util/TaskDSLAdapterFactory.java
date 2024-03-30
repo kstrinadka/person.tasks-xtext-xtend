@@ -151,6 +151,26 @@ public class TaskDSLAdapterFactory extends AdapterFactoryImpl
         return createExpressionBalanceAdapter();
       }
       @Override
+      public Adapter caseBooleanExpression(BooleanExpression object)
+      {
+        return createBooleanExpressionAdapter();
+      }
+      @Override
+      public Adapter caseNotExpression(NotExpression object)
+      {
+        return createNotExpressionAdapter();
+      }
+      @Override
+      public Adapter caseBooleanExpressionBracket(BooleanExpressionBracket object)
+      {
+        return createBooleanExpressionBracketAdapter();
+      }
+      @Override
+      public Adapter caseBooleanExpressionConstant(BooleanExpressionConstant object)
+      {
+        return createBooleanExpressionConstantAdapter();
+      }
+      @Override
       public Adapter caseExpressionAddition(ExpressionAddition object)
       {
         return createExpressionAdditionAdapter();
@@ -189,6 +209,16 @@ public class TaskDSLAdapterFactory extends AdapterFactoryImpl
       public Adapter caseExpressionPower(ExpressionPower object)
       {
         return createExpressionPowerAdapter();
+      }
+      @Override
+      public Adapter caseExpressionBinOp(ExpressionBinOp object)
+      {
+        return createExpressionBinOpAdapter();
+      }
+      @Override
+      public Adapter caseExpressionCompOp(ExpressionCompOp object)
+      {
+        return createExpressionCompOpAdapter();
       }
       @Override
       public Adapter defaultCase(EObject object)
@@ -438,6 +468,66 @@ public class TaskDSLAdapterFactory extends AdapterFactoryImpl
   }
 
   /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.BooleanExpression <em>Boolean Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.BooleanExpression
+   * @generated
+   */
+  public Adapter createBooleanExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.NotExpression <em>Not Expression</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.NotExpression
+   * @generated
+   */
+  public Adapter createNotExpressionAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.BooleanExpressionBracket <em>Boolean Expression Bracket</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.BooleanExpressionBracket
+   * @generated
+   */
+  public Adapter createBooleanExpressionBracketAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.BooleanExpressionConstant <em>Boolean Expression Constant</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.BooleanExpressionConstant
+   * @generated
+   */
+  public Adapter createBooleanExpressionConstantAdapter()
+  {
+    return null;
+  }
+
+  /**
    * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.ExpressionAddition <em>Expression Addition</em>}'.
    * <!-- begin-user-doc -->
    * This default implementation returns null so that we can easily ignore cases;
@@ -553,6 +643,36 @@ public class TaskDSLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createExpressionPowerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.ExpressionBinOp <em>Expression Bin Op</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.ExpressionBinOp
+   * @generated
+   */
+  public Adapter createExpressionBinOpAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.ExpressionCompOp <em>Expression Comp Op</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.ExpressionCompOp
+   * @generated
+   */
+  public Adapter createExpressionCompOpAdapter()
   {
     return null;
   }

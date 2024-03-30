@@ -2,9 +2,13 @@ grammar persons.tasks.TaskDSL with org.eclipse.xtext.common.Terminals
 
 generate taskDSL "http://www.tasks.persons/TaskDSL"
 
+// next needed because of Ecore type EBoolean used
+import "http://www.eclipse.org/emf/2002/Ecore" as ecore
 
+ 
 // Что поменялось?
-// добавляем анонимность по галочке (имена не сгенерируются, если флаг анонимности включен)
+// Добавлены выражения для мат. операций
+// Добавлены булевы выражения
 
 
 Planning:
@@ -51,6 +55,7 @@ PaperAction:
 
 
 PaymentAction: 
+	('If' condition = BooleanExpression)?
 	'Pay' amount = IntExpression 'euro';
 
 
@@ -66,10 +71,12 @@ enum TimeUnit:
 IntExpression: ExpressionLevel1
 ;
 
+// что означает current ???
+// что за ExpressionAddition.left ???
 ExpressionLevel1 returns IntExpression: // Left associativity
 	ExpressionLevel2
-		( ({ExpressionAddition.left =current} "+" right=ExpressionLevel2)
-		| ({ExpressionSubtraction.left=current} "-" right=ExpressionLevel2)
+		( ({ExpressionAddition.left = current} "+" right = ExpressionLevel2)
+		| ({ExpressionSubtraction.left = current} "-" right = ExpressionLevel2)
 		)*
 ;
 
@@ -126,3 +133,69 @@ enum Balance:
 ;
 
 
+
+BooleanExpression: BooleanExpressionLevel1
+;
+
+BooleanExpressionLevel1 returns BooleanExpression: // Left associativity
+	BooleanExpressionLevel2
+	( {ExpressionBinOp.left=current} bop = BinaryBooleanOperator
+	right=BooleanExpressionLevel2
+	)*
+;
+
+enum BinaryBooleanOperator:
+	AND = 'AND' |
+	OR = 'OR'
+;
+
+
+BooleanExpressionLevel2 returns BooleanExpression:
+	NotExpression |
+	BooleanExpressionLevel3
+;
+
+
+NotExpression:
+	"NOT" sub = BooleanExpressionLevel3
+;
+
+
+BooleanExpressionLevel3 returns BooleanExpression:
+	(=> ComparisonExpression) |
+	BooleanExpressionBracket |
+	BooleanExpressionConstant
+;
+
+
+ComparisonExpression returns BooleanExpression: {ExpressionCompOp}
+	left=IntExpression op = CompareOperator right = IntExpression
+;
+
+
+enum CompareOperator:
+	EQ  = '==' |
+	NEQ = '!=' |
+	GEQ = '>=' |
+	G   = '>'  |
+	LEQ = '<=' |
+	L   = '<'
+;
+
+BooleanExpressionBracket:
+	"(" sub=BooleanExpression ")"
+;
+
+
+BooleanExpressionConstant:
+	value=BOOL_LITERAL
+;
+
+
+terminal BOOL_LITERAL 
+	returns ecore::EBoolean: 
+		'true'  | 
+		'false' | 
+		'TRUE'  | 
+		'FALSE'
+;
