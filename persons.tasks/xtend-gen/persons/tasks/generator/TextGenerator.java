@@ -3,13 +3,21 @@ package persons.tasks.generator;
 import java.util.Arrays;
 import java.util.List;
 import org.eclipse.emf.common.util.EList;
+import org.eclipse.emf.ecore.EObject;
 import org.eclipse.xtend2.lib.StringConcatenation;
 import persons.tasks.taskDSL.Action;
 import persons.tasks.taskDSL.Balance;
+import persons.tasks.taskDSL.BinaryBooleanOperator;
+import persons.tasks.taskDSL.BooleanExpression;
+import persons.tasks.taskDSL.BooleanExpressionBracket;
+import persons.tasks.taskDSL.BooleanExpressionConstant;
+import persons.tasks.taskDSL.CompareOperator;
 import persons.tasks.taskDSL.Duration;
 import persons.tasks.taskDSL.ExpressionAddition;
 import persons.tasks.taskDSL.ExpressionBalance;
+import persons.tasks.taskDSL.ExpressionBinOp;
 import persons.tasks.taskDSL.ExpressionBracket;
+import persons.tasks.taskDSL.ExpressionCompOp;
 import persons.tasks.taskDSL.ExpressionConstantInt;
 import persons.tasks.taskDSL.ExpressionDivision;
 import persons.tasks.taskDSL.ExpressionMaximum;
@@ -20,9 +28,9 @@ import persons.tasks.taskDSL.ExpressionMultiply;
 import persons.tasks.taskDSL.ExpressionPlus;
 import persons.tasks.taskDSL.ExpressionPower;
 import persons.tasks.taskDSL.ExpressionSubtraction;
-import persons.tasks.taskDSL.IntExpression;
 import persons.tasks.taskDSL.LunchAction;
 import persons.tasks.taskDSL.MeetingAction;
+import persons.tasks.taskDSL.NotExpression;
 import persons.tasks.taskDSL.PaperAction;
 import persons.tasks.taskDSL.PaymentAction;
 import persons.tasks.taskDSL.Person;
@@ -198,6 +206,115 @@ public class TextGenerator {
     return _builder;
   }
 
+  protected static CharSequence _generateExpression(final ExpressionBinOp expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getLeft());
+    _builder.append(_generateExpression);
+    _builder.append(" ");
+    CharSequence _genBinOp = TextGenerator.genBinOp(expr.getBop());
+    _builder.append(_genBinOp);
+    _builder.newLineIfNotEmpty();
+    CharSequence _generateExpression_1 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  public static CharSequence genBinOp(final BinaryBooleanOperator op) {
+    if (op != null) {
+      switch (op) {
+        case AND:
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append("AND");
+          return _builder;
+        case OR:
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append("OR");
+          return _builder_1;
+        default:
+          break;
+      }
+    }
+    return null;
+  }
+
+  protected static CharSequence _generateExpression(final ExpressionCompOp expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getLeft());
+    _builder.append(_generateExpression);
+    _builder.append(" ");
+    CharSequence _genCompOp = TextGenerator.genCompOp(expr.getOp());
+    _builder.append(_genCompOp);
+    _builder.newLineIfNotEmpty();
+    CharSequence _generateExpression_1 = TextGenerator.generateExpression(expr.getRight());
+    _builder.append(_generateExpression_1);
+    _builder.append(")");
+    _builder.newLineIfNotEmpty();
+    return _builder;
+  }
+
+  public static CharSequence genCompOp(final CompareOperator op) {
+    if (op != null) {
+      switch (op) {
+        case EQ:
+          StringConcatenation _builder = new StringConcatenation();
+          _builder.append("=");
+          return _builder;
+        case NEQ:
+          StringConcatenation _builder_1 = new StringConcatenation();
+          _builder_1.append("!=");
+          return _builder_1;
+        case GEQ:
+          StringConcatenation _builder_2 = new StringConcatenation();
+          _builder_2.append(">=");
+          return _builder_2;
+        case G:
+          StringConcatenation _builder_3 = new StringConcatenation();
+          _builder_3.append(">");
+          return _builder_3;
+        case LEQ:
+          StringConcatenation _builder_4 = new StringConcatenation();
+          _builder_4.append("<=");
+          return _builder_4;
+        case L:
+          StringConcatenation _builder_5 = new StringConcatenation();
+          _builder_5.append("<");
+          return _builder_5;
+        default:
+          break;
+      }
+    }
+    return null;
+  }
+
+  protected static CharSequence _generateExpression(final BooleanExpressionBracket expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("(");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getSub());
+    _builder.append(_generateExpression);
+    _builder.append(")");
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final NotExpression expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("NOT (");
+    CharSequence _generateExpression = TextGenerator.generateExpression(expr.getSub());
+    _builder.append(_generateExpression);
+    _builder.append(")");
+    return _builder;
+  }
+
+  protected static CharSequence _generateExpression(final BooleanExpressionConstant expr) {
+    StringConcatenation _builder = new StringConcatenation();
+    boolean _isValue = expr.isValue();
+    _builder.append(_isValue);
+    return _builder;
+  }
+
   public static CharSequence toText(final Planning root) {
     StringConcatenation _builder = new StringConcatenation();
     _builder.append("Info of the planning ");
@@ -292,9 +409,21 @@ public class TextGenerator {
 
   protected static CharSequence _action2Text(final PaymentAction action) {
     StringConcatenation _builder = new StringConcatenation();
+    {
+      BooleanExpression _condition = action.getCondition();
+      boolean _tripleNotEquals = (_condition != null);
+      if (_tripleNotEquals) {
+        _builder.append("if ");
+        CharSequence _generateExpression = TextGenerator.generateExpression(action.getCondition());
+        _builder.append(_generateExpression);
+        _builder.newLineIfNotEmpty();
+        _builder.append("then ");
+        _builder.newLine();
+      }
+    }
     _builder.append("Pay ");
-    CharSequence _generateExpression = TextGenerator.generateExpression(action.getAmount());
-    _builder.append(_generateExpression);
+    CharSequence _generateExpression_1 = TextGenerator.generateExpression(action.getAmount());
+    _builder.append(_generateExpression_1);
     _builder.append(" euro");
     _builder.newLineIfNotEmpty();
     return _builder;
@@ -346,13 +475,21 @@ public class TextGenerator {
     return null;
   }
 
-  public static CharSequence generateExpression(final IntExpression expr) {
-    if (expr instanceof ExpressionAddition) {
+  public static CharSequence generateExpression(final EObject expr) {
+    if (expr instanceof BooleanExpressionBracket) {
+      return _generateExpression((BooleanExpressionBracket)expr);
+    } else if (expr instanceof BooleanExpressionConstant) {
+      return _generateExpression((BooleanExpressionConstant)expr);
+    } else if (expr instanceof ExpressionAddition) {
       return _generateExpression((ExpressionAddition)expr);
     } else if (expr instanceof ExpressionBalance) {
       return _generateExpression((ExpressionBalance)expr);
+    } else if (expr instanceof ExpressionBinOp) {
+      return _generateExpression((ExpressionBinOp)expr);
     } else if (expr instanceof ExpressionBracket) {
       return _generateExpression((ExpressionBracket)expr);
+    } else if (expr instanceof ExpressionCompOp) {
+      return _generateExpression((ExpressionCompOp)expr);
     } else if (expr instanceof ExpressionConstantInt) {
       return _generateExpression((ExpressionConstantInt)expr);
     } else if (expr instanceof ExpressionDivision) {
@@ -373,6 +510,8 @@ public class TextGenerator {
       return _generateExpression((ExpressionPower)expr);
     } else if (expr instanceof ExpressionSubtraction) {
       return _generateExpression((ExpressionSubtraction)expr);
+    } else if (expr instanceof NotExpression) {
+      return _generateExpression((NotExpression)expr);
     } else {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(expr).toString());

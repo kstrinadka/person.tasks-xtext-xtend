@@ -41,7 +41,8 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final RuleCall cTasksTaskParserRuleCall_3_1_0 = (RuleCall)cTasksAssignment_3_1.eContents().get(0);
 		
 		//// Что поменялось?
-		//// добавляем анонимность по галочке (имена не сгенерируются, если флаг анонимности включен)
+		//// Добавлены выражения для мат. операций
+		//// Добавлены булевы выражения
 		//Planning:
 		//    'Planning' name = ID
 		//    (anonymous ?= 'anonymous')?    // ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
@@ -1278,7 +1279,8 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 
 	
 	//// Что поменялось?
-	//// добавляем анонимность по галочке (имена не сгенерируются, если флаг анонимности включен)
+	//// Добавлены выражения для мат. операций
+	//// Добавлены булевы выражения
 	//Planning:
 	//    'Planning' name = ID
 	//    (anonymous ?= 'anonymous')?    // ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
