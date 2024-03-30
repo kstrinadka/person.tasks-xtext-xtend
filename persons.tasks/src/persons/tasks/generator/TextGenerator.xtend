@@ -150,19 +150,22 @@ class TextGenerator {
 	def static toText(Planning root)
 	'''
 		Info of the planning «root.name»
-		«"\n"»All Persons:«"\n"»
 		
-		«FOR p : root.persons»«"\t"»«p.name»«"\n"»«ENDFOR»
+		«"\n"»All Persons:«"\n"»
+		«FOR p : root.persons»
+			«"\t"»«p.name»«"\n"»
+		«ENDFOR»
+		
 		«"\n"»All actions of tasks:
 		«FOR t : root.tasks 
 			BEFORE "====== \n"
-			SEPARATOR " &" AFTER "====="»
+			SEPARATOR " [END_OF_TASK] \n" AFTER "====="»
 			«action2Text(t.action)»«infoAction(t)»
 		«ENDFOR»
 		
 		«"\n"»Other way of listing all tasks:
-		«FOR a: Auxiliary.getActions(root) SEPARATOR " , " »
-		«action2Text(a)»
+		«FOR a: Auxiliary.getActions(root) BEFORE "====== \n" SEPARATOR " , \n " »
+			«action2Text(a)»
 		«ENDFOR»
 	'''
 	
@@ -173,12 +176,12 @@ class TextGenerator {
 	
 	def static dispatch action2Text(MeetingAction action)
 	'''
-	Meeting with topic «action.topic»
+		Meeting with topic «action.topic»
 	'''
 	
 	def static dispatch action2Text(PaperAction action)
 	'''
-	Paper for journal «action.report»
+		Paper for journal «action.report»
 	'''
 	
 
@@ -199,8 +202,8 @@ class TextGenerator {
 	
 	def static infoAction(Task t)
 	'''
-	«IF t.duration !== null» with duration: 
-		«t.duration.dl» «toText(t.duration.unit)»
+	«IF t.duration !== null» 
+		with duration: «t.duration.dl» «toText(t.duration.unit)»
 	«ENDIF»
 	'''
 	

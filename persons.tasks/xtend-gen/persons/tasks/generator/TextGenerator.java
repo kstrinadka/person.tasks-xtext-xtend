@@ -321,11 +321,11 @@ public class TextGenerator {
     String _name = root.getName();
     _builder.append(_name);
     _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("\n");
     _builder.append("All Persons:");
     _builder.append("\n");
     _builder.newLineIfNotEmpty();
-    _builder.newLine();
     {
       EList<Person> _persons = root.getPersons();
       for(final Person p : _persons) {
@@ -333,9 +333,10 @@ public class TextGenerator {
         String _name_1 = p.getName();
         _builder.append(_name_1);
         _builder.append("\n");
+        _builder.newLineIfNotEmpty();
       }
     }
-    _builder.newLineIfNotEmpty();
+    _builder.newLine();
     _builder.append("\n");
     _builder.append("All actions of tasks:");
     _builder.newLineIfNotEmpty();
@@ -347,7 +348,7 @@ public class TextGenerator {
           _hasElements = true;
           _builder.append("====== \n");
         } else {
-          _builder.appendImmediate(" &", "");
+          _builder.appendImmediate(" [END_OF_TASK] \n", "");
         }
         CharSequence _action2Text = TextGenerator.action2Text(t.getAction());
         _builder.append(_action2Text);
@@ -369,8 +370,9 @@ public class TextGenerator {
       for(final Action a : _actions) {
         if (!_hasElements_1) {
           _hasElements_1 = true;
+          _builder.append("====== \n");
         } else {
-          _builder.appendImmediate(" , ", "");
+          _builder.appendImmediate(" , \n ", "");
         }
         CharSequence _action2Text_1 = TextGenerator.action2Text(a);
         _builder.append(_action2Text_1);
@@ -435,14 +437,12 @@ public class TextGenerator {
       Duration _duration = t.getDuration();
       boolean _tripleNotEquals = (_duration != null);
       if (_tripleNotEquals) {
-        _builder.append(" with duration: ");
-        _builder.newLineIfNotEmpty();
-        _builder.append("\t");
+        _builder.append("with duration: ");
         int _dl = t.getDuration().getDl();
-        _builder.append(_dl, "\t");
+        _builder.append(_dl);
         _builder.append(" ");
         CharSequence _text = TextGenerator.toText(t.getDuration().getUnit());
-        _builder.append(_text, "\t");
+        _builder.append(_text);
         _builder.newLineIfNotEmpty();
       }
     }
