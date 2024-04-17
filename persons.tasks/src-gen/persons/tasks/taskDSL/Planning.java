@@ -20,6 +20,9 @@ import org.eclipse.emf.ecore.EObject;
  *   <li>{@link persons.tasks.taskDSL.Planning#isAnonymous <em>Anonymous</em>}</li>
  *   <li>{@link persons.tasks.taskDSL.Planning#getPersons <em>Persons</em>}</li>
  *   <li>{@link persons.tasks.taskDSL.Planning#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link persons.tasks.taskDSL.Planning#getArrays <em>Arrays</em>}</li>
+ *   <li>{@link persons.tasks.taskDSL.Planning#getMyintegers <em>Myintegers</em>}</li>
+ *   <li>{@link persons.tasks.taskDSL.Planning#getMyarrays <em>Myarrays</em>}</li>
  * </ul>
  *
  * @see persons.tasks.taskDSL.TaskDSLPackage#getPlanning()
@@ -95,5 +98,41 @@ public interface Planning extends EObject
    * @generated
    */
   EList<Task> getTasks();
+
+  /**
+   * Returns the value of the '<em><b>Arrays</b></em>' containment reference list.
+   * The list contents are of type {@link persons.tasks.taskDSL.ArraySpecificationInit}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Arrays</em>' containment reference list.
+   * @see persons.tasks.taskDSL.TaskDSLPackage#getPlanning_Arrays()
+   * @model containment="true"
+   * @generated
+   */
+  EList<ArraySpecificationInit> getArrays();
+
+  /**
+   * Returns the value of the '<em><b>Myintegers</b></em>' containment reference list.
+   * The list contents are of type {@link persons.tasks.taskDSL.MyInteger}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Myintegers</em>' containment reference list.
+   * @see persons.tasks.taskDSL.TaskDSLPackage#getPlanning_Myintegers()
+   * @model containment="true"
+   * @generated
+   */
+  EList<MyInteger> getMyintegers();
+
+  /**
+   * Returns the value of the '<em><b>Myarrays</b></em>' containment reference list.
+   * The list contents are of type {@link persons.tasks.taskDSL.MyArray}.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the value of the '<em>Myarrays</em>' containment reference list.
+   * @see persons.tasks.taskDSL.TaskDSLPackage#getPlanning_Myarrays()
+   * @model containment="true"
+   * @generated
+   */
+  EList<MyArray> getMyarrays();
 
 } // Planning

@@ -80,6 +80,62 @@ public class TaskDSLSwitch<T> extends Switch<T>
         if (result == null) result = defaultCase(theEObject);
         return result;
       }
+      case TaskDSLPackage.MY_INTEGER:
+      {
+        MyInteger myInteger = (MyInteger)theEObject;
+        T result = caseMyInteger(myInteger);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TaskDSLPackage.MY_ARRAY:
+      {
+        MyArray myArray = (MyArray)theEObject;
+        T result = caseMyArray(myArray);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TaskDSLPackage.SYMBOLIC_VARIABLE:
+      {
+        SymbolicVariable symbolicVariable = (SymbolicVariable)theEObject;
+        T result = caseSymbolicVariable(symbolicVariable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TaskDSLPackage.ARRAY_VARIABLE:
+      {
+        ArrayVariable arrayVariable = (ArrayVariable)theEObject;
+        T result = caseArrayVariable(arrayVariable);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TaskDSLPackage.ARRAY_SPECIFICATION_INIT:
+      {
+        ArraySpecificationInit arraySpecificationInit = (ArraySpecificationInit)theEObject;
+        T result = caseArraySpecificationInit(arraySpecificationInit);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TaskDSLPackage.ARRAY_SPECIFICATION:
+      {
+        ArraySpecification arraySpecification = (ArraySpecification)theEObject;
+        T result = caseArraySpecification(arraySpecification);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TaskDSLPackage.ARRAY_INTERVAL:
+      {
+        ArrayInterval arrayInterval = (ArrayInterval)theEObject;
+        T result = caseArrayInterval(arrayInterval);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
+      case TaskDSLPackage.ARRAY_INITIALIZATION:
+      {
+        ArrayInitialization arrayInitialization = (ArrayInitialization)theEObject;
+        T result = caseArrayInitialization(arrayInitialization);
+        if (result == null) result = defaultCase(theEObject);
+        return result;
+      }
       case TaskDSLPackage.PERSON:
       {
         Person person = (Person)theEObject;
@@ -314,6 +370,134 @@ public class TaskDSLSwitch<T> extends Switch<T>
    * @generated
    */
   public T casePlanning(Planning object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>My Integer</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>My Integer</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMyInteger(MyInteger object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>My Array</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>My Array</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseMyArray(MyArray object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Symbolic Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Symbolic Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseSymbolicVariable(SymbolicVariable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Variable</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Variable</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayVariable(ArrayVariable object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Specification Init</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Specification Init</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArraySpecificationInit(ArraySpecificationInit object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Specification</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Specification</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArraySpecification(ArraySpecification object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Interval</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Interval</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayInterval(ArrayInterval object)
+  {
+    return null;
+  }
+
+  /**
+   * Returns the result of interpreting the object as an instance of '<em>Array Initialization</em>'.
+   * <!-- begin-user-doc -->
+   * This implementation returns null;
+   * returning a non-null result will terminate the switch.
+   * <!-- end-user-doc -->
+   * @param object the target of the switch.
+   * @return the result of interpreting the object as an instance of '<em>Array Initialization</em>'.
+   * @see #doSwitch(org.eclipse.emf.ecore.EObject) doSwitch(EObject)
+   * @generated
+   */
+  public T caseArrayInitialization(ArrayInitialization object)
   {
     return null;
   }

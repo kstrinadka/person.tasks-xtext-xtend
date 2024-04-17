@@ -20,7 +20,8 @@ class TaskDSLGenerator extends AbstractGenerator {
 		
 		val root = resource.allContents.head as Planning;
 		if (root !== null) {
-			var path = "generated/" + resource.getURI().lastSegment + "/";
+//			var path = "generated/" + resource.getURI().lastSegment + "/";
+			var path = "generated/" + resource.getURI().lastSegment.toString.replace(".tdsl", "") + "/";
 			fsa.generateFile(path + "PlanningInfo.txt", TextGenerator.toText(root));
 			fsa.generateFile(path + "PlanningOverview.html", HtmlGenerator.toHtml(root));
 		}

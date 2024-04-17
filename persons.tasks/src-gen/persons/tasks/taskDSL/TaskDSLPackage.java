@@ -105,13 +105,318 @@ public interface TaskDSLPackage extends EPackage
   int PLANNING__TASKS = 3;
 
   /**
+   * The feature id for the '<em><b>Arrays</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLANNING__ARRAYS = 4;
+
+  /**
+   * The feature id for the '<em><b>Myintegers</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLANNING__MYINTEGERS = 5;
+
+  /**
+   * The feature id for the '<em><b>Myarrays</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int PLANNING__MYARRAYS = 6;
+
+  /**
    * The number of structural features of the '<em>Planning</em>' class.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->
    * @generated
    * @ordered
    */
-  int PLANNING_FEATURE_COUNT = 4;
+  int PLANNING_FEATURE_COUNT = 7;
+
+  /**
+   * The meta object id for the '{@link persons.tasks.taskDSL.impl.MyIntegerImpl <em>My Integer</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see persons.tasks.taskDSL.impl.MyIntegerImpl
+   * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getMyInteger()
+   * @generated
+   */
+  int MY_INTEGER = 1;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MY_INTEGER__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Number</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MY_INTEGER__NUMBER = 1;
+
+  /**
+   * The number of structural features of the '<em>My Integer</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MY_INTEGER_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link persons.tasks.taskDSL.impl.MyArrayImpl <em>My Array</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see persons.tasks.taskDSL.impl.MyArrayImpl
+   * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getMyArray()
+   * @generated
+   */
+  int MY_ARRAY = 2;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MY_ARRAY__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MY_ARRAY__ELEMENTS = 1;
+
+  /**
+   * The number of structural features of the '<em>My Array</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int MY_ARRAY_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link persons.tasks.taskDSL.impl.SymbolicVariableImpl <em>Symbolic Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see persons.tasks.taskDSL.impl.SymbolicVariableImpl
+   * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getSymbolicVariable()
+   * @generated
+   */
+  int SYMBOLIC_VARIABLE = 3;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYMBOLIC_VARIABLE__NAME = 0;
+
+  /**
+   * The number of structural features of the '<em>Symbolic Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int SYMBOLIC_VARIABLE_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link persons.tasks.taskDSL.impl.ArrayVariableImpl <em>Array Variable</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see persons.tasks.taskDSL.impl.ArrayVariableImpl
+   * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getArrayVariable()
+   * @generated
+   */
+  int ARRAY_VARIABLE = 4;
+
+  /**
+   * The feature id for the '<em><b>Variable</b></em>' reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_VARIABLE__VARIABLE = 0;
+
+  /**
+   * The feature id for the '<em><b>Index</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_VARIABLE__INDEX = 1;
+
+  /**
+   * The number of structural features of the '<em>Array Variable</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_VARIABLE_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link persons.tasks.taskDSL.impl.ArraySpecificationInitImpl <em>Array Specification Init</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see persons.tasks.taskDSL.impl.ArraySpecificationInitImpl
+   * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getArraySpecificationInit()
+   * @generated
+   */
+  int ARRAY_SPECIFICATION_INIT = 5;
+
+  /**
+   * The feature id for the '<em><b>Name</b></em>' attribute.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_SPECIFICATION_INIT__NAME = 0;
+
+  /**
+   * The feature id for the '<em><b>Init</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_SPECIFICATION_INIT__INIT = 1;
+
+  /**
+   * The feature id for the '<em><b>Values</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_SPECIFICATION_INIT__VALUES = 2;
+
+  /**
+   * The number of structural features of the '<em>Array Specification Init</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_SPECIFICATION_INIT_FEATURE_COUNT = 3;
+
+  /**
+   * The meta object id for the '{@link persons.tasks.taskDSL.impl.ArraySpecificationImpl <em>Array Specification</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see persons.tasks.taskDSL.impl.ArraySpecificationImpl
+   * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getArraySpecification()
+   * @generated
+   */
+  int ARRAY_SPECIFICATION = 6;
+
+  /**
+   * The feature id for the '<em><b>Interval</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_SPECIFICATION__INTERVAL = 0;
+
+  /**
+   * The number of structural features of the '<em>Array Specification</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_SPECIFICATION_FEATURE_COUNT = 1;
+
+  /**
+   * The meta object id for the '{@link persons.tasks.taskDSL.impl.ArrayIntervalImpl <em>Array Interval</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see persons.tasks.taskDSL.impl.ArrayIntervalImpl
+   * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getArrayInterval()
+   * @generated
+   */
+  int ARRAY_INTERVAL = 7;
+
+  /**
+   * The feature id for the '<em><b>Start</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INTERVAL__START = 0;
+
+  /**
+   * The feature id for the '<em><b>End</b></em>' containment reference.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INTERVAL__END = 1;
+
+  /**
+   * The number of structural features of the '<em>Array Interval</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INTERVAL_FEATURE_COUNT = 2;
+
+  /**
+   * The meta object id for the '{@link persons.tasks.taskDSL.impl.ArrayInitializationImpl <em>Array Initialization</em>}' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see persons.tasks.taskDSL.impl.ArrayInitializationImpl
+   * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getArrayInitialization()
+   * @generated
+   */
+  int ARRAY_INITIALIZATION = 8;
+
+  /**
+   * The feature id for the '<em><b>Elements</b></em>' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INITIALIZATION__ELEMENTS = 0;
+
+  /**
+   * The number of structural features of the '<em>Array Initialization</em>' class.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   * @ordered
+   */
+  int ARRAY_INITIALIZATION_FEATURE_COUNT = 1;
 
   /**
    * The meta object id for the '{@link persons.tasks.taskDSL.impl.PersonImpl <em>Person</em>}' class.
@@ -121,7 +426,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getPerson()
    * @generated
    */
-  int PERSON = 1;
+  int PERSON = 9;
 
   /**
    * The feature id for the '<em><b>Name</b></em>' attribute.
@@ -149,7 +454,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getTask()
    * @generated
    */
-  int TASK = 2;
+  int TASK = 10;
 
   /**
    * The feature id for the '<em><b>Action</b></em>' containment reference.
@@ -204,7 +509,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getDuration()
    * @generated
    */
-  int DURATION = 3;
+  int DURATION = 11;
 
   /**
    * The feature id for the '<em><b>Dl</b></em>' attribute.
@@ -241,7 +546,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getAction()
    * @generated
    */
-  int ACTION = 4;
+  int ACTION = 12;
 
   /**
    * The number of structural features of the '<em>Action</em>' class.
@@ -260,7 +565,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getLunchAction()
    * @generated
    */
-  int LUNCH_ACTION = 5;
+  int LUNCH_ACTION = 13;
 
   /**
    * The feature id for the '<em><b>Location</b></em>' attribute.
@@ -288,7 +593,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getMeetingAction()
    * @generated
    */
-  int MEETING_ACTION = 6;
+  int MEETING_ACTION = 14;
 
   /**
    * The feature id for the '<em><b>Topic</b></em>' attribute.
@@ -316,7 +621,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getPaperAction()
    * @generated
    */
-  int PAPER_ACTION = 7;
+  int PAPER_ACTION = 15;
 
   /**
    * The feature id for the '<em><b>Report</b></em>' attribute.
@@ -344,7 +649,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getPaymentAction()
    * @generated
    */
-  int PAYMENT_ACTION = 8;
+  int PAYMENT_ACTION = 16;
 
   /**
    * The feature id for the '<em><b>Condition</b></em>' containment reference.
@@ -381,7 +686,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getIntExpression()
    * @generated
    */
-  int INT_EXPRESSION = 9;
+  int INT_EXPRESSION = 17;
 
   /**
    * The number of structural features of the '<em>Int Expression</em>' class.
@@ -400,7 +705,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionMinus()
    * @generated
    */
-  int EXPRESSION_MINUS = 10;
+  int EXPRESSION_MINUS = 18;
 
   /**
    * The feature id for the '<em><b>Sub</b></em>' containment reference.
@@ -428,7 +733,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionPlus()
    * @generated
    */
-  int EXPRESSION_PLUS = 11;
+  int EXPRESSION_PLUS = 19;
 
   /**
    * The feature id for the '<em><b>Sub</b></em>' containment reference.
@@ -456,7 +761,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionBracket()
    * @generated
    */
-  int EXPRESSION_BRACKET = 12;
+  int EXPRESSION_BRACKET = 20;
 
   /**
    * The feature id for the '<em><b>Sub</b></em>' containment reference.
@@ -484,7 +789,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionConstantInt()
    * @generated
    */
-  int EXPRESSION_CONSTANT_INT = 13;
+  int EXPRESSION_CONSTANT_INT = 21;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -512,7 +817,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionBalance()
    * @generated
    */
-  int EXPRESSION_BALANCE = 14;
+  int EXPRESSION_BALANCE = 22;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -540,7 +845,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getBooleanExpression()
    * @generated
    */
-  int BOOLEAN_EXPRESSION = 15;
+  int BOOLEAN_EXPRESSION = 23;
 
   /**
    * The number of structural features of the '<em>Boolean Expression</em>' class.
@@ -559,7 +864,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getNotExpression()
    * @generated
    */
-  int NOT_EXPRESSION = 16;
+  int NOT_EXPRESSION = 24;
 
   /**
    * The feature id for the '<em><b>Sub</b></em>' containment reference.
@@ -587,7 +892,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getBooleanExpressionBracket()
    * @generated
    */
-  int BOOLEAN_EXPRESSION_BRACKET = 17;
+  int BOOLEAN_EXPRESSION_BRACKET = 25;
 
   /**
    * The feature id for the '<em><b>Sub</b></em>' containment reference.
@@ -615,7 +920,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getBooleanExpressionConstant()
    * @generated
    */
-  int BOOLEAN_EXPRESSION_CONSTANT = 18;
+  int BOOLEAN_EXPRESSION_CONSTANT = 26;
 
   /**
    * The feature id for the '<em><b>Value</b></em>' attribute.
@@ -643,7 +948,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionAddition()
    * @generated
    */
-  int EXPRESSION_ADDITION = 19;
+  int EXPRESSION_ADDITION = 27;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -680,7 +985,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionSubtraction()
    * @generated
    */
-  int EXPRESSION_SUBTRACTION = 20;
+  int EXPRESSION_SUBTRACTION = 28;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -717,7 +1022,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionMultiply()
    * @generated
    */
-  int EXPRESSION_MULTIPLY = 21;
+  int EXPRESSION_MULTIPLY = 29;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -754,7 +1059,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionDivision()
    * @generated
    */
-  int EXPRESSION_DIVISION = 22;
+  int EXPRESSION_DIVISION = 30;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -791,7 +1096,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionMaximum()
    * @generated
    */
-  int EXPRESSION_MAXIMUM = 23;
+  int EXPRESSION_MAXIMUM = 31;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -828,7 +1133,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionMinimum()
    * @generated
    */
-  int EXPRESSION_MINIMUM = 24;
+  int EXPRESSION_MINIMUM = 32;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -865,7 +1170,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionModulo()
    * @generated
    */
-  int EXPRESSION_MODULO = 25;
+  int EXPRESSION_MODULO = 33;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -902,7 +1207,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionPower()
    * @generated
    */
-  int EXPRESSION_POWER = 26;
+  int EXPRESSION_POWER = 34;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -939,7 +1244,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionBinOp()
    * @generated
    */
-  int EXPRESSION_BIN_OP = 27;
+  int EXPRESSION_BIN_OP = 35;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -985,7 +1290,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getExpressionCompOp()
    * @generated
    */
-  int EXPRESSION_COMP_OP = 28;
+  int EXPRESSION_COMP_OP = 36;
 
   /**
    * The feature id for the '<em><b>Left</b></em>' containment reference.
@@ -1031,7 +1336,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getTimeUnit()
    * @generated
    */
-  int TIME_UNIT = 29;
+  int TIME_UNIT = 37;
 
   /**
    * The meta object id for the '{@link persons.tasks.taskDSL.Balance <em>Balance</em>}' enum.
@@ -1041,7 +1346,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getBalance()
    * @generated
    */
-  int BALANCE = 30;
+  int BALANCE = 38;
 
   /**
    * The meta object id for the '{@link persons.tasks.taskDSL.BinaryBooleanOperator <em>Binary Boolean Operator</em>}' enum.
@@ -1051,7 +1356,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getBinaryBooleanOperator()
    * @generated
    */
-  int BINARY_BOOLEAN_OPERATOR = 31;
+  int BINARY_BOOLEAN_OPERATOR = 39;
 
   /**
    * The meta object id for the '{@link persons.tasks.taskDSL.CompareOperator <em>Compare Operator</em>}' enum.
@@ -1061,7 +1366,7 @@ public interface TaskDSLPackage extends EPackage
    * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getCompareOperator()
    * @generated
    */
-  int COMPARE_OPERATOR = 32;
+  int COMPARE_OPERATOR = 40;
 
 
   /**
@@ -1117,6 +1422,273 @@ public interface TaskDSLPackage extends EPackage
    * @generated
    */
   EReference getPlanning_Tasks();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link persons.tasks.taskDSL.Planning#getArrays <em>Arrays</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Arrays</em>'.
+   * @see persons.tasks.taskDSL.Planning#getArrays()
+   * @see #getPlanning()
+   * @generated
+   */
+  EReference getPlanning_Arrays();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link persons.tasks.taskDSL.Planning#getMyintegers <em>Myintegers</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Myintegers</em>'.
+   * @see persons.tasks.taskDSL.Planning#getMyintegers()
+   * @see #getPlanning()
+   * @generated
+   */
+  EReference getPlanning_Myintegers();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link persons.tasks.taskDSL.Planning#getMyarrays <em>Myarrays</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Myarrays</em>'.
+   * @see persons.tasks.taskDSL.Planning#getMyarrays()
+   * @see #getPlanning()
+   * @generated
+   */
+  EReference getPlanning_Myarrays();
+
+  /**
+   * Returns the meta object for class '{@link persons.tasks.taskDSL.MyInteger <em>My Integer</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>My Integer</em>'.
+   * @see persons.tasks.taskDSL.MyInteger
+   * @generated
+   */
+  EClass getMyInteger();
+
+  /**
+   * Returns the meta object for the attribute '{@link persons.tasks.taskDSL.MyInteger#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see persons.tasks.taskDSL.MyInteger#getName()
+   * @see #getMyInteger()
+   * @generated
+   */
+  EAttribute getMyInteger_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link persons.tasks.taskDSL.MyInteger#getNumber <em>Number</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Number</em>'.
+   * @see persons.tasks.taskDSL.MyInteger#getNumber()
+   * @see #getMyInteger()
+   * @generated
+   */
+  EReference getMyInteger_Number();
+
+  /**
+   * Returns the meta object for class '{@link persons.tasks.taskDSL.MyArray <em>My Array</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>My Array</em>'.
+   * @see persons.tasks.taskDSL.MyArray
+   * @generated
+   */
+  EClass getMyArray();
+
+  /**
+   * Returns the meta object for the attribute '{@link persons.tasks.taskDSL.MyArray#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see persons.tasks.taskDSL.MyArray#getName()
+   * @see #getMyArray()
+   * @generated
+   */
+  EAttribute getMyArray_Name();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link persons.tasks.taskDSL.MyArray#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see persons.tasks.taskDSL.MyArray#getElements()
+   * @see #getMyArray()
+   * @generated
+   */
+  EReference getMyArray_Elements();
+
+  /**
+   * Returns the meta object for class '{@link persons.tasks.taskDSL.SymbolicVariable <em>Symbolic Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Symbolic Variable</em>'.
+   * @see persons.tasks.taskDSL.SymbolicVariable
+   * @generated
+   */
+  EClass getSymbolicVariable();
+
+  /**
+   * Returns the meta object for the attribute '{@link persons.tasks.taskDSL.SymbolicVariable#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see persons.tasks.taskDSL.SymbolicVariable#getName()
+   * @see #getSymbolicVariable()
+   * @generated
+   */
+  EAttribute getSymbolicVariable_Name();
+
+  /**
+   * Returns the meta object for class '{@link persons.tasks.taskDSL.ArrayVariable <em>Array Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Variable</em>'.
+   * @see persons.tasks.taskDSL.ArrayVariable
+   * @generated
+   */
+  EClass getArrayVariable();
+
+  /**
+   * Returns the meta object for the reference '{@link persons.tasks.taskDSL.ArrayVariable#getVariable <em>Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the reference '<em>Variable</em>'.
+   * @see persons.tasks.taskDSL.ArrayVariable#getVariable()
+   * @see #getArrayVariable()
+   * @generated
+   */
+  EReference getArrayVariable_Variable();
+
+  /**
+   * Returns the meta object for the containment reference '{@link persons.tasks.taskDSL.ArrayVariable#getIndex <em>Index</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Index</em>'.
+   * @see persons.tasks.taskDSL.ArrayVariable#getIndex()
+   * @see #getArrayVariable()
+   * @generated
+   */
+  EReference getArrayVariable_Index();
+
+  /**
+   * Returns the meta object for class '{@link persons.tasks.taskDSL.ArraySpecificationInit <em>Array Specification Init</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Specification Init</em>'.
+   * @see persons.tasks.taskDSL.ArraySpecificationInit
+   * @generated
+   */
+  EClass getArraySpecificationInit();
+
+  /**
+   * Returns the meta object for the attribute '{@link persons.tasks.taskDSL.ArraySpecificationInit#getName <em>Name</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the attribute '<em>Name</em>'.
+   * @see persons.tasks.taskDSL.ArraySpecificationInit#getName()
+   * @see #getArraySpecificationInit()
+   * @generated
+   */
+  EAttribute getArraySpecificationInit_Name();
+
+  /**
+   * Returns the meta object for the containment reference '{@link persons.tasks.taskDSL.ArraySpecificationInit#getInit <em>Init</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Init</em>'.
+   * @see persons.tasks.taskDSL.ArraySpecificationInit#getInit()
+   * @see #getArraySpecificationInit()
+   * @generated
+   */
+  EReference getArraySpecificationInit_Init();
+
+  /**
+   * Returns the meta object for the containment reference '{@link persons.tasks.taskDSL.ArraySpecificationInit#getValues <em>Values</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Values</em>'.
+   * @see persons.tasks.taskDSL.ArraySpecificationInit#getValues()
+   * @see #getArraySpecificationInit()
+   * @generated
+   */
+  EReference getArraySpecificationInit_Values();
+
+  /**
+   * Returns the meta object for class '{@link persons.tasks.taskDSL.ArraySpecification <em>Array Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Specification</em>'.
+   * @see persons.tasks.taskDSL.ArraySpecification
+   * @generated
+   */
+  EClass getArraySpecification();
+
+  /**
+   * Returns the meta object for the containment reference '{@link persons.tasks.taskDSL.ArraySpecification#getInterval <em>Interval</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Interval</em>'.
+   * @see persons.tasks.taskDSL.ArraySpecification#getInterval()
+   * @see #getArraySpecification()
+   * @generated
+   */
+  EReference getArraySpecification_Interval();
+
+  /**
+   * Returns the meta object for class '{@link persons.tasks.taskDSL.ArrayInterval <em>Array Interval</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Interval</em>'.
+   * @see persons.tasks.taskDSL.ArrayInterval
+   * @generated
+   */
+  EClass getArrayInterval();
+
+  /**
+   * Returns the meta object for the containment reference '{@link persons.tasks.taskDSL.ArrayInterval#getStart <em>Start</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>Start</em>'.
+   * @see persons.tasks.taskDSL.ArrayInterval#getStart()
+   * @see #getArrayInterval()
+   * @generated
+   */
+  EReference getArrayInterval_Start();
+
+  /**
+   * Returns the meta object for the containment reference '{@link persons.tasks.taskDSL.ArrayInterval#getEnd <em>End</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference '<em>End</em>'.
+   * @see persons.tasks.taskDSL.ArrayInterval#getEnd()
+   * @see #getArrayInterval()
+   * @generated
+   */
+  EReference getArrayInterval_End();
+
+  /**
+   * Returns the meta object for class '{@link persons.tasks.taskDSL.ArrayInitialization <em>Array Initialization</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for class '<em>Array Initialization</em>'.
+   * @see persons.tasks.taskDSL.ArrayInitialization
+   * @generated
+   */
+  EClass getArrayInitialization();
+
+  /**
+   * Returns the meta object for the containment reference list '{@link persons.tasks.taskDSL.ArrayInitialization#getElements <em>Elements</em>}'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return the meta object for the containment reference list '<em>Elements</em>'.
+   * @see persons.tasks.taskDSL.ArrayInitialization#getElements()
+   * @see #getArrayInitialization()
+   * @generated
+   */
+  EReference getArrayInitialization_Elements();
 
   /**
    * Returns the meta object for class '{@link persons.tasks.taskDSL.Person <em>Person</em>}'.
@@ -1964,6 +2536,222 @@ public interface TaskDSLPackage extends EPackage
      * @generated
      */
     EReference PLANNING__TASKS = eINSTANCE.getPlanning_Tasks();
+
+    /**
+     * The meta object literal for the '<em><b>Arrays</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PLANNING__ARRAYS = eINSTANCE.getPlanning_Arrays();
+
+    /**
+     * The meta object literal for the '<em><b>Myintegers</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PLANNING__MYINTEGERS = eINSTANCE.getPlanning_Myintegers();
+
+    /**
+     * The meta object literal for the '<em><b>Myarrays</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference PLANNING__MYARRAYS = eINSTANCE.getPlanning_Myarrays();
+
+    /**
+     * The meta object literal for the '{@link persons.tasks.taskDSL.impl.MyIntegerImpl <em>My Integer</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see persons.tasks.taskDSL.impl.MyIntegerImpl
+     * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getMyInteger()
+     * @generated
+     */
+    EClass MY_INTEGER = eINSTANCE.getMyInteger();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MY_INTEGER__NAME = eINSTANCE.getMyInteger_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Number</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MY_INTEGER__NUMBER = eINSTANCE.getMyInteger_Number();
+
+    /**
+     * The meta object literal for the '{@link persons.tasks.taskDSL.impl.MyArrayImpl <em>My Array</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see persons.tasks.taskDSL.impl.MyArrayImpl
+     * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getMyArray()
+     * @generated
+     */
+    EClass MY_ARRAY = eINSTANCE.getMyArray();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute MY_ARRAY__NAME = eINSTANCE.getMyArray_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference MY_ARRAY__ELEMENTS = eINSTANCE.getMyArray_Elements();
+
+    /**
+     * The meta object literal for the '{@link persons.tasks.taskDSL.impl.SymbolicVariableImpl <em>Symbolic Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see persons.tasks.taskDSL.impl.SymbolicVariableImpl
+     * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getSymbolicVariable()
+     * @generated
+     */
+    EClass SYMBOLIC_VARIABLE = eINSTANCE.getSymbolicVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute SYMBOLIC_VARIABLE__NAME = eINSTANCE.getSymbolicVariable_Name();
+
+    /**
+     * The meta object literal for the '{@link persons.tasks.taskDSL.impl.ArrayVariableImpl <em>Array Variable</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see persons.tasks.taskDSL.impl.ArrayVariableImpl
+     * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getArrayVariable()
+     * @generated
+     */
+    EClass ARRAY_VARIABLE = eINSTANCE.getArrayVariable();
+
+    /**
+     * The meta object literal for the '<em><b>Variable</b></em>' reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_VARIABLE__VARIABLE = eINSTANCE.getArrayVariable_Variable();
+
+    /**
+     * The meta object literal for the '<em><b>Index</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_VARIABLE__INDEX = eINSTANCE.getArrayVariable_Index();
+
+    /**
+     * The meta object literal for the '{@link persons.tasks.taskDSL.impl.ArraySpecificationInitImpl <em>Array Specification Init</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see persons.tasks.taskDSL.impl.ArraySpecificationInitImpl
+     * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getArraySpecificationInit()
+     * @generated
+     */
+    EClass ARRAY_SPECIFICATION_INIT = eINSTANCE.getArraySpecificationInit();
+
+    /**
+     * The meta object literal for the '<em><b>Name</b></em>' attribute feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EAttribute ARRAY_SPECIFICATION_INIT__NAME = eINSTANCE.getArraySpecificationInit_Name();
+
+    /**
+     * The meta object literal for the '<em><b>Init</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_SPECIFICATION_INIT__INIT = eINSTANCE.getArraySpecificationInit_Init();
+
+    /**
+     * The meta object literal for the '<em><b>Values</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_SPECIFICATION_INIT__VALUES = eINSTANCE.getArraySpecificationInit_Values();
+
+    /**
+     * The meta object literal for the '{@link persons.tasks.taskDSL.impl.ArraySpecificationImpl <em>Array Specification</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see persons.tasks.taskDSL.impl.ArraySpecificationImpl
+     * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getArraySpecification()
+     * @generated
+     */
+    EClass ARRAY_SPECIFICATION = eINSTANCE.getArraySpecification();
+
+    /**
+     * The meta object literal for the '<em><b>Interval</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_SPECIFICATION__INTERVAL = eINSTANCE.getArraySpecification_Interval();
+
+    /**
+     * The meta object literal for the '{@link persons.tasks.taskDSL.impl.ArrayIntervalImpl <em>Array Interval</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see persons.tasks.taskDSL.impl.ArrayIntervalImpl
+     * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getArrayInterval()
+     * @generated
+     */
+    EClass ARRAY_INTERVAL = eINSTANCE.getArrayInterval();
+
+    /**
+     * The meta object literal for the '<em><b>Start</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_INTERVAL__START = eINSTANCE.getArrayInterval_Start();
+
+    /**
+     * The meta object literal for the '<em><b>End</b></em>' containment reference feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_INTERVAL__END = eINSTANCE.getArrayInterval_End();
+
+    /**
+     * The meta object literal for the '{@link persons.tasks.taskDSL.impl.ArrayInitializationImpl <em>Array Initialization</em>}' class.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @see persons.tasks.taskDSL.impl.ArrayInitializationImpl
+     * @see persons.tasks.taskDSL.impl.TaskDSLPackageImpl#getArrayInitialization()
+     * @generated
+     */
+    EClass ARRAY_INITIALIZATION = eINSTANCE.getArrayInitialization();
+
+    /**
+     * The meta object literal for the '<em><b>Elements</b></em>' containment reference list feature.
+     * <!-- begin-user-doc -->
+     * <!-- end-user-doc -->
+     * @generated
+     */
+    EReference ARRAY_INITIALIZATION__ELEMENTS = eINSTANCE.getArrayInitialization_Elements();
 
     /**
      * The meta object literal for the '{@link persons.tasks.taskDSL.impl.PersonImpl <em>Person</em>}' class.

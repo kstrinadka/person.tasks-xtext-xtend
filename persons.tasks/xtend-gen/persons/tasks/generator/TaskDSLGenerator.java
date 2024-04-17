@@ -23,8 +23,8 @@ public class TaskDSLGenerator extends AbstractGenerator {
     EObject _head = IteratorExtensions.<EObject>head(resource.getAllContents());
     final Planning root = ((Planning) _head);
     if ((root != null)) {
-      String _lastSegment = resource.getURI().lastSegment();
-      String _plus = ("generated/" + _lastSegment);
+      String _replace = resource.getURI().lastSegment().toString().replace(".tdsl", "");
+      String _plus = ("generated/" + _replace);
       String path = (_plus + "/");
       fsa.generateFile((path + "PlanningInfo.txt"), TextGenerator.toText(root));
       fsa.generateFile((path + "PlanningOverview.html"), HtmlGenerator.toHtml(root));

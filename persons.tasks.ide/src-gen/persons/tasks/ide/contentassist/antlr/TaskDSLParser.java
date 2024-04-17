@@ -32,6 +32,7 @@ public class TaskDSLParser extends AbstractContentAssistParser {
 		
 		private static void init(ImmutableMap.Builder<AbstractElement, String> builder, TaskDSLGrammarAccess grammarAccess) {
 			builder.put(grammarAccess.getPlanningAccess().getAlternatives_3(), "rule__Planning__Alternatives_3");
+			builder.put(grammarAccess.getArraySpecificationAccess().getAlternatives_1(), "rule__ArraySpecification__Alternatives_1");
 			builder.put(grammarAccess.getActionAccess().getAlternatives(), "rule__Action__Alternatives");
 			builder.put(grammarAccess.getExpressionLevel1Access().getAlternatives_1(), "rule__ExpressionLevel1__Alternatives_1");
 			builder.put(grammarAccess.getExpressionLevel2Access().getAlternatives_1(), "rule__ExpressionLevel2__Alternatives_1");
@@ -43,6 +44,17 @@ public class TaskDSLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getBinaryBooleanOperatorAccess().getAlternatives(), "rule__BinaryBooleanOperator__Alternatives");
 			builder.put(grammarAccess.getCompareOperatorAccess().getAlternatives(), "rule__CompareOperator__Alternatives");
 			builder.put(grammarAccess.getPlanningAccess().getGroup(), "rule__Planning__Group__0");
+			builder.put(grammarAccess.getMyIntegerAccess().getGroup(), "rule__MyInteger__Group__0");
+			builder.put(grammarAccess.getMyArrayAccess().getGroup(), "rule__MyArray__Group__0");
+			builder.put(grammarAccess.getMyArrayAccess().getGroup_4(), "rule__MyArray__Group_4__0");
+			builder.put(grammarAccess.getMyArrayAccess().getGroup_4_1(), "rule__MyArray__Group_4_1__0");
+			builder.put(grammarAccess.getArrayVariableAccess().getGroup(), "rule__ArrayVariable__Group__0");
+			builder.put(grammarAccess.getArraySpecificationInitAccess().getGroup(), "rule__ArraySpecificationInit__Group__0");
+			builder.put(grammarAccess.getArraySpecificationInitAccess().getGroup_3(), "rule__ArraySpecificationInit__Group_3__0");
+			builder.put(grammarAccess.getArraySpecificationAccess().getGroup(), "rule__ArraySpecification__Group__0");
+			builder.put(grammarAccess.getArrayIntervalAccess().getGroup(), "rule__ArrayInterval__Group__0");
+			builder.put(grammarAccess.getArrayInitializationAccess().getGroup(), "rule__ArrayInitialization__Group__0");
+			builder.put(grammarAccess.getArrayInitializationAccess().getGroup_2(), "rule__ArrayInitialization__Group_2__0");
 			builder.put(grammarAccess.getPersonAccess().getGroup(), "rule__Person__Group__0");
 			builder.put(grammarAccess.getTaskAccess().getGroup(), "rule__Task__Group__0");
 			builder.put(grammarAccess.getTaskAccess().getGroup_6(), "rule__Task__Group_6__0");
@@ -75,6 +87,25 @@ public class TaskDSLParser extends AbstractContentAssistParser {
 			builder.put(grammarAccess.getPlanningAccess().getAnonymousAssignment_2(), "rule__Planning__AnonymousAssignment_2");
 			builder.put(grammarAccess.getPlanningAccess().getPersonsAssignment_3_0(), "rule__Planning__PersonsAssignment_3_0");
 			builder.put(grammarAccess.getPlanningAccess().getTasksAssignment_3_1(), "rule__Planning__TasksAssignment_3_1");
+			builder.put(grammarAccess.getPlanningAccess().getArraysAssignment_3_2(), "rule__Planning__ArraysAssignment_3_2");
+			builder.put(grammarAccess.getPlanningAccess().getMyintegersAssignment_4(), "rule__Planning__MyintegersAssignment_4");
+			builder.put(grammarAccess.getPlanningAccess().getMyarraysAssignment_5(), "rule__Planning__MyarraysAssignment_5");
+			builder.put(grammarAccess.getMyIntegerAccess().getNameAssignment_1(), "rule__MyInteger__NameAssignment_1");
+			builder.put(grammarAccess.getMyIntegerAccess().getNumberAssignment_2(), "rule__MyInteger__NumberAssignment_2");
+			builder.put(grammarAccess.getMyArrayAccess().getNameAssignment_1(), "rule__MyArray__NameAssignment_1");
+			builder.put(grammarAccess.getMyArrayAccess().getElementsAssignment_4_0(), "rule__MyArray__ElementsAssignment_4_0");
+			builder.put(grammarAccess.getMyArrayAccess().getElementsAssignment_4_1_1(), "rule__MyArray__ElementsAssignment_4_1_1");
+			builder.put(grammarAccess.getSymbolicVariableAccess().getNameAssignment(), "rule__SymbolicVariable__NameAssignment");
+			builder.put(grammarAccess.getArrayVariableAccess().getVariableAssignment_0(), "rule__ArrayVariable__VariableAssignment_0");
+			builder.put(grammarAccess.getArrayVariableAccess().getIndexAssignment_2(), "rule__ArrayVariable__IndexAssignment_2");
+			builder.put(grammarAccess.getArraySpecificationInitAccess().getNameAssignment_1(), "rule__ArraySpecificationInit__NameAssignment_1");
+			builder.put(grammarAccess.getArraySpecificationInitAccess().getInitAssignment_2(), "rule__ArraySpecificationInit__InitAssignment_2");
+			builder.put(grammarAccess.getArraySpecificationInitAccess().getValuesAssignment_3_1(), "rule__ArraySpecificationInit__ValuesAssignment_3_1");
+			builder.put(grammarAccess.getArraySpecificationAccess().getIntervalAssignment_1_0(), "rule__ArraySpecification__IntervalAssignment_1_0");
+			builder.put(grammarAccess.getArrayIntervalAccess().getStartAssignment_0(), "rule__ArrayInterval__StartAssignment_0");
+			builder.put(grammarAccess.getArrayIntervalAccess().getEndAssignment_2(), "rule__ArrayInterval__EndAssignment_2");
+			builder.put(grammarAccess.getArrayInitializationAccess().getElementsAssignment_1(), "rule__ArrayInitialization__ElementsAssignment_1");
+			builder.put(grammarAccess.getArrayInitializationAccess().getElementsAssignment_2_1(), "rule__ArrayInitialization__ElementsAssignment_2_1");
 			builder.put(grammarAccess.getPersonAccess().getNameAssignment_1(), "rule__Person__NameAssignment_1");
 			builder.put(grammarAccess.getTaskAccess().getActionAssignment_1(), "rule__Task__ActionAssignment_1");
 			builder.put(grammarAccess.getTaskAccess().getPersonsAssignment_3(), "rule__Task__PersonsAssignment_3");

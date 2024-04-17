@@ -33,6 +33,78 @@ public interface TaskDSLFactory extends EFactory
   Planning createPlanning();
 
   /**
+   * Returns a new object of class '<em>My Integer</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>My Integer</em>'.
+   * @generated
+   */
+  MyInteger createMyInteger();
+
+  /**
+   * Returns a new object of class '<em>My Array</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>My Array</em>'.
+   * @generated
+   */
+  MyArray createMyArray();
+
+  /**
+   * Returns a new object of class '<em>Symbolic Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Symbolic Variable</em>'.
+   * @generated
+   */
+  SymbolicVariable createSymbolicVariable();
+
+  /**
+   * Returns a new object of class '<em>Array Variable</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Variable</em>'.
+   * @generated
+   */
+  ArrayVariable createArrayVariable();
+
+  /**
+   * Returns a new object of class '<em>Array Specification Init</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Specification Init</em>'.
+   * @generated
+   */
+  ArraySpecificationInit createArraySpecificationInit();
+
+  /**
+   * Returns a new object of class '<em>Array Specification</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Specification</em>'.
+   * @generated
+   */
+  ArraySpecification createArraySpecification();
+
+  /**
+   * Returns a new object of class '<em>Array Interval</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Interval</em>'.
+   * @generated
+   */
+  ArrayInterval createArrayInterval();
+
+  /**
+   * Returns a new object of class '<em>Array Initialization</em>'.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @return a new object of class '<em>Array Initialization</em>'.
+   * @generated
+   */
+  ArrayInitialization createArrayInitialization();
+
+  /**
    * Returns a new object of class '<em>Person</em>'.
    * <!-- begin-user-doc -->
    * <!-- end-user-doc -->

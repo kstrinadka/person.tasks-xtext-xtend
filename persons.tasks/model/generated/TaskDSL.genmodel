@@ -32,6 +32,39 @@
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//Planning/anonymous"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//Planning/persons"/>
       <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//Planning/tasks"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//Planning/arrays"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//Planning/myintegers"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//Planning/myarrays"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//MyInteger">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//MyInteger/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//MyInteger/number"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//MyArray">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//MyArray/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//MyArray/elements"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//SymbolicVariable">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//SymbolicVariable/name"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ArrayVariable">
+      <genFeatures notify="false" createChild="false" propertySortChoices="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ArrayVariable/variable"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ArrayVariable/index"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ArraySpecificationInit">
+      <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//ArraySpecificationInit/name"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ArraySpecificationInit/init"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ArraySpecificationInit/values"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ArraySpecification">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ArraySpecification/interval"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ArrayInterval">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ArrayInterval/start"/>
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ArrayInterval/end"/>
+    </genClasses>
+    <genClasses ecoreClass="TaskDSL.ecore#//ArrayInitialization">
+      <genFeatures property="None" children="true" createChild="true" ecoreFeature="ecore:EReference TaskDSL.ecore#//ArrayInitialization/elements"/>
     </genClasses>
     <genClasses ecoreClass="TaskDSL.ecore#//Person">
       <genFeatures createChild="false" ecoreFeature="ecore:EAttribute TaskDSL.ecore#//Person/name"/>

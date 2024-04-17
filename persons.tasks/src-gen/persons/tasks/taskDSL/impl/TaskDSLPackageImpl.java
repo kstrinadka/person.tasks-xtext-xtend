@@ -12,6 +12,11 @@ import org.eclipse.emf.ecore.EReference;
 import org.eclipse.emf.ecore.impl.EPackageImpl;
 
 import persons.tasks.taskDSL.Action;
+import persons.tasks.taskDSL.ArrayInitialization;
+import persons.tasks.taskDSL.ArrayInterval;
+import persons.tasks.taskDSL.ArraySpecification;
+import persons.tasks.taskDSL.ArraySpecificationInit;
+import persons.tasks.taskDSL.ArrayVariable;
 import persons.tasks.taskDSL.Balance;
 import persons.tasks.taskDSL.BinaryBooleanOperator;
 import persons.tasks.taskDSL.BooleanExpression;
@@ -37,11 +42,14 @@ import persons.tasks.taskDSL.ExpressionSubtraction;
 import persons.tasks.taskDSL.IntExpression;
 import persons.tasks.taskDSL.LunchAction;
 import persons.tasks.taskDSL.MeetingAction;
+import persons.tasks.taskDSL.MyArray;
+import persons.tasks.taskDSL.MyInteger;
 import persons.tasks.taskDSL.NotExpression;
 import persons.tasks.taskDSL.PaperAction;
 import persons.tasks.taskDSL.PaymentAction;
 import persons.tasks.taskDSL.Person;
 import persons.tasks.taskDSL.Planning;
+import persons.tasks.taskDSL.SymbolicVariable;
 import persons.tasks.taskDSL.Task;
 import persons.tasks.taskDSL.TaskDSLFactory;
 import persons.tasks.taskDSL.TaskDSLPackage;
@@ -61,6 +69,62 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
    * @generated
    */
   private EClass planningEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass myIntegerEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass myArrayEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass symbolicVariableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass arrayVariableEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass arraySpecificationInitEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass arraySpecificationEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass arrayIntervalEClass = null;
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  private EClass arrayInitializationEClass = null;
 
   /**
    * <!-- begin-user-doc -->
@@ -401,6 +465,281 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
   public EReference getPlanning_Tasks()
   {
     return (EReference)planningEClass.getEStructuralFeatures().get(3);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPlanning_Arrays()
+  {
+    return (EReference)planningEClass.getEStructuralFeatures().get(4);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPlanning_Myintegers()
+  {
+    return (EReference)planningEClass.getEStructuralFeatures().get(5);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getPlanning_Myarrays()
+  {
+    return (EReference)planningEClass.getEStructuralFeatures().get(6);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMyInteger()
+  {
+    return myIntegerEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMyInteger_Name()
+  {
+    return (EAttribute)myIntegerEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMyInteger_Number()
+  {
+    return (EReference)myIntegerEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getMyArray()
+  {
+    return myArrayEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getMyArray_Name()
+  {
+    return (EAttribute)myArrayEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getMyArray_Elements()
+  {
+    return (EReference)myArrayEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getSymbolicVariable()
+  {
+    return symbolicVariableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getSymbolicVariable_Name()
+  {
+    return (EAttribute)symbolicVariableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getArrayVariable()
+  {
+    return arrayVariableEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArrayVariable_Variable()
+  {
+    return (EReference)arrayVariableEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArrayVariable_Index()
+  {
+    return (EReference)arrayVariableEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getArraySpecificationInit()
+  {
+    return arraySpecificationInitEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EAttribute getArraySpecificationInit_Name()
+  {
+    return (EAttribute)arraySpecificationInitEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArraySpecificationInit_Init()
+  {
+    return (EReference)arraySpecificationInitEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArraySpecificationInit_Values()
+  {
+    return (EReference)arraySpecificationInitEClass.getEStructuralFeatures().get(2);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getArraySpecification()
+  {
+    return arraySpecificationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArraySpecification_Interval()
+  {
+    return (EReference)arraySpecificationEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getArrayInterval()
+  {
+    return arrayIntervalEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArrayInterval_Start()
+  {
+    return (EReference)arrayIntervalEClass.getEStructuralFeatures().get(0);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArrayInterval_End()
+  {
+    return (EReference)arrayIntervalEClass.getEStructuralFeatures().get(1);
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EClass getArrayInitialization()
+  {
+    return arrayInitializationEClass;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EReference getArrayInitialization_Elements()
+  {
+    return (EReference)arrayInitializationEClass.getEStructuralFeatures().get(0);
   }
 
   /**
@@ -1253,6 +1592,39 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
     createEAttribute(planningEClass, PLANNING__ANONYMOUS);
     createEReference(planningEClass, PLANNING__PERSONS);
     createEReference(planningEClass, PLANNING__TASKS);
+    createEReference(planningEClass, PLANNING__ARRAYS);
+    createEReference(planningEClass, PLANNING__MYINTEGERS);
+    createEReference(planningEClass, PLANNING__MYARRAYS);
+
+    myIntegerEClass = createEClass(MY_INTEGER);
+    createEAttribute(myIntegerEClass, MY_INTEGER__NAME);
+    createEReference(myIntegerEClass, MY_INTEGER__NUMBER);
+
+    myArrayEClass = createEClass(MY_ARRAY);
+    createEAttribute(myArrayEClass, MY_ARRAY__NAME);
+    createEReference(myArrayEClass, MY_ARRAY__ELEMENTS);
+
+    symbolicVariableEClass = createEClass(SYMBOLIC_VARIABLE);
+    createEAttribute(symbolicVariableEClass, SYMBOLIC_VARIABLE__NAME);
+
+    arrayVariableEClass = createEClass(ARRAY_VARIABLE);
+    createEReference(arrayVariableEClass, ARRAY_VARIABLE__VARIABLE);
+    createEReference(arrayVariableEClass, ARRAY_VARIABLE__INDEX);
+
+    arraySpecificationInitEClass = createEClass(ARRAY_SPECIFICATION_INIT);
+    createEAttribute(arraySpecificationInitEClass, ARRAY_SPECIFICATION_INIT__NAME);
+    createEReference(arraySpecificationInitEClass, ARRAY_SPECIFICATION_INIT__INIT);
+    createEReference(arraySpecificationInitEClass, ARRAY_SPECIFICATION_INIT__VALUES);
+
+    arraySpecificationEClass = createEClass(ARRAY_SPECIFICATION);
+    createEReference(arraySpecificationEClass, ARRAY_SPECIFICATION__INTERVAL);
+
+    arrayIntervalEClass = createEClass(ARRAY_INTERVAL);
+    createEReference(arrayIntervalEClass, ARRAY_INTERVAL__START);
+    createEReference(arrayIntervalEClass, ARRAY_INTERVAL__END);
+
+    arrayInitializationEClass = createEClass(ARRAY_INITIALIZATION);
+    createEReference(arrayInitializationEClass, ARRAY_INITIALIZATION__ELEMENTS);
 
     personEClass = createEClass(PERSON);
     createEAttribute(personEClass, PERSON__NAME);
@@ -1417,6 +1789,39 @@ public class TaskDSLPackageImpl extends EPackageImpl implements TaskDSLPackage
     initEAttribute(getPlanning_Anonymous(), ecorePackage.getEBoolean(), "anonymous", null, 0, 1, Planning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPlanning_Persons(), this.getPerson(), null, "persons", null, 0, -1, Planning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
     initEReference(getPlanning_Tasks(), this.getTask(), null, "tasks", null, 0, -1, Planning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPlanning_Arrays(), this.getArraySpecificationInit(), null, "arrays", null, 0, -1, Planning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPlanning_Myintegers(), this.getMyInteger(), null, "myintegers", null, 0, -1, Planning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getPlanning_Myarrays(), this.getMyArray(), null, "myarrays", null, 0, -1, Planning.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(myIntegerEClass, MyInteger.class, "MyInteger", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMyInteger_Name(), ecorePackage.getEString(), "name", null, 0, 1, MyInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMyInteger_Number(), this.getIntExpression(), null, "number", null, 0, 1, MyInteger.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(myArrayEClass, MyArray.class, "MyArray", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getMyArray_Name(), ecorePackage.getEString(), "name", null, 0, 1, MyArray.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getMyArray_Elements(), this.getExpressionConstantInt(), null, "elements", null, 0, -1, MyArray.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(symbolicVariableEClass, SymbolicVariable.class, "SymbolicVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getSymbolicVariable_Name(), ecorePackage.getEString(), "name", null, 0, 1, SymbolicVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arrayVariableEClass, ArrayVariable.class, "ArrayVariable", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArrayVariable_Variable(), this.getSymbolicVariable(), null, "variable", null, 0, 1, ArrayVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_COMPOSITE, IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayVariable_Index(), this.getIntExpression(), null, "index", null, 0, 1, ArrayVariable.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arraySpecificationInitEClass, ArraySpecificationInit.class, "ArraySpecificationInit", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEAttribute(getArraySpecificationInit_Name(), ecorePackage.getEString(), "name", null, 0, 1, ArraySpecificationInit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArraySpecificationInit_Init(), this.getArraySpecification(), null, "init", null, 0, 1, ArraySpecificationInit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArraySpecificationInit_Values(), this.getArrayInitialization(), null, "values", null, 0, 1, ArraySpecificationInit.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arraySpecificationEClass, ArraySpecification.class, "ArraySpecification", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArraySpecification_Interval(), this.getArrayInterval(), null, "interval", null, 0, 1, ArraySpecification.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arrayIntervalEClass, ArrayInterval.class, "ArrayInterval", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArrayInterval_Start(), this.getIntExpression(), null, "start", null, 0, 1, ArrayInterval.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+    initEReference(getArrayInterval_End(), this.getIntExpression(), null, "end", null, 0, 1, ArrayInterval.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
+
+    initEClass(arrayInitializationEClass, ArrayInitialization.class, "ArrayInitialization", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
+    initEReference(getArrayInitialization_Elements(), this.getIntExpression(), null, "elements", null, 0, -1, ArrayInitialization.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, IS_COMPOSITE, !IS_RESOLVE_PROXIES, !IS_UNSETTABLE, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);
 
     initEClass(personEClass, Person.class, "Person", !IS_ABSTRACT, !IS_INTERFACE, IS_GENERATED_INSTANCE_CLASS);
     initEAttribute(getPerson_Name(), ecorePackage.getEString(), "name", null, 0, 1, Person.class, !IS_TRANSIENT, !IS_VOLATILE, IS_CHANGEABLE, !IS_UNSETTABLE, !IS_ID, IS_UNIQUE, !IS_DERIVED, IS_ORDERED);

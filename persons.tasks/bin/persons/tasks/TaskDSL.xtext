@@ -15,8 +15,44 @@ Planning:
 	'Planning' name = ID
 	(anonymous ?= 'anonymous')?	// ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
 	(persons += Person |
-	tasks += Task)* //если не поставить звездочку, то только первая сущность сможет объявиться
+	tasks += Task |
+	arrays += ArraySpecificationInit)* //если не поставить звездочку, то только первая сущность сможет объявиться
+	(myintegers += MyInteger)*
+	(myarrays += MyArray)*
+	
 ;
+
+MyInteger:
+	'INT' name = ID 
+	number = IntExpression
+;
+
+MyArray:
+	'Array:' name = ID ':='
+	'[' ( elements+=ExpressionConstantInt ( ',' elements+=ExpressionConstantInt )* )? ']'
+;
+
+SymbolicVariable:
+	name=ID;
+
+ArrayVariable:
+	variable=[SymbolicVariable] '[' index=IntExpression ']';
+	
+ArraySpecificationInit:
+	'ARRAY' name = ID
+	init=ArraySpecification (':=' values=ArrayInitialization)?;
+
+ArraySpecification:
+	'[' (interval=ArrayInterval | '*') ']' 
+//	'OF' type=DataTypeName
+;
+	
+ArrayInterval:
+	start=IntExpression '..' end=IntExpression;
+
+ArrayInitialization :
+	'[' elements+=IntExpression (',' elements+=IntExpression)* ']';
+
 
 Person:
 	'Person:' name=ID

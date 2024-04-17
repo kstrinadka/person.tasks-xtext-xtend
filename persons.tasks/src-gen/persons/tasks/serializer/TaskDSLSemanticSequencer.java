@@ -15,6 +15,11 @@ import org.eclipse.xtext.serializer.acceptor.SequenceFeeder;
 import org.eclipse.xtext.serializer.sequencer.AbstractDelegatingSemanticSequencer;
 import org.eclipse.xtext.serializer.sequencer.ITransientValueService.ValueTransient;
 import persons.tasks.services.TaskDSLGrammarAccess;
+import persons.tasks.taskDSL.ArrayInitialization;
+import persons.tasks.taskDSL.ArrayInterval;
+import persons.tasks.taskDSL.ArraySpecification;
+import persons.tasks.taskDSL.ArraySpecificationInit;
+import persons.tasks.taskDSL.ArrayVariable;
 import persons.tasks.taskDSL.BooleanExpressionBracket;
 import persons.tasks.taskDSL.BooleanExpressionConstant;
 import persons.tasks.taskDSL.Duration;
@@ -35,11 +40,14 @@ import persons.tasks.taskDSL.ExpressionPower;
 import persons.tasks.taskDSL.ExpressionSubtraction;
 import persons.tasks.taskDSL.LunchAction;
 import persons.tasks.taskDSL.MeetingAction;
+import persons.tasks.taskDSL.MyArray;
+import persons.tasks.taskDSL.MyInteger;
 import persons.tasks.taskDSL.NotExpression;
 import persons.tasks.taskDSL.PaperAction;
 import persons.tasks.taskDSL.PaymentAction;
 import persons.tasks.taskDSL.Person;
 import persons.tasks.taskDSL.Planning;
+import persons.tasks.taskDSL.SymbolicVariable;
 import persons.tasks.taskDSL.Task;
 import persons.tasks.taskDSL.TaskDSLPackage;
 
@@ -57,6 +65,21 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 		Set<Parameter> parameters = context.getEnabledBooleanParameters();
 		if (epackage == TaskDSLPackage.eINSTANCE)
 			switch (semanticObject.eClass().getClassifierID()) {
+			case TaskDSLPackage.ARRAY_INITIALIZATION:
+				sequence_ArrayInitialization(context, (ArrayInitialization) semanticObject); 
+				return; 
+			case TaskDSLPackage.ARRAY_INTERVAL:
+				sequence_ArrayInterval(context, (ArrayInterval) semanticObject); 
+				return; 
+			case TaskDSLPackage.ARRAY_SPECIFICATION:
+				sequence_ArraySpecification(context, (ArraySpecification) semanticObject); 
+				return; 
+			case TaskDSLPackage.ARRAY_SPECIFICATION_INIT:
+				sequence_ArraySpecificationInit(context, (ArraySpecificationInit) semanticObject); 
+				return; 
+			case TaskDSLPackage.ARRAY_VARIABLE:
+				sequence_ArrayVariable(context, (ArrayVariable) semanticObject); 
+				return; 
 			case TaskDSLPackage.BOOLEAN_EXPRESSION_BRACKET:
 				sequence_BooleanExpressionBracket(context, (BooleanExpressionBracket) semanticObject); 
 				return; 
@@ -117,6 +140,12 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case TaskDSLPackage.MEETING_ACTION:
 				sequence_MeetingAction(context, (MeetingAction) semanticObject); 
 				return; 
+			case TaskDSLPackage.MY_ARRAY:
+				sequence_MyArray(context, (MyArray) semanticObject); 
+				return; 
+			case TaskDSLPackage.MY_INTEGER:
+				sequence_MyInteger(context, (MyInteger) semanticObject); 
+				return; 
 			case TaskDSLPackage.NOT_EXPRESSION:
 				sequence_NotExpression(context, (NotExpression) semanticObject); 
 				return; 
@@ -132,6 +161,9 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 			case TaskDSLPackage.PLANNING:
 				sequence_Planning(context, (Planning) semanticObject); 
 				return; 
+			case TaskDSLPackage.SYMBOLIC_VARIABLE:
+				sequence_SymbolicVariable(context, (SymbolicVariable) semanticObject); 
+				return; 
 			case TaskDSLPackage.TASK:
 				sequence_Task(context, (Task) semanticObject); 
 				return; 
@@ -139,6 +171,100 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 		if (errorAcceptor != null)
 			errorAcceptor.accept(diagnosticProvider.createInvalidContextOrTypeDiagnostic(semanticObject, context));
 	}
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ArrayInitialization returns ArrayInitialization
+	 *
+	 * Constraint:
+	 *     (elements+=IntExpression elements+=IntExpression*)
+	 * </pre>
+	 */
+	protected void sequence_ArrayInitialization(ISerializationContext context, ArrayInitialization semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ArrayInterval returns ArrayInterval
+	 *
+	 * Constraint:
+	 *     (start=IntExpression end=IntExpression)
+	 * </pre>
+	 */
+	protected void sequence_ArrayInterval(ISerializationContext context, ArrayInterval semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.ARRAY_INTERVAL__START) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.ARRAY_INTERVAL__START));
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.ARRAY_INTERVAL__END) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.ARRAY_INTERVAL__END));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getArrayIntervalAccess().getStartIntExpressionParserRuleCall_0_0(), semanticObject.getStart());
+		feeder.accept(grammarAccess.getArrayIntervalAccess().getEndIntExpressionParserRuleCall_2_0(), semanticObject.getEnd());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ArraySpecificationInit returns ArraySpecificationInit
+	 *
+	 * Constraint:
+	 *     (name=ID init=ArraySpecification values=ArrayInitialization?)
+	 * </pre>
+	 */
+	protected void sequence_ArraySpecificationInit(ISerializationContext context, ArraySpecificationInit semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ArraySpecification returns ArraySpecification
+	 *
+	 * Constraint:
+	 *     interval=ArrayInterval
+	 * </pre>
+	 */
+	protected void sequence_ArraySpecification(ISerializationContext context, ArraySpecification semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.ARRAY_SPECIFICATION__INTERVAL) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.ARRAY_SPECIFICATION__INTERVAL));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getArraySpecificationAccess().getIntervalArrayIntervalParserRuleCall_1_0_0(), semanticObject.getInterval());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     ArrayVariable returns ArrayVariable
+	 *
+	 * Constraint:
+	 *     (variable=[SymbolicVariable|ID] index=IntExpression)
+	 * </pre>
+	 */
+	protected void sequence_ArrayVariable(ISerializationContext context, ArrayVariable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.ARRAY_VARIABLE__VARIABLE) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.ARRAY_VARIABLE__VARIABLE));
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.ARRAY_VARIABLE__INDEX) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.ARRAY_VARIABLE__INDEX));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getArrayVariableAccess().getVariableSymbolicVariableIDTerminalRuleCall_0_0_1(), semanticObject.eGet(TaskDSLPackage.Literals.ARRAY_VARIABLE__VARIABLE, false));
+		feeder.accept(grammarAccess.getArrayVariableAccess().getIndexIntExpressionParserRuleCall_2_0(), semanticObject.getIndex());
+		feeder.finish();
+	}
+	
 	
 	/**
 	 * <pre>
@@ -730,6 +856,43 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 	/**
 	 * <pre>
 	 * Contexts:
+	 *     MyArray returns MyArray
+	 *
+	 * Constraint:
+	 *     (name=ID (elements+=ExpressionConstantInt elements+=ExpressionConstantInt*)?)
+	 * </pre>
+	 */
+	protected void sequence_MyArray(ISerializationContext context, MyArray semanticObject) {
+		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     MyInteger returns MyInteger
+	 *
+	 * Constraint:
+	 *     (name=ID number=IntExpression)
+	 * </pre>
+	 */
+	protected void sequence_MyInteger(ISerializationContext context, MyInteger semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.MY_INTEGER__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.MY_INTEGER__NAME));
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.MY_INTEGER__NUMBER) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.MY_INTEGER__NUMBER));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getMyIntegerAccess().getNameIDTerminalRuleCall_1_0(), semanticObject.getName());
+		feeder.accept(grammarAccess.getMyIntegerAccess().getNumberIntExpressionParserRuleCall_2_0(), semanticObject.getNumber());
+		feeder.finish();
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
 	 *     BooleanExpression returns NotExpression
 	 *     BooleanExpressionLevel1 returns NotExpression
 	 *     BooleanExpressionLevel1.ExpressionBinOp_1_0 returns NotExpression
@@ -813,11 +976,31 @@ public class TaskDSLSemanticSequencer extends AbstractDelegatingSemanticSequence
 	 *     Planning returns Planning
 	 *
 	 * Constraint:
-	 *     (name=ID anonymous?='anonymous'? (persons+=Person | tasks+=Task)*)
+	 *     (name=ID anonymous?='anonymous'? (persons+=Person | tasks+=Task | arrays+=ArraySpecificationInit)* myintegers+=MyInteger* myarrays+=MyArray*)
 	 * </pre>
 	 */
 	protected void sequence_Planning(ISerializationContext context, Planning semanticObject) {
 		genericSequencer.createSequence(context, semanticObject);
+	}
+	
+	
+	/**
+	 * <pre>
+	 * Contexts:
+	 *     SymbolicVariable returns SymbolicVariable
+	 *
+	 * Constraint:
+	 *     name=ID
+	 * </pre>
+	 */
+	protected void sequence_SymbolicVariable(ISerializationContext context, SymbolicVariable semanticObject) {
+		if (errorAcceptor != null) {
+			if (transientValues.isValueTransient(semanticObject, TaskDSLPackage.Literals.SYMBOLIC_VARIABLE__NAME) == ValueTransient.YES)
+				errorAcceptor.accept(diagnosticProvider.createFeatureValueMissing(semanticObject, TaskDSLPackage.Literals.SYMBOLIC_VARIABLE__NAME));
+		}
+		SequenceFeeder feeder = createSequencerFeeder(context, semanticObject);
+		feeder.accept(grammarAccess.getSymbolicVariableAccess().getNameIDTerminalRuleCall_0(), semanticObject.getName());
+		feeder.finish();
 	}
 	
 	

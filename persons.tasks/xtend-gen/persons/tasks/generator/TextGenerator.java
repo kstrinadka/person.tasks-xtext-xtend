@@ -30,6 +30,7 @@ import persons.tasks.taskDSL.ExpressionPower;
 import persons.tasks.taskDSL.ExpressionSubtraction;
 import persons.tasks.taskDSL.LunchAction;
 import persons.tasks.taskDSL.MeetingAction;
+import persons.tasks.taskDSL.MyArray;
 import persons.tasks.taskDSL.NotExpression;
 import persons.tasks.taskDSL.PaperAction;
 import persons.tasks.taskDSL.PaymentAction;
@@ -379,6 +380,26 @@ public class TextGenerator {
         _builder.newLineIfNotEmpty();
       }
     }
+    _builder.newLine();
+    _builder.append("\n");
+    _builder.append("Arrays to text:");
+    _builder.newLineIfNotEmpty();
+    {
+      List<MyArray> _arrays = ArraysHandler.getArrays(root);
+      boolean _hasElements_2 = false;
+      for(final MyArray a_1 : _arrays) {
+        if (!_hasElements_2) {
+          _hasElements_2 = true;
+          _builder.append("====== \n", "\t\t");
+        } else {
+          _builder.appendImmediate(" , \n ", "\t\t");
+        }
+        _builder.append("\t\t");
+        CharSequence _array2Text = TextGenerator.array2Text(a_1);
+        _builder.append(_array2Text, "\t\t");
+        _builder.newLineIfNotEmpty();
+      }
+    }
     return _builder;
   }
 
@@ -437,6 +458,7 @@ public class TextGenerator {
       Duration _duration = t.getDuration();
       boolean _tripleNotEquals = (_duration != null);
       if (_tripleNotEquals) {
+        _builder.append("\t");
         _builder.append("with duration: ");
         int _dl = t.getDuration().getDl();
         _builder.append(_dl);
@@ -473,6 +495,38 @@ public class TextGenerator {
       }
     }
     return null;
+  }
+
+  protected static CharSequence _array2Text(final MyArray array) {
+    StringConcatenation _builder = new StringConcatenation();
+    _builder.append("ARRAY REPRESENTATION: ");
+    String _name = array.getName();
+    _builder.append(_name);
+    _builder.append(" = ");
+    {
+      EList<ExpressionConstantInt> _elements = array.getElements();
+      boolean _hasElements = false;
+      for(final ExpressionConstantInt a : _elements) {
+        if (!_hasElements) {
+          _hasElements = true;
+          _builder.append("[");
+        } else {
+          _builder.appendImmediate(",  ", "");
+        }
+        int _value = a.getValue();
+        _builder.append(_value);
+      }
+      if (_hasElements) {
+        _builder.append("]");
+      }
+    }
+    _builder.newLineIfNotEmpty();
+    _builder.append("ARRAY SUM: ");
+    Integer _arraySum = ArraysHandler.getArraySum(array);
+    _builder.append(_arraySum);
+    _builder.newLineIfNotEmpty();
+    _builder.newLine();
+    return _builder;
   }
 
   public static CharSequence generateExpression(final EObject expr) {
@@ -531,5 +585,9 @@ public class TextGenerator {
       throw new IllegalArgumentException("Unhandled parameter types: " +
         Arrays.<Object>asList(action).toString());
     }
+  }
+
+  public static CharSequence array2Text(final MyArray array) {
+    return _array2Text(array);
   }
 }

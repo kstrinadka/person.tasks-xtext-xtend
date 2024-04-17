@@ -8,6 +8,51 @@
         eType="#//Person" containment="true"/>
     <eStructuralFeatures xsi:type="ecore:EReference" name="tasks" upperBound="-1"
         eType="#//Task" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="arrays" upperBound="-1"
+        eType="#//ArraySpecificationInit" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="myintegers" upperBound="-1"
+        eType="#//MyInteger" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="myarrays" upperBound="-1"
+        eType="#//MyArray" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MyInteger">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="number" eType="#//IntExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MyArray">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//ExpressionConstantInt" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="SymbolicVariable">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayVariable">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="variable" eType="#//SymbolicVariable"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="index" eType="#//IntExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArraySpecificationInit">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="init" eType="#//ArraySpecification"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="values" eType="#//ArrayInitialization"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArraySpecification">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="interval" eType="#//ArrayInterval"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayInterval">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="start" eType="#//IntExpression"
+        containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="end" eType="#//IntExpression"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ArrayInitialization">
+    <eStructuralFeatures xsi:type="ecore:EReference" name="elements" upperBound="-1"
+        eType="#//IntExpression" containment="true"/>
   </eClassifiers>
   <eClassifiers xsi:type="ecore:EClass" name="Person">
     <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>

@@ -39,6 +39,12 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		private final RuleCall cPersonsPersonParserRuleCall_3_0_0 = (RuleCall)cPersonsAssignment_3_0.eContents().get(0);
 		private final Assignment cTasksAssignment_3_1 = (Assignment)cAlternatives_3.eContents().get(1);
 		private final RuleCall cTasksTaskParserRuleCall_3_1_0 = (RuleCall)cTasksAssignment_3_1.eContents().get(0);
+		private final Assignment cArraysAssignment_3_2 = (Assignment)cAlternatives_3.eContents().get(2);
+		private final RuleCall cArraysArraySpecificationInitParserRuleCall_3_2_0 = (RuleCall)cArraysAssignment_3_2.eContents().get(0);
+		private final Assignment cMyintegersAssignment_4 = (Assignment)cGroup.eContents().get(4);
+		private final RuleCall cMyintegersMyIntegerParserRuleCall_4_0 = (RuleCall)cMyintegersAssignment_4.eContents().get(0);
+		private final Assignment cMyarraysAssignment_5 = (Assignment)cGroup.eContents().get(5);
+		private final RuleCall cMyarraysMyArrayParserRuleCall_5_0 = (RuleCall)cMyarraysAssignment_5.eContents().get(0);
 		
 		//// Что поменялось?
 		//// Добавляем Scoping
@@ -47,14 +53,20 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		//    'Planning' name = ID
 		//    (anonymous ?= 'anonymous')?    // ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
 		//    (persons += Person |
-		//    tasks += Task)* //если не поставить звездочку, то только первая сущность сможет объявиться
+		//    tasks += Task |
+		//    arrays += ArraySpecificationInit)* //если не поставить звездочку, то только первая сущность сможет объявиться
+		//    (myintegers += MyInteger)*
+		//    (myarrays += MyArray)*
 		//;
 		@Override public ParserRule getRule() { return rule; }
 		
 		//'Planning' name = ID
 		//(anonymous ?= 'anonymous')?    // ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
 		//(persons += Person |
-		//tasks += Task)*
+		//tasks += Task |
+		//arrays += ArraySpecificationInit)* //если не поставить звездочку, то только первая сущность сможет объявиться
+		//(myintegers += MyInteger)*
+		//(myarrays += MyArray)*
 		public Group getGroup() { return cGroup; }
 		
 		//'Planning'
@@ -74,7 +86,8 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		
 		//// ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
 		//(persons += Person |
-		//tasks += Task)*
+		//tasks += Task |
+		//arrays += ArraySpecificationInit)*
 		public Alternatives getAlternatives_3() { return cAlternatives_3; }
 		
 		//persons += Person
@@ -88,6 +101,339 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		
 		//Task
 		public RuleCall getTasksTaskParserRuleCall_3_1_0() { return cTasksTaskParserRuleCall_3_1_0; }
+		
+		//arrays += ArraySpecificationInit
+		public Assignment getArraysAssignment_3_2() { return cArraysAssignment_3_2; }
+		
+		//ArraySpecificationInit
+		public RuleCall getArraysArraySpecificationInitParserRuleCall_3_2_0() { return cArraysArraySpecificationInitParserRuleCall_3_2_0; }
+		
+		////если не поставить звездочку, то только первая сущность сможет объявиться
+		//   (myintegers += MyInteger)*
+		public Assignment getMyintegersAssignment_4() { return cMyintegersAssignment_4; }
+		
+		//MyInteger
+		public RuleCall getMyintegersMyIntegerParserRuleCall_4_0() { return cMyintegersMyIntegerParserRuleCall_4_0; }
+		
+		//(myarrays += MyArray)*
+		public Assignment getMyarraysAssignment_5() { return cMyarraysAssignment_5; }
+		
+		//MyArray
+		public RuleCall getMyarraysMyArrayParserRuleCall_5_0() { return cMyarraysMyArrayParserRuleCall_5_0; }
+	}
+	public class MyIntegerElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.MyInteger");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cINTKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cNumberAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cNumberIntExpressionParserRuleCall_2_0 = (RuleCall)cNumberAssignment_2.eContents().get(0);
+		
+		//MyInteger:
+		//    'INT' name = ID
+		//    number = IntExpression
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'INT' name = ID
+		//number = IntExpression
+		public Group getGroup() { return cGroup; }
+		
+		//'INT'
+		public Keyword getINTKeyword_0() { return cINTKeyword_0; }
+		
+		//name = ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//number = IntExpression
+		public Assignment getNumberAssignment_2() { return cNumberAssignment_2; }
+		
+		//IntExpression
+		public RuleCall getNumberIntExpressionParserRuleCall_2_0() { return cNumberIntExpressionParserRuleCall_2_0; }
+	}
+	public class MyArrayElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.MyArray");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cArrayKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Keyword cColonEqualsSignKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		private final Keyword cLeftSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		private final Group cGroup_4 = (Group)cGroup.eContents().get(4);
+		private final Assignment cElementsAssignment_4_0 = (Assignment)cGroup_4.eContents().get(0);
+		private final RuleCall cElementsExpressionConstantIntParserRuleCall_4_0_0 = (RuleCall)cElementsAssignment_4_0.eContents().get(0);
+		private final Group cGroup_4_1 = (Group)cGroup_4.eContents().get(1);
+		private final Keyword cCommaKeyword_4_1_0 = (Keyword)cGroup_4_1.eContents().get(0);
+		private final Assignment cElementsAssignment_4_1_1 = (Assignment)cGroup_4_1.eContents().get(1);
+		private final RuleCall cElementsExpressionConstantIntParserRuleCall_4_1_1_0 = (RuleCall)cElementsAssignment_4_1_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_5 = (Keyword)cGroup.eContents().get(5);
+		
+		//MyArray:
+		//    'Array:' name = ID ':='
+		//    '[' ( elements+=ExpressionConstantInt ( ',' elements+=ExpressionConstantInt )* )? ']'
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'Array:' name = ID ':='
+		//'[' ( elements+=ExpressionConstantInt ( ',' elements+=ExpressionConstantInt )* )? ']'
+		public Group getGroup() { return cGroup; }
+		
+		//'Array:'
+		public Keyword getArrayKeyword_0() { return cArrayKeyword_0; }
+		
+		//name = ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//':='
+		public Keyword getColonEqualsSignKeyword_2() { return cColonEqualsSignKeyword_2; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_3() { return cLeftSquareBracketKeyword_3; }
+		
+		//( elements+=ExpressionConstantInt ( ',' elements+=ExpressionConstantInt )* )?
+		public Group getGroup_4() { return cGroup_4; }
+		
+		//elements+=ExpressionConstantInt
+		public Assignment getElementsAssignment_4_0() { return cElementsAssignment_4_0; }
+		
+		//ExpressionConstantInt
+		public RuleCall getElementsExpressionConstantIntParserRuleCall_4_0_0() { return cElementsExpressionConstantIntParserRuleCall_4_0_0; }
+		
+		//( ',' elements+=ExpressionConstantInt )*
+		public Group getGroup_4_1() { return cGroup_4_1; }
+		
+		//','
+		public Keyword getCommaKeyword_4_1_0() { return cCommaKeyword_4_1_0; }
+		
+		//elements+=ExpressionConstantInt
+		public Assignment getElementsAssignment_4_1_1() { return cElementsAssignment_4_1_1; }
+		
+		//ExpressionConstantInt
+		public RuleCall getElementsExpressionConstantIntParserRuleCall_4_1_1_0() { return cElementsExpressionConstantIntParserRuleCall_4_1_1_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_5() { return cRightSquareBracketKeyword_5; }
+	}
+	public class SymbolicVariableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.SymbolicVariable");
+		private final Assignment cNameAssignment = (Assignment)rule.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_0 = (RuleCall)cNameAssignment.eContents().get(0);
+		
+		//SymbolicVariable:
+		//    name=ID;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//name=ID
+		public Assignment getNameAssignment() { return cNameAssignment; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_0() { return cNameIDTerminalRuleCall_0; }
+	}
+	public class ArrayVariableElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.ArrayVariable");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cVariableAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final CrossReference cVariableSymbolicVariableCrossReference_0_0 = (CrossReference)cVariableAssignment_0.eContents().get(0);
+		private final RuleCall cVariableSymbolicVariableIDTerminalRuleCall_0_0_1 = (RuleCall)cVariableSymbolicVariableCrossReference_0_0.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cIndexAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cIndexIntExpressionParserRuleCall_2_0 = (RuleCall)cIndexAssignment_2.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//ArrayVariable:
+		//    variable=[SymbolicVariable] '[' index=IntExpression ']';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//variable=[SymbolicVariable] '[' index=IntExpression ']'
+		public Group getGroup() { return cGroup; }
+		
+		//variable=[SymbolicVariable]
+		public Assignment getVariableAssignment_0() { return cVariableAssignment_0; }
+		
+		//[SymbolicVariable]
+		public CrossReference getVariableSymbolicVariableCrossReference_0_0() { return cVariableSymbolicVariableCrossReference_0_0; }
+		
+		//ID
+		public RuleCall getVariableSymbolicVariableIDTerminalRuleCall_0_0_1() { return cVariableSymbolicVariableIDTerminalRuleCall_0_0_1; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_1() { return cLeftSquareBracketKeyword_1; }
+		
+		//index=IntExpression
+		public Assignment getIndexAssignment_2() { return cIndexAssignment_2; }
+		
+		//IntExpression
+		public RuleCall getIndexIntExpressionParserRuleCall_2_0() { return cIndexIntExpressionParserRuleCall_2_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_3() { return cRightSquareBracketKeyword_3; }
+	}
+	public class ArraySpecificationInitElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.ArraySpecificationInit");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cARRAYKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cNameAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cNameIDTerminalRuleCall_1_0 = (RuleCall)cNameAssignment_1.eContents().get(0);
+		private final Assignment cInitAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cInitArraySpecificationParserRuleCall_2_0 = (RuleCall)cInitAssignment_2.eContents().get(0);
+		private final Group cGroup_3 = (Group)cGroup.eContents().get(3);
+		private final Keyword cColonEqualsSignKeyword_3_0 = (Keyword)cGroup_3.eContents().get(0);
+		private final Assignment cValuesAssignment_3_1 = (Assignment)cGroup_3.eContents().get(1);
+		private final RuleCall cValuesArrayInitializationParserRuleCall_3_1_0 = (RuleCall)cValuesAssignment_3_1.eContents().get(0);
+		
+		//ArraySpecificationInit:
+		//    'ARRAY' name = ID
+		//    init=ArraySpecification (':=' values=ArrayInitialization)?;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'ARRAY' name = ID
+		//init=ArraySpecification (':=' values=ArrayInitialization)?
+		public Group getGroup() { return cGroup; }
+		
+		//'ARRAY'
+		public Keyword getARRAYKeyword_0() { return cARRAYKeyword_0; }
+		
+		//name = ID
+		public Assignment getNameAssignment_1() { return cNameAssignment_1; }
+		
+		//ID
+		public RuleCall getNameIDTerminalRuleCall_1_0() { return cNameIDTerminalRuleCall_1_0; }
+		
+		//init=ArraySpecification
+		public Assignment getInitAssignment_2() { return cInitAssignment_2; }
+		
+		//ArraySpecification
+		public RuleCall getInitArraySpecificationParserRuleCall_2_0() { return cInitArraySpecificationParserRuleCall_2_0; }
+		
+		//(':=' values=ArrayInitialization)?
+		public Group getGroup_3() { return cGroup_3; }
+		
+		//':='
+		public Keyword getColonEqualsSignKeyword_3_0() { return cColonEqualsSignKeyword_3_0; }
+		
+		//values=ArrayInitialization
+		public Assignment getValuesAssignment_3_1() { return cValuesAssignment_3_1; }
+		
+		//ArrayInitialization
+		public RuleCall getValuesArrayInitializationParserRuleCall_3_1_0() { return cValuesArrayInitializationParserRuleCall_3_1_0; }
+	}
+	public class ArraySpecificationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.ArraySpecification");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Alternatives cAlternatives_1 = (Alternatives)cGroup.eContents().get(1);
+		private final Assignment cIntervalAssignment_1_0 = (Assignment)cAlternatives_1.eContents().get(0);
+		private final RuleCall cIntervalArrayIntervalParserRuleCall_1_0_0 = (RuleCall)cIntervalAssignment_1_0.eContents().get(0);
+		private final Keyword cAsteriskKeyword_1_1 = (Keyword)cAlternatives_1.eContents().get(1);
+		private final Keyword cRightSquareBracketKeyword_2 = (Keyword)cGroup.eContents().get(2);
+		
+		//ArraySpecification:
+		//    '[' (interval=ArrayInterval | '*') ']'
+		////    'OF' type=DataTypeName
+		//;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'[' (interval=ArrayInterval | '*') ']'
+		public Group getGroup() { return cGroup; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
+		
+		//(interval=ArrayInterval | '*')
+		public Alternatives getAlternatives_1() { return cAlternatives_1; }
+		
+		//interval=ArrayInterval
+		public Assignment getIntervalAssignment_1_0() { return cIntervalAssignment_1_0; }
+		
+		//ArrayInterval
+		public RuleCall getIntervalArrayIntervalParserRuleCall_1_0_0() { return cIntervalArrayIntervalParserRuleCall_1_0_0; }
+		
+		//'*'
+		public Keyword getAsteriskKeyword_1_1() { return cAsteriskKeyword_1_1; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_2() { return cRightSquareBracketKeyword_2; }
+	}
+	public class ArrayIntervalElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.ArrayInterval");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Assignment cStartAssignment_0 = (Assignment)cGroup.eContents().get(0);
+		private final RuleCall cStartIntExpressionParserRuleCall_0_0 = (RuleCall)cStartAssignment_0.eContents().get(0);
+		private final Keyword cFullStopFullStopKeyword_1 = (Keyword)cGroup.eContents().get(1);
+		private final Assignment cEndAssignment_2 = (Assignment)cGroup.eContents().get(2);
+		private final RuleCall cEndIntExpressionParserRuleCall_2_0 = (RuleCall)cEndAssignment_2.eContents().get(0);
+		
+		//ArrayInterval:
+		//    start=IntExpression '..' end=IntExpression;
+		@Override public ParserRule getRule() { return rule; }
+		
+		//start=IntExpression '..' end=IntExpression
+		public Group getGroup() { return cGroup; }
+		
+		//start=IntExpression
+		public Assignment getStartAssignment_0() { return cStartAssignment_0; }
+		
+		//IntExpression
+		public RuleCall getStartIntExpressionParserRuleCall_0_0() { return cStartIntExpressionParserRuleCall_0_0; }
+		
+		//'..'
+		public Keyword getFullStopFullStopKeyword_1() { return cFullStopFullStopKeyword_1; }
+		
+		//end=IntExpression
+		public Assignment getEndAssignment_2() { return cEndAssignment_2; }
+		
+		//IntExpression
+		public RuleCall getEndIntExpressionParserRuleCall_2_0() { return cEndIntExpressionParserRuleCall_2_0; }
+	}
+	public class ArrayInitializationElements extends AbstractParserRuleElementFinder {
+		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.ArrayInitialization");
+		private final Group cGroup = (Group)rule.eContents().get(1);
+		private final Keyword cLeftSquareBracketKeyword_0 = (Keyword)cGroup.eContents().get(0);
+		private final Assignment cElementsAssignment_1 = (Assignment)cGroup.eContents().get(1);
+		private final RuleCall cElementsIntExpressionParserRuleCall_1_0 = (RuleCall)cElementsAssignment_1.eContents().get(0);
+		private final Group cGroup_2 = (Group)cGroup.eContents().get(2);
+		private final Keyword cCommaKeyword_2_0 = (Keyword)cGroup_2.eContents().get(0);
+		private final Assignment cElementsAssignment_2_1 = (Assignment)cGroup_2.eContents().get(1);
+		private final RuleCall cElementsIntExpressionParserRuleCall_2_1_0 = (RuleCall)cElementsAssignment_2_1.eContents().get(0);
+		private final Keyword cRightSquareBracketKeyword_3 = (Keyword)cGroup.eContents().get(3);
+		
+		//ArrayInitialization :
+		//    '[' elements+=IntExpression (',' elements+=IntExpression)* ']';
+		@Override public ParserRule getRule() { return rule; }
+		
+		//'[' elements+=IntExpression (',' elements+=IntExpression)* ']'
+		public Group getGroup() { return cGroup; }
+		
+		//'['
+		public Keyword getLeftSquareBracketKeyword_0() { return cLeftSquareBracketKeyword_0; }
+		
+		//elements+=IntExpression
+		public Assignment getElementsAssignment_1() { return cElementsAssignment_1; }
+		
+		//IntExpression
+		public RuleCall getElementsIntExpressionParserRuleCall_1_0() { return cElementsIntExpressionParserRuleCall_1_0; }
+		
+		//(',' elements+=IntExpression)*
+		public Group getGroup_2() { return cGroup_2; }
+		
+		//','
+		public Keyword getCommaKeyword_2_0() { return cCommaKeyword_2_0; }
+		
+		//elements+=IntExpression
+		public Assignment getElementsAssignment_2_1() { return cElementsAssignment_2_1; }
+		
+		//IntExpression
+		public RuleCall getElementsIntExpressionParserRuleCall_2_1_0() { return cElementsIntExpressionParserRuleCall_2_1_0; }
+		
+		//']'
+		public Keyword getRightSquareBracketKeyword_3() { return cRightSquareBracketKeyword_3; }
 	}
 	public class PersonElements extends AbstractParserRuleElementFinder {
 		private final ParserRule rule = (ParserRule) GrammarUtil.findRuleForName(getGrammar(), "persons.tasks.TaskDSL.Person");
@@ -1175,6 +1521,14 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	}
 	
 	private final PlanningElements pPlanning;
+	private final MyIntegerElements pMyInteger;
+	private final MyArrayElements pMyArray;
+	private final SymbolicVariableElements pSymbolicVariable;
+	private final ArrayVariableElements pArrayVariable;
+	private final ArraySpecificationInitElements pArraySpecificationInit;
+	private final ArraySpecificationElements pArraySpecification;
+	private final ArrayIntervalElements pArrayInterval;
+	private final ArrayInitializationElements pArrayInitialization;
 	private final PersonElements pPerson;
 	private final TaskElements pTask;
 	private final DurationElements pDuration;
@@ -1218,6 +1572,14 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 		this.grammar = internalFindGrammar(grammarProvider);
 		this.gaTerminals = gaTerminals;
 		this.pPlanning = new PlanningElements();
+		this.pMyInteger = new MyIntegerElements();
+		this.pMyArray = new MyArrayElements();
+		this.pSymbolicVariable = new SymbolicVariableElements();
+		this.pArrayVariable = new ArrayVariableElements();
+		this.pArraySpecificationInit = new ArraySpecificationInitElements();
+		this.pArraySpecification = new ArraySpecificationElements();
+		this.pArrayInterval = new ArrayIntervalElements();
+		this.pArrayInitialization = new ArrayInitializationElements();
 		this.pPerson = new PersonElements();
 		this.pTask = new TaskElements();
 		this.pDuration = new DurationElements();
@@ -1286,7 +1648,10 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	//    'Planning' name = ID
 	//    (anonymous ?= 'anonymous')?    // ?= значит что DSL-объекти типа Boolean (включаем логику генерации по галочке)
 	//    (persons += Person |
-	//    tasks += Task)* //если не поставить звездочку, то только первая сущность сможет объявиться
+	//    tasks += Task |
+	//    arrays += ArraySpecificationInit)* //если не поставить звездочку, то только первая сущность сможет объявиться
+	//    (myintegers += MyInteger)*
+	//    (myarrays += MyArray)*
 	//;
 	public PlanningElements getPlanningAccess() {
 		return pPlanning;
@@ -1294,6 +1659,93 @@ public class TaskDSLGrammarAccess extends AbstractElementFinder.AbstractGrammarE
 	
 	public ParserRule getPlanningRule() {
 		return getPlanningAccess().getRule();
+	}
+	
+	//MyInteger:
+	//    'INT' name = ID
+	//    number = IntExpression
+	//;
+	public MyIntegerElements getMyIntegerAccess() {
+		return pMyInteger;
+	}
+	
+	public ParserRule getMyIntegerRule() {
+		return getMyIntegerAccess().getRule();
+	}
+	
+	//MyArray:
+	//    'Array:' name = ID ':='
+	//    '[' ( elements+=ExpressionConstantInt ( ',' elements+=ExpressionConstantInt )* )? ']'
+	//;
+	public MyArrayElements getMyArrayAccess() {
+		return pMyArray;
+	}
+	
+	public ParserRule getMyArrayRule() {
+		return getMyArrayAccess().getRule();
+	}
+	
+	//SymbolicVariable:
+	//    name=ID;
+	public SymbolicVariableElements getSymbolicVariableAccess() {
+		return pSymbolicVariable;
+	}
+	
+	public ParserRule getSymbolicVariableRule() {
+		return getSymbolicVariableAccess().getRule();
+	}
+	
+	//ArrayVariable:
+	//    variable=[SymbolicVariable] '[' index=IntExpression ']';
+	public ArrayVariableElements getArrayVariableAccess() {
+		return pArrayVariable;
+	}
+	
+	public ParserRule getArrayVariableRule() {
+		return getArrayVariableAccess().getRule();
+	}
+	
+	//ArraySpecificationInit:
+	//    'ARRAY' name = ID
+	//    init=ArraySpecification (':=' values=ArrayInitialization)?;
+	public ArraySpecificationInitElements getArraySpecificationInitAccess() {
+		return pArraySpecificationInit;
+	}
+	
+	public ParserRule getArraySpecificationInitRule() {
+		return getArraySpecificationInitAccess().getRule();
+	}
+	
+	//ArraySpecification:
+	//    '[' (interval=ArrayInterval | '*') ']'
+	////    'OF' type=DataTypeName
+	//;
+	public ArraySpecificationElements getArraySpecificationAccess() {
+		return pArraySpecification;
+	}
+	
+	public ParserRule getArraySpecificationRule() {
+		return getArraySpecificationAccess().getRule();
+	}
+	
+	//ArrayInterval:
+	//    start=IntExpression '..' end=IntExpression;
+	public ArrayIntervalElements getArrayIntervalAccess() {
+		return pArrayInterval;
+	}
+	
+	public ParserRule getArrayIntervalRule() {
+		return getArrayIntervalAccess().getRule();
+	}
+	
+	//ArrayInitialization :
+	//    '[' elements+=IntExpression (',' elements+=IntExpression)* ']';
+	public ArrayInitializationElements getArrayInitializationAccess() {
+		return pArrayInitialization;
+	}
+	
+	public ParserRule getArrayInitializationRule() {
+		return getArrayInitializationAccess().getRule();
 	}
 	
 	//Person:

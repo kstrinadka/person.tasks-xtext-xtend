@@ -19,6 +19,9 @@ import org.eclipse.emf.ecore.impl.MinimalEObjectImpl;
 import org.eclipse.emf.ecore.util.EObjectContainmentEList;
 import org.eclipse.emf.ecore.util.InternalEList;
 
+import persons.tasks.taskDSL.ArraySpecificationInit;
+import persons.tasks.taskDSL.MyArray;
+import persons.tasks.taskDSL.MyInteger;
 import persons.tasks.taskDSL.Person;
 import persons.tasks.taskDSL.Planning;
 import persons.tasks.taskDSL.Task;
@@ -36,6 +39,9 @@ import persons.tasks.taskDSL.TaskDSLPackage;
  *   <li>{@link persons.tasks.taskDSL.impl.PlanningImpl#isAnonymous <em>Anonymous</em>}</li>
  *   <li>{@link persons.tasks.taskDSL.impl.PlanningImpl#getPersons <em>Persons</em>}</li>
  *   <li>{@link persons.tasks.taskDSL.impl.PlanningImpl#getTasks <em>Tasks</em>}</li>
+ *   <li>{@link persons.tasks.taskDSL.impl.PlanningImpl#getArrays <em>Arrays</em>}</li>
+ *   <li>{@link persons.tasks.taskDSL.impl.PlanningImpl#getMyintegers <em>Myintegers</em>}</li>
+ *   <li>{@link persons.tasks.taskDSL.impl.PlanningImpl#getMyarrays <em>Myarrays</em>}</li>
  * </ul>
  *
  * @generated
@@ -101,6 +107,36 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
    * @ordered
    */
   protected EList<Task> tasks;
+
+  /**
+   * The cached value of the '{@link #getArrays() <em>Arrays</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getArrays()
+   * @generated
+   * @ordered
+   */
+  protected EList<ArraySpecificationInit> arrays;
+
+  /**
+   * The cached value of the '{@link #getMyintegers() <em>Myintegers</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMyintegers()
+   * @generated
+   * @ordered
+   */
+  protected EList<MyInteger> myintegers;
+
+  /**
+   * The cached value of the '{@link #getMyarrays() <em>Myarrays</em>}' containment reference list.
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @see #getMyarrays()
+   * @generated
+   * @ordered
+   */
+  protected EList<MyArray> myarrays;
 
   /**
    * <!-- begin-user-doc -->
@@ -209,6 +245,51 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
    * @generated
    */
   @Override
+  public EList<ArraySpecificationInit> getArrays()
+  {
+    if (arrays == null)
+    {
+      arrays = new EObjectContainmentEList<ArraySpecificationInit>(ArraySpecificationInit.class, this, TaskDSLPackage.PLANNING__ARRAYS);
+    }
+    return arrays;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<MyInteger> getMyintegers()
+  {
+    if (myintegers == null)
+    {
+      myintegers = new EObjectContainmentEList<MyInteger>(MyInteger.class, this, TaskDSLPackage.PLANNING__MYINTEGERS);
+    }
+    return myintegers;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public EList<MyArray> getMyarrays()
+  {
+    if (myarrays == null)
+    {
+      myarrays = new EObjectContainmentEList<MyArray>(MyArray.class, this, TaskDSLPackage.PLANNING__MYARRAYS);
+    }
+    return myarrays;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
   public NotificationChain eInverseRemove(InternalEObject otherEnd, int featureID, NotificationChain msgs)
   {
     switch (featureID)
@@ -217,6 +298,12 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
         return ((InternalEList<?>)getPersons()).basicRemove(otherEnd, msgs);
       case TaskDSLPackage.PLANNING__TASKS:
         return ((InternalEList<?>)getTasks()).basicRemove(otherEnd, msgs);
+      case TaskDSLPackage.PLANNING__ARRAYS:
+        return ((InternalEList<?>)getArrays()).basicRemove(otherEnd, msgs);
+      case TaskDSLPackage.PLANNING__MYINTEGERS:
+        return ((InternalEList<?>)getMyintegers()).basicRemove(otherEnd, msgs);
+      case TaskDSLPackage.PLANNING__MYARRAYS:
+        return ((InternalEList<?>)getMyarrays()).basicRemove(otherEnd, msgs);
     }
     return super.eInverseRemove(otherEnd, featureID, msgs);
   }
@@ -239,6 +326,12 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
         return getPersons();
       case TaskDSLPackage.PLANNING__TASKS:
         return getTasks();
+      case TaskDSLPackage.PLANNING__ARRAYS:
+        return getArrays();
+      case TaskDSLPackage.PLANNING__MYINTEGERS:
+        return getMyintegers();
+      case TaskDSLPackage.PLANNING__MYARRAYS:
+        return getMyarrays();
     }
     return super.eGet(featureID, resolve, coreType);
   }
@@ -268,6 +361,18 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
         getTasks().clear();
         getTasks().addAll((Collection<? extends Task>)newValue);
         return;
+      case TaskDSLPackage.PLANNING__ARRAYS:
+        getArrays().clear();
+        getArrays().addAll((Collection<? extends ArraySpecificationInit>)newValue);
+        return;
+      case TaskDSLPackage.PLANNING__MYINTEGERS:
+        getMyintegers().clear();
+        getMyintegers().addAll((Collection<? extends MyInteger>)newValue);
+        return;
+      case TaskDSLPackage.PLANNING__MYARRAYS:
+        getMyarrays().clear();
+        getMyarrays().addAll((Collection<? extends MyArray>)newValue);
+        return;
     }
     super.eSet(featureID, newValue);
   }
@@ -294,6 +399,15 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
       case TaskDSLPackage.PLANNING__TASKS:
         getTasks().clear();
         return;
+      case TaskDSLPackage.PLANNING__ARRAYS:
+        getArrays().clear();
+        return;
+      case TaskDSLPackage.PLANNING__MYINTEGERS:
+        getMyintegers().clear();
+        return;
+      case TaskDSLPackage.PLANNING__MYARRAYS:
+        getMyarrays().clear();
+        return;
     }
     super.eUnset(featureID);
   }
@@ -316,6 +430,12 @@ public class PlanningImpl extends MinimalEObjectImpl.Container implements Planni
         return persons != null && !persons.isEmpty();
       case TaskDSLPackage.PLANNING__TASKS:
         return tasks != null && !tasks.isEmpty();
+      case TaskDSLPackage.PLANNING__ARRAYS:
+        return arrays != null && !arrays.isEmpty();
+      case TaskDSLPackage.PLANNING__MYINTEGERS:
+        return myintegers != null && !myintegers.isEmpty();
+      case TaskDSLPackage.PLANNING__MYARRAYS:
+        return myarrays != null && !myarrays.isEmpty();
     }
     return super.eIsSet(featureID);
   }

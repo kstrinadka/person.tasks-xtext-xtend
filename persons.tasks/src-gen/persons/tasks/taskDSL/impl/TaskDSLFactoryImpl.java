@@ -67,6 +67,14 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
     switch (eClass.getClassifierID())
     {
       case TaskDSLPackage.PLANNING: return createPlanning();
+      case TaskDSLPackage.MY_INTEGER: return createMyInteger();
+      case TaskDSLPackage.MY_ARRAY: return createMyArray();
+      case TaskDSLPackage.SYMBOLIC_VARIABLE: return createSymbolicVariable();
+      case TaskDSLPackage.ARRAY_VARIABLE: return createArrayVariable();
+      case TaskDSLPackage.ARRAY_SPECIFICATION_INIT: return createArraySpecificationInit();
+      case TaskDSLPackage.ARRAY_SPECIFICATION: return createArraySpecification();
+      case TaskDSLPackage.ARRAY_INTERVAL: return createArrayInterval();
+      case TaskDSLPackage.ARRAY_INITIALIZATION: return createArrayInitialization();
       case TaskDSLPackage.PERSON: return createPerson();
       case TaskDSLPackage.TASK: return createTask();
       case TaskDSLPackage.DURATION: return createDuration();
@@ -156,6 +164,102 @@ public class TaskDSLFactoryImpl extends EFactoryImpl implements TaskDSLFactory
   {
     PlanningImpl planning = new PlanningImpl();
     return planning;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MyInteger createMyInteger()
+  {
+    MyIntegerImpl myInteger = new MyIntegerImpl();
+    return myInteger;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public MyArray createMyArray()
+  {
+    MyArrayImpl myArray = new MyArrayImpl();
+    return myArray;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public SymbolicVariable createSymbolicVariable()
+  {
+    SymbolicVariableImpl symbolicVariable = new SymbolicVariableImpl();
+    return symbolicVariable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ArrayVariable createArrayVariable()
+  {
+    ArrayVariableImpl arrayVariable = new ArrayVariableImpl();
+    return arrayVariable;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ArraySpecificationInit createArraySpecificationInit()
+  {
+    ArraySpecificationInitImpl arraySpecificationInit = new ArraySpecificationInitImpl();
+    return arraySpecificationInit;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ArraySpecification createArraySpecification()
+  {
+    ArraySpecificationImpl arraySpecification = new ArraySpecificationImpl();
+    return arraySpecification;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ArrayInterval createArrayInterval()
+  {
+    ArrayIntervalImpl arrayInterval = new ArrayIntervalImpl();
+    return arrayInterval;
+  }
+
+  /**
+   * <!-- begin-user-doc -->
+   * <!-- end-user-doc -->
+   * @generated
+   */
+  @Override
+  public ArrayInitialization createArrayInitialization()
+  {
+    ArrayInitializationImpl arrayInitialization = new ArrayInitializationImpl();
+    return arrayInitialization;
   }
 
   /**

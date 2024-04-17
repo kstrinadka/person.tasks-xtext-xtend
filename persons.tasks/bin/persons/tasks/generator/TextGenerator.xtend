@@ -21,6 +21,7 @@ import persons.tasks.taskDSL.ExpressionPower
 import persons.tasks.taskDSL.ExpressionSubtraction
 import persons.tasks.taskDSL.LunchAction
 import persons.tasks.taskDSL.MeetingAction
+import persons.tasks.taskDSL.MyArray
 import persons.tasks.taskDSL.NotExpression
 import persons.tasks.taskDSL.PaperAction
 import persons.tasks.taskDSL.PaymentAction
@@ -94,7 +95,6 @@ class TextGenerator {
 
 	// Булевы операции
 	// 
-
 	def static dispatch CharSequence generateExpression(ExpressionBinOp expr)
 	'''
 		(«generateExpression(expr.left)» «genBinOp(expr.bop)»
@@ -167,6 +167,11 @@ class TextGenerator {
 		«FOR a: Auxiliary.getActions(root) BEFORE "====== \n" SEPARATOR " , \n " »
 			«action2Text(a)»
 		«ENDFOR»
+		
+		«"\n"»Arrays to text:
+				«FOR a: ArraysHandler.getArrays(root) BEFORE "====== \n" SEPARATOR " , \n " »
+					«array2Text(a)»
+				«ENDFOR»
 	'''
 	
 	def static dispatch action2Text(LunchAction action)
@@ -203,7 +208,7 @@ class TextGenerator {
 	def static infoAction(Task t)
 	'''
 	«IF t.duration !== null» 
-		with duration: «t.duration.dl» «toText(t.duration.unit)»
+		«"	"»with duration: «t.duration.dl» «toText(t.duration.unit)»
 	«ENDIF»
 	'''
 	
@@ -215,6 +220,14 @@ class TextGenerator {
 			case TimeUnit::WEEK: return '''w'''
 		}
 	}
+	
+	
+	def static dispatch array2Text(MyArray array)
+	'''
+		ARRAY REPRESENTATION: «array.name» = «FOR a: array.elements BEFORE "[" SEPARATOR ",  " AFTER "]"»«a.value»«ENDFOR»
+		ARRAY SUM: «ArraysHandler.getArraySum(array)»
+		
+	'''
 
 	
 }

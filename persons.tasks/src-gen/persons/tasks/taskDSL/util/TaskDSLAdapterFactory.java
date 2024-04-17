@@ -81,6 +81,46 @@ public class TaskDSLAdapterFactory extends AdapterFactoryImpl
         return createPlanningAdapter();
       }
       @Override
+      public Adapter caseMyInteger(MyInteger object)
+      {
+        return createMyIntegerAdapter();
+      }
+      @Override
+      public Adapter caseMyArray(MyArray object)
+      {
+        return createMyArrayAdapter();
+      }
+      @Override
+      public Adapter caseSymbolicVariable(SymbolicVariable object)
+      {
+        return createSymbolicVariableAdapter();
+      }
+      @Override
+      public Adapter caseArrayVariable(ArrayVariable object)
+      {
+        return createArrayVariableAdapter();
+      }
+      @Override
+      public Adapter caseArraySpecificationInit(ArraySpecificationInit object)
+      {
+        return createArraySpecificationInitAdapter();
+      }
+      @Override
+      public Adapter caseArraySpecification(ArraySpecification object)
+      {
+        return createArraySpecificationAdapter();
+      }
+      @Override
+      public Adapter caseArrayInterval(ArrayInterval object)
+      {
+        return createArrayIntervalAdapter();
+      }
+      @Override
+      public Adapter caseArrayInitialization(ArrayInitialization object)
+      {
+        return createArrayInitializationAdapter();
+      }
+      @Override
       public Adapter casePerson(Person object)
       {
         return createPersonAdapter();
@@ -253,6 +293,126 @@ public class TaskDSLAdapterFactory extends AdapterFactoryImpl
    * @generated
    */
   public Adapter createPlanningAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.MyInteger <em>My Integer</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.MyInteger
+   * @generated
+   */
+  public Adapter createMyIntegerAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.MyArray <em>My Array</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.MyArray
+   * @generated
+   */
+  public Adapter createMyArrayAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.SymbolicVariable <em>Symbolic Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.SymbolicVariable
+   * @generated
+   */
+  public Adapter createSymbolicVariableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.ArrayVariable <em>Array Variable</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.ArrayVariable
+   * @generated
+   */
+  public Adapter createArrayVariableAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.ArraySpecificationInit <em>Array Specification Init</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.ArraySpecificationInit
+   * @generated
+   */
+  public Adapter createArraySpecificationInitAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.ArraySpecification <em>Array Specification</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.ArraySpecification
+   * @generated
+   */
+  public Adapter createArraySpecificationAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.ArrayInterval <em>Array Interval</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.ArrayInterval
+   * @generated
+   */
+  public Adapter createArrayIntervalAdapter()
+  {
+    return null;
+  }
+
+  /**
+   * Creates a new adapter for an object of class '{@link persons.tasks.taskDSL.ArrayInitialization <em>Array Initialization</em>}'.
+   * <!-- begin-user-doc -->
+   * This default implementation returns null so that we can easily ignore cases;
+   * it's useful to ignore a case when inheritance will catch all the cases anyway.
+   * <!-- end-user-doc -->
+   * @return the new adapter.
+   * @see persons.tasks.taskDSL.ArrayInitialization
+   * @generated
+   */
+  public Adapter createArrayInitializationAdapter()
   {
     return null;
   }
